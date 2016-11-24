@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import random
 
 import requests
 from flask import Flask, request
@@ -17,7 +18,7 @@ def verify():
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
 
-    return "Hello world", 200
+    return "Hello world: lets see if this changes", 200
 
 
 @app.route('/', methods=['POST'])
@@ -39,12 +40,12 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, "got it, thanks!")
+                    send_message(sender_id, "got it, thanks! i think this may be working this time")
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
 
-                if messaging_event.get("optin"):  # optin confirmation
+                if messaging_event.get("option"):  # option confirmation
                     pass
 
                 if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
@@ -78,7 +79,7 @@ def send_message(recipient_id, message_text):
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
-    print str(message)
+    print(str(message))
     sys.stdout.flush()
 
 
