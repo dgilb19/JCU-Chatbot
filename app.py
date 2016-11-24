@@ -7,6 +7,7 @@ import requests
 from flask import Flask, request
 
 app = Flask(__name__)
+greetings = ['hi', 'hello', 'how are you?']
 
 
 @app.route('/', methods=['GET'])
@@ -27,6 +28,7 @@ def webhook():
     # endpoint for processing incoming messaging events
 
     data = request.get_json()
+    print(data) #thing?!?! does this print the incomeing message? if so where?#
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
     if data["object"] == "page":
@@ -40,7 +42,7 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, "got it, thanks! i love github")
+                    send_message(sender_id, random.choice(greetings))
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
