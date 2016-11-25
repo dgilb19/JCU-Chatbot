@@ -57,9 +57,9 @@ def webhook():
                     elif command == 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
                     elif message_text.split in ['what', 'whats', "what's", 'when', 'whens', "when's"]:
-                        new_message_text = "I know you are asking a question but im not that smart yet!"
+                        new_message_text = 'I know you are asking a question but im not that smart yet!'
                     else:
-                        new_message_text = "echo: {}".format(message_text)
+                        new_message_text = 'echo: {}'.format(message_text)
 
                     send_message(sender_id, '{}'.format(new_message_text))
 
