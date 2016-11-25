@@ -59,8 +59,9 @@ def webhook():
                     elif command == 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
 
-                    elif message_text in ['what', 'whats', "what's", 'when', 'whens', "when's"]:
+                    elif asking_word_list in message_text:
                         new_message_text = 'I know you are asking a question but im not that smart yet!'
+
 
                     else:
                         new_message_text = 'echo: {}'.format(message_text)
@@ -101,6 +102,17 @@ def send_message(recipient_id, message_text):
     if r.status_code != 200:
         log(r.status_code)
         log(r.text)
+
+
+# def question_asking(message_text):
+#     message_text = message_text.split
+#     message_text_length = len(message_text)
+#     while message_text != 0:
+#         if message_text[message_text_length] in ['what', 'whats', "what's", 'when', 'whens', "when's"]:
+#
+#             return message_text
+
+
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
