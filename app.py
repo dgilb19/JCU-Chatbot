@@ -46,8 +46,8 @@ def webhook():
 
                     if message_text == 'hello':
                         new_message_text = 'hello'
-                    elif split_message_text[0] == "reverse":
-                        new_message_text = "reversed: {}".format(text[::-1])
+                    # elif split_message_text[0] == "reverse":
+                    #     new_message_text = "reversed: {}".format(text[::-1])
                     else:
                         new_message_text = "echo: {}".format(message_text)
 
