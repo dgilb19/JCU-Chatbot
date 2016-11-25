@@ -56,7 +56,7 @@ def webhook():
                         new_message_text = 'hello, how can I help you today? \nEvent dates: \nEnter other things here later'
                     elif command == 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
-                    elif message_text in asking_word_list:
+                    elif message_text == asking_word_list:
                         new_message_text = "I know you are asking a question but im not that smart yet!"
                     else:
                         new_message_text = "echo: {}".format(message_text)
