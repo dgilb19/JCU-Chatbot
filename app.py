@@ -43,7 +43,7 @@ def webhook():
 
 
 
-                    send_message(sender_id, "greetings fellow human v3 {}".format(data))
+                    send_message(sender_id, "greetings fellow human v3 {}".format(message_text))
 
                     # if data in data
                     #     send_message(sender_id, random.choice(greetings))
