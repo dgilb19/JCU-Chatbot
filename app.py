@@ -7,7 +7,7 @@ import requests
 from flask import Flask, request
 
 app = Flask(__name__)
-greetings = ['hi', 'hello', 'how are you?']
+greetings = ['hi', 'hello', 'hey','how are you?']
 
 
 @app.route('/', methods=['GET'])
@@ -48,8 +48,8 @@ def webhook():
                     else:
                         text = ""
 
-                    if message_text == 'hello':
-                        new_message_text = 'hello'
+                    if message_text == greetings:
+                        new_message_text = 'Hey, how can I help you today? \n '
                     elif command == 'reversed':
                         new_message_text = "reversed: {}".format(text[::-1])
                     else:
