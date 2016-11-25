@@ -41,8 +41,8 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    # split_message_text = message_text.split(' ', 1)
-                    # text = split_message_text[1]
+                    split_message_text = message_text.split(' ', 1)
+                    text = split_message_text[1]
 
                     if message_text == 'hello':
                         new_message_text = 'hello'
