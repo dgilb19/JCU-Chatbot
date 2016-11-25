@@ -48,9 +48,9 @@ def webhook():
                     else:
                         text = ""
 
-                    if message_text == greetings:
-                        new_message_text = 'Hey, how can I help you today? \n '
-                    elif command == 'reversed':
+                    if message_text in greetings:
+                        new_message_text = 'Hey, how can I help you today? \nEvent dates: \n'
+                    elif command == 'reversed' or 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
                     else:
                         new_message_text = "echo: {}".format(message_text)
