@@ -43,7 +43,7 @@ def webhook():
 
                     message_words = message_text.split(' ', 1)
                     command = message_words[0]
-                    if len(message_words) > 0:
+                    if len(message_words) > 1:
                         text = message_words[1]
                     else:
                         text = ""
