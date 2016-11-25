@@ -42,12 +42,13 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
 
                     if message_text == 'hello':
-                        thingy = 'hello'
+                        new_message_text = 'hello'
+                    elif message_text == "message":
+                        new_message_text = "{}".format(message_text[::-1])
                     else:
-                        thingy = 'not really a hello'
-                        # thingy = str("echo: {}".format(message_text))
+                        new_message_text = "echo: {}".format(message_text)
 
-                    send_message(sender_id, thingy)
+                    send_message(sender_id, '{}'.format(new_message_text))
 
 
 
