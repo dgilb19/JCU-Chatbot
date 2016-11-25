@@ -31,6 +31,7 @@ def webhook():
 
     # endpoint for processing incoming messaging events
 
+    global new_message_text_thing
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
@@ -47,6 +48,7 @@ def webhook():
 
                     message_words = message_text.split(' ', 1)
                     message_text_split = message_text.split
+                    message_text_split_length = len(message_text_split)
                     command = message_words[0]
                     if len(message_words) > 1:
                         text = message_words[1]
@@ -59,9 +61,14 @@ def webhook():
                     elif command == 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
 
-                    elif message_text_split[0] in ['what', 'whats', "what's", 'when', 'whens', "when's"]:
-                         new_message_text = 'I know you are asking a question but im not that smart yet!'
+                    elif message_text != "":
+                        while message_text_split_length != 0:
+                            if message_text_split[message_text_split_length] in ['what', 'why']:
+                                new_message_text_thing = 'I know you are asking a question but im not that smart yet!'
 
+                            else:
+                                pass
+                        new_message_text = new_message_text_thing
 
                     else:
                         new_message_text = 'echo: {}'.format(message_text)
