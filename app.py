@@ -41,13 +41,17 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    split_message_text = message_text.split(' ', 1)
-                    text = split_message_text[1]
+                    message_words = message_text.split(' ', 1)
+                    command = message_words[0]
+                    if len(message_words) > 0:
+                        text = message_words[1]
+                    else:
+                        text = ""
 
                     if message_text == 'hello':
                         new_message_text = 'hello'
-                    # elif split_message_text[0] == "reverse":
-                    #     new_message_text = "reversed: {}".format(text[::-1])
+                    elif command == 'reversed':
+                        new_message_text = "reversed: {}".format(text[::-1])
                     else:
                         new_message_text = "echo: {}".format(message_text)
 
