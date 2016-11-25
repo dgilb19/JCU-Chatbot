@@ -7,11 +7,6 @@ import requests
 from flask import Flask, request
 
 app = Flask(__name__)
-greetings = ['hi', 'hello', 'hey','how are you?']
-reversed_word_list = ['reversed', 'reverse', 'backwards']
-asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
-
-ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
 
 @app.route('/', methods=['GET'])
@@ -29,9 +24,14 @@ def verify():
 @app.route('/', methods=['POST'])
 def webhook():
 
+    greetings = ['hi', 'hello', 'hey', 'how are you?']
+    reversed_word_list = ['reversed', 'reverse', 'backwards']
+    asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
+
+    ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
+
     # endpoint for processing incoming messaging events
 
-    global new_message_text_thing
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
@@ -47,8 +47,8 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
 
                     message_words = message_text.split(' ', 1)
-                    message_text_split = message_text.split
-                    message_text_split_length = len(message_text_split)
+                    # message_text_split = message_text.split
+                    # message_text_split_length = len(message_text_split)
                     command = message_words[0]
                     if len(message_words) > 1:
                         text = message_words[1]
