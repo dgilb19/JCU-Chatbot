@@ -8,6 +8,10 @@ from flask import Flask, request
 
 app = Flask(__name__)
 greetings = ['hi', 'hello', 'hey','how are you?']
+reversed_word_list = ['reversed', 'reverse', 'backwards']
+asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
+
+ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
 
 @app.route('/', methods=['GET'])
@@ -49,9 +53,11 @@ def webhook():
                         text = ""
 
                     if message_text in greetings:
-                        new_message_text = 'Hey, how can I help you today? \nEvent dates: \n'
-                    elif command == 'reversed' or 'reverse':
+                        new_message_text = '{}, how can I help you today? \nEvent dates: \nEnter other things here later'.format(random.choice[ai_greetings_word_list])
+                    elif command in reversed_word_list:
                         new_message_text = "reversed: {}".format(text[::-1])
+                    elif message_text in asking_word_list:
+                        new_message_text = "I know you are asking a question but im not that smart yet!"
                     else:
                         new_message_text = "echo: {}".format(message_text)
 
