@@ -42,9 +42,10 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
 
                     if message_text == 'hello':
-                        thingy = str(random.choice[greetings])
+                        thingy = 'hello'
                     else:
-                        thingy = str("echo: {}".format(message_text))
+                        thingy = 'not really a hello'
+                        # thingy = str("echo: {}".format(message_text))
 
                     send_message(sender_id, thingy)
 
