@@ -47,7 +47,7 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
 
                     message_words = message_text.split(' ', 1)
-#                     message_text_split = message_text.split
+                    message_text_split = message_text.split
                     message_text_split_length = len(message_text_split)
                     command = message_words[0]
 
