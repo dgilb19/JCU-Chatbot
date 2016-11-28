@@ -24,13 +24,13 @@ def verify():
 @app.route('/', methods=['POST'])
 def webhook():
 
-    # greetings = ['hi', 'hello', 'hey', 'how are you?']
-    # reversed_word_list = ['reversed', 'reverse', 'backwards']
-    # asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
-    #
-    # ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
+    greetings = ['hi', 'hello', 'hey', 'how are you?']
+    reversed_word_list = ['reversed', 'reverse', 'backwards']
+    asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
 
-    # endpoint for processing incoming messaging events
+    ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
+
+    endpoint for processing incoming messaging events
 
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
