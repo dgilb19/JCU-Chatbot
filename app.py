@@ -56,8 +56,8 @@ def webhook():
                     else:
                         text = ""
 
-                    if message_text == 'hello':
-                        new_message_text = 'hello, how can I help you today? \nEvent dates: \nEnter other things here later'
+                    if message_text in greetings:
+                        new_message_text = '{}, how can I help you today? \nEvent dates: \nEnter other things here later'.format(ai_greetings_word_list)
 
                     elif command == 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
