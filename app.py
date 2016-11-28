@@ -71,7 +71,7 @@ def webhook():
                     #     new_message_text = new_message_text_thing
 
                     else:
-                        new_message_text = 'echo: {}'.format(message_text)
+                        new_message_text = 'echo:{}'.format(message_text)
 
                     send_message(sender_id, '{}'.format(new_message_text))
 
