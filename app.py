@@ -30,7 +30,7 @@ def webhook():
 
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
-    endpoint for processing incoming messaging events
+    # endpoint for processing incoming messaging events
 
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
