@@ -24,11 +24,11 @@ def verify():
 @app.route('/', methods=['POST'])
 def webhook():
 
-    greetings = ['hi', 'hello', 'hey', 'how are you?']
-    reversed_word_list = ['reversed', 'reverse', 'backwards']
-    asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
-
-    ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
+    # greetings = ['hi', 'hello', 'hey', 'how are you?']
+    # reversed_word_list = ['reversed', 'reverse', 'backwards']
+    # asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
+    #
+    # ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
     # endpoint for processing incoming messaging events
 
@@ -71,7 +71,7 @@ def webhook():
                     #     new_message_text = new_message_text_thing
 
                     else:
-                        new_message_text = 'echo:{}'.format(message_text)
+                        new_message_text = 'echo: {}'.format(message_text)
 
                     send_message(sender_id, '{}'.format(new_message_text))
 
