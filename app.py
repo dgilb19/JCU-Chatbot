@@ -70,7 +70,7 @@ def webhook():
 
                     elif message_text.split(" ")[0] in asking_word_list:
                         new_message_text = "I know you are asking a question but im not that smart yet!"
-                        test_message = test_function()
+                        test_function()
 
 
 #                     elif message_text != "":
