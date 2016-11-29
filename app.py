@@ -73,8 +73,8 @@ def webhook():
 
                     send_message(sender_id, '{}'.format(new_message_text))
 
-                    # if message_text.split(" ")[0] in asking_word_list:
-                    #     send_message(sender_id, '{}'.format(test_message))
+                    if message_text.split(" ")[0] in asking_word_list:
+                        send_message(sender_id, '{}'.format(test_message))
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
