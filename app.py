@@ -24,7 +24,6 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
-
     greetings = ['HI', 'Hi', 'hi', 'HELLO', 'Hello', 'hello', 'HEY', 'Hey', 'hey', 'HOW ARE YOU']
     reversed_word_list = ['reversed', 'reverse', 'backwards']
     asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
@@ -43,17 +42,15 @@ def webhook():
 
                 if messaging_event.get("message"):  # someone sent us a message
 
-                    sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
-                    recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
+                    sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
+                    recipient_id = messaging_event["recipient"][
+                        "id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
                     message_words = message_text.split(' ', 1)
                     message_text_split = message_text.split
                     command = message_words[0]
                     message_text_length = len(message_text.split(' '))
-
-
-
 
                     if len(message_words) > 1:
                         text = message_words[1]
@@ -63,7 +60,8 @@ def webhook():
                     if message_text in greetings:
                         # new_message_text = message_text_length
 
-                        new_message_text = '{}, how can I help you today? \nEvent dates: \nEnter other things here later'.format(random.choice(ai_greetings_word_list))
+                        new_message_text = '{}, how can I help you today? \nEvent dates: \nEnter other things here later'.format(
+                            random.choice(ai_greetings_word_list))
 
                     elif command == 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
@@ -73,14 +71,14 @@ def webhook():
                         test_message = test_function()
 
 
-#                     elif message_text != "":
-#                         while message_text_split_length != 0:
-#                             if message_text_split[message_text_split_length] in ['what', 'why']:
-#                                 new_message_text_thing = 'I know you are asking a question but im not that smart yet!'
-                    
-#                             else:
-#                                 pass
-#                         new_message_text = new_message_text_thing
+                    # elif message_text != "":
+                    #                         while message_text_split_length != 0:
+                    #                             if message_text_split[message_text_split_length] in ['what', 'why']:
+                    #                                 new_message_text_thing = 'I know you are asking a question but im not that smart yet!'
+
+                    #                             else:
+                    #                                 pass
+                    #                         new_message_text = new_message_text_thing
 
                     else:
                         new_message_text = 'echo: {}'.format(message_text)
@@ -100,6 +98,7 @@ def webhook():
 
     return "ok", 200
 
+
 def test_function():
     if data["object"] == "page":
 
@@ -111,7 +110,7 @@ def test_function():
                     recipient_id_two = messaging_event_two["recipient"]["id"]
                     message_text_two = messaging_event_two["message"]["text"]
 
-                    return 'test'
+
 
                     # send_message(sender_id, 'hello my good friend')
                 if messaging_event_two.get("delivery"):
@@ -125,7 +124,6 @@ def test_function():
 
 
 def send_message(recipient_id, message_text):
-
     log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
 
     params = {
