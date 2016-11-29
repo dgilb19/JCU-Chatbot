@@ -43,8 +43,7 @@ def webhook():
                 if messaging_event.get("message"):  # someone sent us a message
 
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
-                    recipient_id = messaging_event["recipient"][
-                        "id"]  # the recipient's ID, which should be your page's facebook ID
+                    recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
                     message_words = message_text.split(' ', 1)
@@ -60,32 +59,23 @@ def webhook():
                     if message_text in greetings:
                         # new_message_text = message_text_length
 
-                        new_message_text = '{}, how can I help you today? \nEvent dates: \nEnter other things here later'.format(
-                            random.choice(ai_greetings_word_list))
+                        new_message_text = '{}, how can I help you today? \nEvent dates: \nEnter other things here later'.format(random.choice(ai_greetings_word_list))
 
                     elif command == 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
 
                     elif message_text.split(" ")[0] in asking_word_list:
                         new_message_text = "I know you are asking a question but im not that smart yet!"
-                        test_message = test_function()
+                        # test_message = test_function()
 
 
-                    # elif message_text != "":
-                    #                         while message_text_split_length != 0:
-                    #                             if message_text_split[message_text_split_length] in ['what', 'why']:
-                    #                                 new_message_text_thing = 'I know you are asking a question but im not that smart yet!'
-
-                    #                             else:
-                    #                                 pass
-                    #                         new_message_text = new_message_text_thing
 
                     else:
                         new_message_text = 'echo: {}'.format(message_text)
 
-                    send_message(sender_id, '{}'.format(new_message_text))
-                    if message_text.split(" ")[0] in asking_word_list:
-                        send_message(sender_id, '{}'.format(test_message))
+                    # send_message(sender_id, '{}'.format(new_message_text))
+                    # if message_text.split(" ")[0] in asking_word_list:
+                    #     send_message(sender_id, '{}'.format(test_message))
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
@@ -110,7 +100,7 @@ def test_function():
                     recipient_id_two = messaging_event_two["recipient"]["id"]
                     message_text_two = messaging_event_two["message"]["text"]
 
-                    return 'test'
+                    # return "test"
 
                     # send_message(sender_id, 'hello my good friend')
                 if messaging_event_two.get("delivery"):
