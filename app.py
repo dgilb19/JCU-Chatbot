@@ -24,7 +24,7 @@ def verify():
 @app.route('/', methods=['POST'])
 def webhook():
 
-    greetings = ['HI', 'HELLO', 'HEY', 'HOW ARE YOU']
+    greetings = ['HI', 'Hi', 'hi', 'HELLO', 'Hello', 'hello', 'HEY', 'Hey', 'hey', 'HOW ARE YOU']
     reversed_word_list = ['reversed', 'reverse', 'backwards']
     asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
 
@@ -50,7 +50,10 @@ def webhook():
                     message_text_split = message_text.split
 #                     message_text_split_length = len(message_text_split)
                     command = message_words[0]
-                    message_text_upper = message_text.upper
+                    message_text_length = len(message_text)
+
+
+
 
 
                     if len(message_words) > 1:
@@ -58,8 +61,8 @@ def webhook():
                     else:
                         text = ""
 
-                    if message_text_upper in greetings:
-                        new_message_text = '{}, how can I help you today? \nEvent dates: \nEnter other things here later'.format(random.choice(ai_greetings_word_list))
+                    if message_text in greetings:
+                        new_message_text = '{}, how can I help you today? \nEvent dates: \nEnter other things here later {}'.format(random.choice(ai_greetings_word_list, message_text_length))
 
                     elif command == 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
