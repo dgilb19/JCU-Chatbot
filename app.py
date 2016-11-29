@@ -66,7 +66,7 @@ def webhook():
 
                     elif message_text.split(" ")[0] in asking_word_list:
                         new_message_text = "I know you are asking a question but im not that smart yet!"
-                        test_function()
+                        # test_message = test_function()
 
 
                     else:
@@ -84,6 +84,8 @@ def webhook():
                     pass
 
     return "ok", 200
+
+def check_for_greetings():
 
 
 def test_function():
