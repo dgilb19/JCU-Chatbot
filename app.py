@@ -56,7 +56,7 @@ def webhook():
 
                     elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
                         if len(message_text.split(" ")) > 1:
-                            text = message_text[1]
+                            text = message_text.split(" ")[1]
                         else:
                             text = ""
                         new_message_text = ("Reversed: {}".format(text))
