@@ -110,7 +110,7 @@ def test_function():
                     recipient_id_two = messaging_event_two["recipient"]["id"]
                     message_text_two = messaging_event_two["message"]["text"]
 
-
+                    return "test"
 
                     # send_message(sender_id, 'hello my good friend')
                 if messaging_event_two.get("delivery"):
