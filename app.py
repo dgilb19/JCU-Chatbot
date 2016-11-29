@@ -5,7 +5,7 @@ import random
 
 import requests
 from flask import Flask, request
-# from matplotlib.delaunay.testfuncs import data
+from matplotlib.delaunay.testfuncs import data
 
 app = Flask(__name__)
 
