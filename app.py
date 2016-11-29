@@ -24,7 +24,7 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
-    # greetings = ['HI', 'Hi', 'hi', 'HELLO', 'Hello', 'hello', 'HEY', 'Hey', 'hey', 'HOW ARE YOU']
+    greetings = ['HI', 'Hi', 'hi', 'HELLO', 'Hello', 'hello', 'HEY', 'Hey', 'hey', 'HOW ARE YOU']
     # reversed_word_list = ['reversed', 'reverse', 'backwards']
     # asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
     #
@@ -40,20 +40,19 @@ def webhook():
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
 
-                # if messaging_event.get("message"):  # someone sent us a message
+                if messaging_event.get("message"):  # someone sent us a message
 
-                sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
-                recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
-                message_text = messaging_event["message"]["text"]  # the message's text
+                    sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
+                    recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
+                    message_text = messaging_event["message"]["text"]  # the message's text
 
+                    if message_text in greetings:
+                        new_message_text = "got it"
 
+                    else:
+                        new_message_text = "I don't know what you are saying! you said this: {}".format(message_text)
 
-
-
-
-                new_message_text = "I don't know what you are saying! you said this: {}".format(message_text)
-
-                send_message(sender_id, '{}'.format(new_message_text))
+                    send_message(sender_id, '{}'.format(new_message_text))
 
 
 
