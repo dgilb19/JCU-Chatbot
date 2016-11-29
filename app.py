@@ -48,7 +48,7 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
 
                     if re.match(r'.*hello|hey|hi', message_text, re.I):
-                        send_message(sender_id, "{}, how can I help you today?".format(ai_greetings_word_list))
+                        send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
 
                     elif re.match(r'.*what|when|date|who|where', message_text, re.I):
                         if re.match(r'.*what', message_text, re.I):
