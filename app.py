@@ -69,7 +69,7 @@ def webhook():
                         # test_message = test_function()
 
                     else:
-                        new_message_text = 'echo: {}'.format(message_text)
+                        new_message_text = "I don't know what you are saying! you said this: {}".format(message_text)
 
                     send_message(sender_id, '{}'.format(new_message_text))
 
