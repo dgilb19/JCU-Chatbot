@@ -45,7 +45,6 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
-                    global message_text
 
                     message_words = message_text.split(' ', 1)
                     message_text_split = message_text.split
@@ -69,9 +68,26 @@ def webhook():
                         new_message_text = "reversed: {}".format(text[::-1])
 
                     elif message_text.split(" ")[0] in asking_word_list:
-                        asking_question(new_message_text)
+                        new_message_text = "I know you are asking a question but im not that smart yet!"
+                        if data["object"] == "page":
 
+                            for entry in data["entry"]:
 
+                                for messaging_event_two in entry["messaging"]:
+                                    if messaging_event_two.get("message"):
+                                        sender_id = messaging_event_two["sender"]["id"]
+                                        recipient_id_two = messaging_event_two["recipient"]["id"]
+                                        message_text_two = messaging_event_two["message"]["text"]
+
+                                        send_message(sender_id, 'hello human')
+                                    if messaging_event_two.get("delivery"):
+                                        pass
+
+                                    if messaging_event.get("option"):
+                                        pass
+
+                                    if messaging_event.get("postback"):
+                                        pass
 
 #                     elif message_text != "":
 #                         while message_text_split_length != 0:
@@ -98,9 +114,6 @@ def webhook():
 
     return "ok", 200
 
-
-def asking_question(new_message_text):
-    new_message_text = "I know you are asking a question but im not that smart yet!"
 
 def send_message(recipient_id, message_text):
 
