@@ -74,7 +74,7 @@ def webhook():
                             text = " "
                         send_message(sender_id, "Reversed: {}".format(text[::-1]))
 
-                    elif re.match(r'.*id, message_text'):
+                    elif re.match(r'.*id', message_text):
                         send_message(sender_id, recipient_id)
 
                     else:
