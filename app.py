@@ -50,7 +50,7 @@ def webhook():
                     message_text_split = message_text.split()
                     message_text_length = len(message_text_split)
 
-                    if re.match(r'.*greetings', message_text):
+                    if re.match(r'.*hello, hey', message_text, re.I):
                         new_message_text = "works"
 
 
