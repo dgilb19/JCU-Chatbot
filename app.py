@@ -47,20 +47,27 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    message_text_split = message_text.split()
-                    message_text_length = len(message_text_split)
+                    # message_text_split = message_text.split()
+                    # message_text_length = len(message_text_split)
 
                     if re.match(r'.*hello|hey|hi', message_text, re.I):
                         new_message_text = "works"
+                        send_message(sender_id, '{}'.format(new_message_text))
+
+                    elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
+                        if len(message_text.split) > 1:
+                            text = message_text[1]
+                        else:
+                            text = ""
+                        new_message_text = ("Reversed: {}".format(text))
+                        send_message(sender_id, '{}'.format(new_message_text))
 
 
-                    # if message_text.split(" ") in greetings:
-                    #     new_message_text = "got it"
+
 
                     else:
                         new_message_text = "I don't know what you are saying! you said this: {}".format(message_text)
-
-                    send_message(sender_id, '{}'.format(new_message_text))
+                        send_message(sender_id, '{}'.format(new_message_text))
 
 
 
