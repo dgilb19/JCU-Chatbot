@@ -72,7 +72,6 @@ def webhook():
 
 
 
-
 #                     elif message_text != "":
 #                         while message_text_split_length != 0:
 #                             if message_text_split[message_text_split_length] in ['what', 'why']:
@@ -98,9 +97,9 @@ def webhook():
 
     return "ok", 200
 
-def asking_question():
-    return "I know you are asking a question but im not that smart yet!"
 
+def asking_question(new_message_text):
+    new_message_text = "I know you are asking a question but im not that smart yet!"
 
 def send_message(recipient_id, message_text):
 
