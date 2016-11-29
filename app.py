@@ -48,7 +48,6 @@ def webhook():
 
                     message_words = message_text.split(' ', 1)
                     message_text_split = message_text.split
-#                     message_text_split_length = len(message_text_split)
                     command = message_words[0]
                     message_text_length = len(message_text.split(' '))
 
@@ -61,15 +60,15 @@ def webhook():
                         text = ""
 
                     if message_text in greetings:
-                        new_message_text = message_text_length
+                        # new_message_text = message_text_length
 
-                        # new_message_text = '{}, {} how can I help you today? \nEvent dates: \nEnter other things here later'.format(random.choice(ai_greetings_word_list, message_text_length))
+                        new_message_text = '{}, how can I help you today? \nEvent dates: \nEnter other things here later'.format(random.choice(ai_greetings_word_list))
 
                     elif command == 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
 
-                    # elif message_text_split[0] in asking_word_list:
-                    #     new_message_text = "I know you are asking a question but im not that smart yet!"
+                    elif message_text_split[0] in asking_word_list:
+                        new_message_text = "I know you are asking a question but im not that smart yet!"
 
 #                     elif message_text != "":
 #                         while message_text_split_length != 0:
