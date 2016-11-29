@@ -29,7 +29,7 @@ def webhook():
     # reversed_word_list = ['reversed', 'reverse', 'backwards']
     # asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
     #
-    # ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
+    ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
     # endpoint for processing incoming messaging events
 
@@ -47,24 +47,32 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    # message_text_split = message_text.split()
-                    # message_text_length = len(message_text_split)
-
                     if re.match(r'.*hello|hey|hi', message_text, re.I):
-                        new_message_text = "works"
-                        send_message(sender_id, '{}'.format(new_message_text))
+                        send_message(sender_id, "{}, how can I help you today?".format(ai_greetings_word_list))
+
+                    elif re.match(r'.*what|when|date|who|where', message_text, re.I):
+                        if re.match(r'.*what', message_text, re.I):
+                            question_message_text = "I know you are asking a question but I'm not that smart yet! :what"
+                        elif re.match(r'.*when|date', message_text, re.I):
+                            question_message_text = "I know you are asking when something is, but im not that smart yet!"
+                        elif re.match(r'.*who', message_text, re.I):
+                            question_message_text = "I know you are asking about someone, but im not that smart yet!"
+                        elif re.match(r'.*where', message_text, re.I):
+                            question_message_text = "I know you are asking where something is, but I'm not that smart yet!!"
+                        else:
+                            question_message_text = ""
+                        send_message(sender_id, "{}".format(question_message_text))
+
 
                     elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
                         if len(message_text.split(" ")) > 1:
                             text = message_text.split(" ")[1]
                         else:
-                            text = ""
-                        new_message_text = ("Reversed: {}".format(text))
-                        send_message(sender_id, '{}'.format(new_message_text))
+                            text = " "
+                        send_message(sender_id, "Reversed: {}".format(text[::-1]))
 
                     else:
-                        new_message_text = "I don't know what you are saying! you said this: {}".format(message_text)
-                        send_message(sender_id, '{}'.format(new_message_text))
+                        send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
 
 
 
