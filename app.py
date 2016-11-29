@@ -5,7 +5,7 @@ import random
 
 import requests
 from flask import Flask, request
-# from matplotlib.delaunay.testfuncs import data
+
 
 app = Flask(__name__)
 
@@ -50,14 +50,14 @@ def webhook():
 
                     send_message(sender_id, '{}'.format(new_message_text))
 
-                if messaging_event.get("delivery"):  # delivery confirmation
-                    pass
-
-                if messaging_event.get("option"):  # option confirmation
-                    pass
-
-                if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
-                    pass
+                # if messaging_event.get("delivery"):  # delivery confirmation
+                #     pass
+                #
+                # if messaging_event.get("option"):  # option confirmation
+                #     pass
+                #
+                # if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
+                #     pass
 
     return "ok", 200
 
