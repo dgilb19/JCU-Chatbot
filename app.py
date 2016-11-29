@@ -47,10 +47,14 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
 
                     message_text_split = message_text.split()
-                    message_text_length = len(message_text_split)
+                    message_text_length = len(message_text_split)\
 
-                    if message_text.split(" ")[0, 4, 1] in greetings:
-                        new_message_text = "got it"
+                    if re.match(r'.hello', message_text):
+                        new_message_text = "works"
+
+
+                    # if message_text.split(" ") in greetings:
+                    #     new_message_text = "got it"
 
                     else:
                         new_message_text = "I don't know what you are saying! you said this: {}".format(message_text)
