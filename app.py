@@ -25,7 +25,7 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
-    greetings = ['HI', 'Hi', 'hi', 'HELLO', 'Hello', 'hello', 'HEY', 'Hey', 'hey', 'HOW ARE YOU']
+    greetings = ['hi', 'hello', 'hey']
     # reversed_word_list = ['reversed', 'reverse', 'backwards']
     # asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
     #
@@ -50,7 +50,7 @@ def webhook():
                     message_text_split = message_text.split()
                     message_text_length = len(message_text_split)
 
-                    if re.match(r'.*hello', message_text):
+                    if re.match(r'.*greetings', message_text):
                         new_message_text = "works"
 
 
