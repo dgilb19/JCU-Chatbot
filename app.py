@@ -67,7 +67,7 @@ def webhook():
                     elif command == 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
 
-                    elif message_text.split(" ") in asking_word_list:
+                    elif message_text.split(" ")[0] in asking_word_list:
                         new_message_text = "I know you are asking a question but im not that smart yet!"
 
 #                     elif message_text != "":
