@@ -49,7 +49,7 @@ def webhook():
                     message_text_split = message_text.split()
                     message_text_length = len(message_text_split)
 
-                    if message_text.split(" ")[range(0, 4, 1)] in greetings:
+                    if message_text.split(" ")[0, 4, 1] in greetings:
                         new_message_text = "got it"
 
                     else:
