@@ -47,22 +47,25 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    if re.match(r'.*hello|hey|hi', message_text, re.I):
+                    if re.match(r'.*hello|hey|hi(?!reverse)', message_text, re.I):
                         send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
 
                     elif re.match(r'.*what|when|date|who|where', message_text, re.I):
                         if re.match(r'.*what', message_text, re.I):
                             question_message_text = "I know you are asking a question but I'm not that smart yet! :what"
+
                         elif re.match(r'.*when|date', message_text, re.I):
-                            question_message_text = "I know you are asking when something is, but im not that smart yet!"
+                            question_message_text = "I know you are asking when something is, but I'm not that smart yet!"
+
                         elif re.match(r'.*who', message_text, re.I):
-                            question_message_text = "I know you are asking about someone, but im not that smart yet!"
+                            question_message_text = "I know you are asking about someone, but I'm not that smart yet!"
+
                         elif re.match(r'.*where', message_text, re.I):
                             question_message_text = "I know you are asking where something is, but I'm not that smart yet!!"
-                        else:
-                            question_message_text = "I dont even know how you got here"
-                        send_message(sender_id, "{}".format(question_message_text))
 
+                        else:
+                            question_message_text = "I don't even know how you got here"
+                        send_message(sender_id, "{}".format(question_message_text))
 
                     elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
                         if len(message_text.split(" ")) > 1:
