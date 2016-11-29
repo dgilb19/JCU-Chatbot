@@ -50,7 +50,7 @@ def webhook():
                     message_text_split = message_text.split
 #                     message_text_split_length = len(message_text_split)
                     command = message_words[0]
-                    # message_text_upper = message_text.upper
+
 
                     if len(message_words) > 1:
                         text = message_words[1]
@@ -63,8 +63,8 @@ def webhook():
                     elif command == 'reverse':
                         new_message_text = "reversed: {}".format(text[::-1])
 
-                    elif message_text_split[0] in asking_word_list:
-                        new_message_text = "I know you are asking a question but im not that smart yet!"
+                    # elif message_text_split[0] in asking_word_list:
+                    #     new_message_text = "I know you are asking a question but im not that smart yet!"
 
 #                     elif message_text != "":
 #                         while message_text_split_length != 0:
