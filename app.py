@@ -53,6 +53,8 @@ def webhook():
                     message_text_length = len(message_text.split(' '))
 
 
+
+
                     if len(message_words) > 1:
                         text = message_words[1]
                     else:
@@ -97,7 +99,6 @@ def webhook():
                     pass
 
     return "ok", 200
-
 
 def test_function():
     if data["object"] == "page":
