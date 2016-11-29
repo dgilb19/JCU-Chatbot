@@ -66,15 +66,12 @@ def webhook():
 
                     elif message_text.split(" ")[0] in asking_word_list:
                         new_message_text = "I know you are asking a question but im not that smart yet!"
-                        test_function()
+
 
                     else:
                         new_message_text = "I don't know what you are saying! you said this: {}".format(message_text)
 
                     send_message(sender_id, '{}'.format(new_message_text))
-
-                    if message_text.split(" ")[0] in asking_word_list:
-                        send_message(sender_id, '{}'.format(test_message))
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
@@ -99,9 +96,8 @@ def test_function():
                     recipient_id_two = messaging_event_two["recipient"]["id"]
                     message_text_two = messaging_event_two["message"]["text"]
 
-                    return "test"
 
-                    # send_message(sender_id, 'hello my good friend')
+                    send_message(sender_id, 'hello my good friend')
                 if messaging_event_two.get("delivery"):
                     pass
 
