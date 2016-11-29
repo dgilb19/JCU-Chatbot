@@ -5,7 +5,7 @@ import random
 
 import requests
 from flask import Flask, request
-# from matplotlib.delaunay.testfuncs import data
+from matplotlib.delaunay.testfuncs import data
 
 app = Flask(__name__)
 
@@ -66,7 +66,7 @@ def webhook():
 
                     elif message_text.split(" ")[0] in asking_word_list:
                         new_message_text = "I know you are asking a question but im not that smart yet!"
-                        # test_message = test_function()
+                        test_message = test_function()
 
                     else:
                         new_message_text = "I don't know what you are saying! you said this: {}".format(message_text)
@@ -88,28 +88,28 @@ def webhook():
     return "ok", 200
 
 
-# def test_function():
-#     if data["object"] == "page":
-#
-#         for entry in data["entry"]:
-#
-#             for messaging_event_two in entry["messaging"]:
-#                 if messaging_event_two.get("message"):
-#                     sender_id = messaging_event_two["sender"]["id"]
-#                     recipient_id_two = messaging_event_two["recipient"]["id"]
-#                     message_text_two = messaging_event_two["message"]["text"]
-#
-#                     # return "test"
-#
-#                     # send_message(sender_id, 'hello my good friend')
-#                 if messaging_event_two.get("delivery"):
-#                     pass
-#
-#                 if messaging_event_two.get("option"):
-#                     pass
-#
-#                 if messaging_event_two.get("postback"):
-#                     pass
+def test_function():
+    if data["object"] == "page":
+
+        for entry in data["entry"]:
+
+            for messaging_event_two in entry["messaging"]:
+                if messaging_event_two.get("message"):
+                    sender_id = messaging_event_two["sender"]["id"]
+                    recipient_id_two = messaging_event_two["recipient"]["id"]
+                    message_text_two = messaging_event_two["message"]["text"]
+
+                    return "test"
+
+                    # send_message(sender_id, 'hello my good friend')
+                if messaging_event_two.get("delivery"):
+                    pass
+
+                if messaging_event_two.get("option"):
+                    pass
+
+                if messaging_event_two.get("postback"):
+                    pass
 
 
 def send_message(recipient_id, message_text):
