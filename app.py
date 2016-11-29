@@ -46,7 +46,10 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    if message_text in greetings:
+                    message_text_split = message_text.split()
+                    message_text_length = len(message_text_split)
+
+                    if message_text.split(" ")[range(0, message_text_length, 1)] in greetings:
                         new_message_text = "got it"
 
                     else:
