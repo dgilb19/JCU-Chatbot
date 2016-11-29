@@ -50,8 +50,7 @@ def webhook():
                     message_text_split = message_text.split
 #                     message_text_split_length = len(message_text_split)
                     command = message_words[0]
-                    message_text_length = len(message_text_split)
-
+                    message_text_length = len(message_text.split(' '))
 
 
 
