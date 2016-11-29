@@ -50,13 +50,14 @@ def webhook():
                     message_text_split = message_text.split
 #                     message_text_split_length = len(message_text_split)
                     command = message_words[0]
+                    message_text_upper = message_text.upper
 
                     if len(message_words) > 1:
                         text = message_words[1]
                     else:
                         text = ""
 
-                    if message_text.upper in greetings:
+                    if message_text_upper in greetings:
                         new_message_text = '{}, how can I help you today? \nEvent dates: \nEnter other things here later'.format(random.choice(ai_greetings_word_list))
 
                     elif command == 'reverse':
