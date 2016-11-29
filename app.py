@@ -83,9 +83,9 @@ def webhook():
                     else:
                         new_message_text = 'echo: {}'.format(message_text)
 
-                    # send_message(sender_id, '{}'.format(new_message_text))
-                    # if message_text.split(" ")[0] in asking_word_list:
-                    #     send_message(sender_id, '{}'.format(test_message))
+                    send_message(sender_id, '{}'.format(new_message_text))
+                    if message_text.split(" ")[0] in asking_word_list:
+                        send_message(sender_id, '{}'.format(test_message))
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
@@ -110,9 +110,9 @@ def test_function():
                     recipient_id_two = messaging_event_two["recipient"]["id"]
                     message_text_two = messaging_event_two["message"]["text"]
 
-                    # return "test"
+                    return 'test'
 
-                    send_message(sender_id, 'hello my good friend')
+                    # send_message(sender_id, 'hello my good friend')
                 if messaging_event_two.get("delivery"):
                     pass
 
