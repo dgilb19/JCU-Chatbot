@@ -79,7 +79,7 @@ def webhook():
                                         recipient_id_two = messaging_event_two["recipient"]["id"]
                                         message_text_two = messaging_event_two["message"]["text"]
 
-                                        send_message(sender_id, 'hello human')
+                                        send_message(sender_id, 'hello my good friend')
                                     if messaging_event_two.get("delivery"):
                                         pass
 
