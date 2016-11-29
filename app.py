@@ -60,7 +60,7 @@ def webhook():
                         elif re.match(r'.*where', message_text, re.I):
                             question_message_text = "I know you are asking where something is, but I'm not that smart yet!!"
                         else:
-                            question_message_text = ""
+                            question_message_text = "I dont even know how you got here"
                         send_message(sender_id, "{}".format(question_message_text))
 
 
