@@ -57,7 +57,7 @@ def webhook():
                         elif re.match(r'.*who', message_text, re.I):
                             question_message_text = "I know you are asking about someone, but I'm not that smart yet!"
 
-                        elif re.match(r'.*where', message_text, re.I):
+                        elif re.match(r".*where|map|wheres|where's", message_text, re.I):
                             question_message_text = "I know you are asking where something is, but I'm not that smart yet!!"
                             if re.match(r'.*building|library|hall|lab', message_text, re.I):
                                 pass
@@ -81,7 +81,8 @@ def webhook():
                         send_message(sender_id, recipient_id)
 
                     else:
-                        send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
+                        send_message(sender_id, "idk what you are saying")
+                        # send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
 
 
 
