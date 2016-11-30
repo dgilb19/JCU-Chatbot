@@ -120,31 +120,31 @@ def send_message(recipient_id, message_text):
         log(r.text)
 
 
-def get_reply(message_text):
-    if re.match(r'.*(hello|hey|hi(?!reverse|reversed|backwards))', message_text, re.I):
-        return "Hello, how can I help you today?"
-
-    elif re.match(r'.*what', message_text, re.I):
-        return "I know you are asking a question but I'm not that smart yet! :what"
-
-    elif re.match(r'.*when|date', message_text, re.I):
-        return "I know you are asking when something is, but I'm not that smart yet!"
-
-    elif re.match(r'.*who', message_text, re.I):
-        return "I know you are asking about someone, but I'm not that smart yet!"
-
-    elif re.match(r".*(map|where|wheres|where's)", message_text, re.I):
-        return "I know you are asking where something is, but I'm not that smart yet!!"
-
-    elif re.match(r'.*(reverse|reversed|backwards)', message_text, re.I):
-        if len(message_text.split(" ")) > 1:
-            text = message_text.split(" ")[1]
-        else:
-            text = " "
-        send_message("Reversed: {}".format(text[::-1]))
-
-    else:
-        send_message("idk what you are saying")
+# def get_reply(message_text):
+#     if re.match(r'.*(hello|hey|hi(?!reverse|reversed|backwards))', message_text, re.I):
+#         return "Hello, how can I help you today?"
+#
+#     elif re.match(r'.*what', message_text, re.I):
+#         return "I know you are asking a question but I'm not that smart yet! :what"
+#
+#     elif re.match(r'.*when|date', message_text, re.I):
+#         return "I know you are asking when something is, but I'm not that smart yet!"
+#
+#     elif re.match(r'.*who', message_text, re.I):
+#         return "I know you are asking about someone, but I'm not that smart yet!"
+#
+#     elif re.match(r".*(map|where|wheres|where's)", message_text, re.I):
+#         return "I know you are asking where something is, but I'm not that smart yet!!"
+#
+#     elif re.match(r'.*(reverse|reversed|backwards)', message_text, re.I):
+#         if len(message_text.split(" ")) > 1:
+#             text = message_text.split(" ")[1]
+#         else:
+#             text = " "
+#         send_message("Reversed: {}".format(text[::-1]))
+#
+#     else:
+#         send_message("idk what you are saying")
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
