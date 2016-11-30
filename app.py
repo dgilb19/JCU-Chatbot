@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import random
+import csv
 
 import re
 import requests
@@ -25,13 +26,9 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
-    greetings = ['hi', 'hello', 'hey']
-    # reversed_word_list = ['reversed', 'reverse', 'backwards']
-    # asking_word_list = ['what', 'whats', "what's", 'when', 'whens', "when's"]
-    #
-    ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
-
     # endpoint for processing incoming messaging events
+
+    ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
@@ -49,6 +46,7 @@ def webhook():
 
                     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
                         send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
+                        times_greeted()
 
                     elif re.match(r'.*what|when|date|who|where', message_text, re.I):
                         if re.match(r'.*what', message_text, re.I):
@@ -56,6 +54,7 @@ def webhook():
 
                         elif re.match(r'.*when|date', message_text, re.I):
                             question_message_text = "I know you are asking when something is, but I'm not that smart yet!"
+
 
                         elif re.match(r'.*who', message_text, re.I):
                             question_message_text = "I know you are asking about someone, but I'm not that smart yet!"
@@ -82,13 +81,6 @@ def webhook():
 
 
 
-
-
-
-
-
-
-
                 # if messaging_event.get("delivery"):  # delivery confirmation
                 #     pass
                 #
@@ -101,6 +93,16 @@ def webhook():
 
 
     return "ok", 200
+
+
+def times_greeted(times_greeted):
+    with open("test.csv"):
+        times_greeted += 1
+        delimit_file = csv.reader(file, delimiter=",")
+        times_greeted = []
+        for line in delimit_file:
+            times_greeted.append(line)
+
 
 
 def send_message(recipient_id, message_text):
@@ -124,16 +126,6 @@ def send_message(recipient_id, message_text):
     if r.status_code != 200:
         log(r.status_code)
         log(r.text)
-
-
-# def question_asking(message_text):
-#     message_text = message_text.split
-#     message_text_length = len(message_text)
-#     while message_text != 0:
-#         if message_text[message_text_length] in ['what', 'whats', "what's", 'when', 'whens', "when's"]:
-#
-#             return message_text
-
 
 
 
