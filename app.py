@@ -46,7 +46,7 @@ def webhook():
 
                     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
                         send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
-                        times_greeted()
+                        times_greeted(times_greeted)
 
                     elif re.match(r'.*what|when|date|who|where', message_text, re.I):
                         if re.match(r'.*what', message_text, re.I):
