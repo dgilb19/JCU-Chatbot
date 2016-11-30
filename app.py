@@ -29,6 +29,7 @@ def webhook():
     # endpoint for processing incoming messaging events
 
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
+    greetings_count = 0
 
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
@@ -46,7 +47,7 @@ def webhook():
 
                     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
                         send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
-                        times_greeted(times_greeted)
+                        greetings_count += 1
 
                     elif re.match(r'.*what|when|date|who|where', message_text, re.I):
                         if re.match(r'.*what', message_text, re.I):
@@ -76,6 +77,8 @@ def webhook():
                     elif re.match(r'.*id', message_text):
                         send_message(sender_id, recipient_id)
 
+                    elif re.match(r'.*count', message_text):
+                        send_message(sender_id, greetings_count)
                     else:
                         send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
 
