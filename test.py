@@ -1,20 +1,23 @@
-import unittest
+import test2
 
 
 def isOdd(number):
     return number % 2 == 1
 
 
-class isOddTests(unittest.TestCase):
+class isOddTests(test2.TestCase):
     def testOne(self):
         self.failUnless(isOdd(1))
 
     def testTwo(self):
         self.failIf(isOdd(2))
 
+    # def testThree(self):
+    #     self.failUnless(isOdd(4))
+
 
 def main():
-    unittest.main()
+    test2.main()
 
 if __name__ == '__main__':
     main()
