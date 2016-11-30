@@ -98,13 +98,13 @@ def webhook():
     return "ok", 200
 
 
-def times_greeted(times_greeted):
-    with open("test.csv"):
-        times_greeted += 1
-        delimit_file = csv.reader(file, delimiter=",")
-        times_greeted = []
-        for line in delimit_file:
-            times_greeted.append(line)
+# def times_greeted(times_greeted):
+#     with open("test.csv"):
+#         times_greeted += 1
+#         delimit_file = csv.reader(file, delimiter=",")
+#         times_greeted = []
+#         for line in delimit_file:
+#             times_greeted.append(line)
 
 
 
