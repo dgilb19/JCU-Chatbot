@@ -44,12 +44,7 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    message_text_length_char = message_text.split
-
-                    if message_text_length_char <= 20:
-                        pass
-
-                    elif re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
+                    if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
                         send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
 
                     elif re.match(r'.*what|when|date|who|where', message_text, re.I):
@@ -66,8 +61,8 @@ def webhook():
                             question_message_text = "I know you are asking where something is, but I'm not that smart yet!!"
                             if re.match(r'.*building|library|hall|lab', message_text, re.I):
                                 pass
-                            elif re.match(r'.*map', message_text, re.I):
-                                send_message(sender_id, "here is a map!\n https://www.facebook.com/l.php?u=https%3A%2F%2Fmaps.jcu.edu.au%2Fcampus%2Ftownsville%2F&h=JAQEGOwnq&s=1&enc=AZPrNaWH_-wfCoY3B3YLHSBXj7rQSTOlUQpj7vXz_sdjW20781VLb6km7oC_LjAGYgLJusluHOgjHqN4xba_rDgsg7Chi6porGvizTKLFMmwHg&__mref=message_bubble")
+                            # elif re.match(r'.*map', message_text, re.I):
+                                # send_message(sender_id, "here is a map!\n https://www.facebook.com/l.php?u=https%3A%2F%2Fmaps.jcu.edu.au%2Fcampus%2Ftownsville%2F&h=JAQEGOwnq&s=1&enc=AZPrNaWH_-wfCoY3B3YLHSBXj7rQSTOlUQpj7vXz_sdjW20781VLb6km7oC_LjAGYgLJusluHOgjHqN4xba_rDgsg7Chi6porGvizTKLFMmwHg&__mref=message_bubble")
 
                         else:
                             question_message_text = "I don't even know how you got here"
@@ -86,7 +81,6 @@ def webhook():
                     else:
                         send_message(sender_id, "idk what you are saying")
                         # send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
-
 
 
 
