@@ -43,7 +43,6 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, "please work")
                     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
                         send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
 
@@ -57,7 +56,7 @@ def webhook():
                         elif re.match(r'.*who', message_text, re.I):
                             question_message_text = "I know you are asking about someone, but I'm not that smart yet!"
 
-                        elif re.match(r".*where|map|wheres|where's", message_text, re.I):
+                        elif re.match(r".*where|map|wheres|where's|map", message_text, re.I):
                             question_message_text = "I know you are asking where something is, but I'm not that smart yet!!"
                             if re.match(r'.*building|library|hall|lab', message_text, re.I):
                                 pass
