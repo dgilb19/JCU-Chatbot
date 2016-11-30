@@ -29,7 +29,6 @@ def webhook():
     # endpoint for processing incoming messaging events
 
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
-    greetings_count = 0
 
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
@@ -45,17 +44,16 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
+                    if re.match(r'.hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
                         send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
-                        greetings_count += 1
 
-                    elif re.match(r'.*what|when|date|who|where', message_text, re.I):
-                        if re.match(r'.*what', message_text, re.I):
+                    elif re.match(r'.what|when|date|who|where', message_text, re.I):
+                        if re.match(r'.what', message_text, re.I):
                             question_message_text = "I know you are asking a question but I'm not that smart yet! :what"
 
                         elif re.match(r'.*when|date', message_text, re.I):
                             question_message_text = "I know you are asking when something is, but I'm not that smart yet!"
-
+                            # if re.match(r'.')
 
                         elif re.match(r'.*who', message_text, re.I):
                             question_message_text = "I know you are asking about someone, but I'm not that smart yet!"
