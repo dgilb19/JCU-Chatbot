@@ -61,7 +61,7 @@ def webhook():
                     #         # if re.match(r'.*building|library|hall|lab', message_text, re.I):
                     #         #     pass
                     #         # elif re.match(r'.*map', message_text, re.I):
-                    #             # send_message(sender_id, "here is a map!\n https://www.facebook.com/l.php?u=https%3A%2F%2Fmaps.jcu.edu.au%2Fcampus%2Ftownsville%2F&h=JAQEGOwnq&s=1&enc=AZPrNaWH_-wfCoY3B3YLHSBXj7rQSTOlUQpj7vXz_sdjW20781VLb6km7oC_LjAGYgLJusluHOgjHqN4xba_rDgsg7Chi6porGvizTKLFMmwHg&__mref=message_bubble")
+                    #             # send_message(sender_id, "here is a map!\n ")
                     #
                     #     else:
                     #         question_message_text = "I don't even know how you got here"
