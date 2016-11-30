@@ -2,7 +2,6 @@ import os
 import sys
 import json
 import random
-import test2
 
 import re
 
