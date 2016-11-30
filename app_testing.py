@@ -15,6 +15,9 @@ class App_test(unittest.TestCase):
     def testOne(self):
         self.assertEquals(get_reply("Hello"), "Hello, how can I help you today?")
 
+    def testTwo(self):
+        self.assertEquals(get_reply("Can you show me the map?"), "Here's a map!")
+
 
 
 def main():

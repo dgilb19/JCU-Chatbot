@@ -49,7 +49,7 @@ def webhook():
 
 ###
 
-                    if re.match(r'.*(hello|hey|hi(?!reverse|reversed|backwards))', message_text, re.I):
+                    if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
                         send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
 
                     elif re.match(r'.*what', message_text, re.I):
@@ -61,10 +61,13 @@ def webhook():
                     elif re.match(r'.*who', message_text, re.I):
                         send_message(sender_id, "I know you are asking about someone, but I'm not that smart yet!")
 
-                    elif re.match(r".*(map|where|wheres|where's)", message_text, re.I):
-                        send_message(sender_id, "I know you are asking where something is, but I'm not that smart yet!!")
+                    elif re.match(r".*map|where|wheres|where's", message_text, re.I):
+                        if re.match(r'.*map', message_text, re.I):
+                            send_message(sender_id, "Here's a map!")
+                        else:
+                            send_message(sender_id, "I know you are asking where something is, but I'm not that smart yet!!")
 
-                    elif re.match(r'.*(reverse|reversed|backwards)', message_text, re.I):
+                    elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
                         if len(message_text.split(" ")) > 1:
                             text = message_text.split(" ")[1]
                         else:

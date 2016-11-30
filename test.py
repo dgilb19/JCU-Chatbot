@@ -1,11 +1,11 @@
-import test2
+import app_testing
 
 
 def isOdd(number):
     return number % 2 == 1
 
 
-class isOddTests(test2.TestCase):
+class isOddTests(app_testing.TestCase):
     def testOne(self):
         self.failUnless(isOdd(1))
 
@@ -17,7 +17,7 @@ class isOddTests(test2.TestCase):
 
 
 def main():
-    test2.main()
+    app_testing.main()
 
 if __name__ == '__main__':
     main()
