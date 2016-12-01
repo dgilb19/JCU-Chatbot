@@ -22,14 +22,12 @@ def verify():
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
 
-    return "Hello world: lets see if this changes", 200
+    return "Hello world!", 200
 
 
 @app.route('/', methods=['POST'])
 def webhook():
     # endpoint for processing incoming messaging events
-
-    ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
@@ -48,62 +46,9 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-###
+                    reply = get_reply(message_text)
+                    send_message(sender_id, reply)
 
-                    if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
-                        send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
-
-                    elif re.match(r'.*what', message_text, re.I):
-                        send_message(sender_id, "I know you are asking a question but I'm not that smart yet! :what")
-
-                    elif re.match(r'.*when|date', message_text, re.I):
-                        send_message(sender_id, "I know you are asking when something is, but I'm not that smart yet!")
-
-                    elif re.match(r'.*who', message_text, re.I):
-                        who_words = PeopleIndex("I know you are asking about someone, but I'm not that smart yet!")
-                        who_words.change_words_to_jerry()
-                        send_message(sender_id, who_words)
-
-
-
-                    elif re.match(r".*map|where|wheres|where's|building|looking|look[0-354]", message_text, re.I):
-                        if re.match(r'.*map', message_text, re.I):
-                            send_message(sender_id, "Here's a map! https://maps.jcu.edu.au/campus/townsville/")
-
-                        elif re.match(r'.*[0-354]', message_text, re.I):
-
-                            message_text_number = re.findall('\d+', message_text)
-                            message_text_number = ("".join(message_text_number))
-
-                            send_message(sender_id, "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(message_text_number))
-                            # #TODO add a csv with buildings and their numbers
-
-                        elif re.match(r'.*pool|swim|swimming', message_text, re.I):
-                            send_message(sender_id, "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241")
-                        else:
-                            send_message(sender_id, "I know you are asking where something is, but I'm not that smart yet!!")
-
-
-                        # thing = location_module.process_message_str
-                        # send_message(sender_id, thing)
-
-
-                    elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
-                        if len(message_text.split(" ")) > 1:
-                            text = message_text.split(" ")[1]
-                        else:
-                            text = " "
-                        send_message(sender_id, "Reversed: {}".format(text[::-1]))
-
-                    elif re.match(r'.*id', message_text):
-                        send_message(sender_id, recipient_id)
-
-                    else:
-                        send_message(sender_id, "idk what you are saying")
-                        # send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
-
-
-###
                 # if messaging_event.get("delivery"):  # delivery confirmation
                 #     pass
                 #
@@ -141,8 +86,10 @@ def send_message(recipient_id, message_text):
 
 
 def get_reply(message_text):
+    ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
+
     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
-        return "hello, how can I help you today?"
+        return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
 
     elif re.match(r'.*what', message_text, re.I):
         return "I know you are asking a question but I'm not that smart yet! :what"
@@ -178,8 +125,7 @@ def get_reply(message_text):
 
     else:
         return "idk what you are saying"
-
-
+        # send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku

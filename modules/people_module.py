@@ -1,3 +1,6 @@
+
+
+
 class PeopleIndex:
     def __init__(self, people_str):
         self.people_str = people_str
