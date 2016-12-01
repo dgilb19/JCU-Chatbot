@@ -5,5 +5,5 @@ class LocationPasser():
         return "aegfaegreswgregrgha"
 
 
-    def builing_location(self):
-        pass
+    # def builing_location(self):
+    #     pass
