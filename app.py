@@ -2,7 +2,8 @@ import os
 import sys
 import json
 import random
-#
+from modules import location_module
+
 import re
 
 from flask import Flask, request
@@ -10,6 +11,16 @@ import requests
 
 
 app = Flask(__name__)
+
+# global LocationPasser
+
+
+class Main:
+    def __init__(self):
+        self.location = location_module
+
+
+#TODO make location things work so i can put where(location) part in different module
 
 
 @app.route('/', methods=['GET'])
@@ -47,10 +58,6 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    # reply = get_reply(message_text)
-                    # send_message(sender_id, reply)
-
-
 ###
 
                     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
@@ -65,20 +72,27 @@ def webhook():
                     elif re.match(r'.*who', message_text, re.I):
                         send_message(sender_id, "I know you are asking about someone, but I'm not that smart yet!")
 
-                    elif re.match(r".*map|where|wheres|where's|building", message_text, re.I):
-                        if re.match(r'.*map', message_text, re.I):
-                            send_message(sender_id, "Here's a map! \nhttps://maps.jcu.edu.au/campus/townsville/")
+                    elif re.match(r".*map|where|wheres|where's|building|looking|look", message_text, re.I):
 
-                        elif re.match(r'.*library|18', message_text, re.I):
-                            send_message(sender_id, "Are you looking for the Library? \nhttps://maps.jcu.edu.au/campus/townsville/?location=18")
+                        send_message(sender_id, "{}".format(location_module))
 
-                        elif re.match(r'.*Facility of Science and Engineering|Science and Engineering|17', message_text, re.I):
-                            send_message(sender_id, "Are you looking for the Facility of Science and Engineering?\nhttps://maps.jcu.edu.au/campus/townsville/?location=17")
 
-                        elif re.match(r'.*pool|swim|swimming', message_text, re.I):
-                            send_message(sender_id, "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241")
-                        else:
-                            send_message(sender_id, "I know you are asking where something is, but I'm not that smart yet!!")
+
+
+
+                        # if re.match(r'.*map', message_text, re.I):
+                        #     send_message(sender_id, "Here's a map! \nhttps://maps.jcu.edu.au/campus/townsville/")
+
+                        # elif re.match(r'.*library|18', message_text, re.I):
+                        #     send_message(sender_id, "Are you looking for the Library? \nhttps://maps.jcu.edu.au/campus/townsville/?location=18")
+                        #
+                        # elif re.match(r'.*Facility of Science and Engineering|Science and Engineering|17', message_text, re.I):
+                        #     send_message(sender_id, "Are you looking for the Facility of Science and Engineering?\nhttps://maps.jcu.edu.au/campus/townsville/?location=17")
+                        #
+                        # elif re.match(r'.*pool|swim|swimming', message_text, re.I):
+                        #     send_message(sender_id, "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241")
+                        # else:
+                        #     send_message(sender_id, "I know you are asking where something is, but I'm not that smart yet!!")
 
                     elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
                         if len(message_text.split(" ")) > 1:
@@ -105,7 +119,6 @@ def webhook():
                 # if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
                 #     pass
                     # going to leave this here in case i need it!
-
 
     return "ok", 200
 
@@ -158,10 +171,10 @@ def get_reply(message_text):
             text = message_text.split(" ")[1]
         else:
             text = " "
-        return ("Reversed: {}".format(text[::-1]))
+        return "Reversed: {}".format(text[::-1])
 
     else:
-        return ("idk what you are saying")
+        return "idk what you are saying"
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
@@ -171,4 +184,3 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 
 if __name__ == '__main__':
     app.run(debug=True)
-
