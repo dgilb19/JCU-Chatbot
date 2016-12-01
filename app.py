@@ -2,7 +2,7 @@ import os
 import sys
 import json
 import random
-from modules import location_module
+from modules.people_module import PeopleIndex
 
 import re
 
@@ -11,17 +11,6 @@ import requests
 
 
 app = Flask(__name__)
-
-# global LocationPasser
-
-
-class Main:
-    def __init__(self):
-        self.location = location_module
-        # self.locationPasser = LocationPasser
-
-
-#TODO make location things work so i can put where(location) part in different module
 
 
 @app.route('/', methods=['GET'])
@@ -71,21 +60,23 @@ def webhook():
                         send_message(sender_id, "I know you are asking when something is, but I'm not that smart yet!")
 
                     elif re.match(r'.*who', message_text, re.I):
-                        send_message(sender_id, "I know you are asking about someone, but I'm not that smart yet!")
+                        who_words = PeopleIndex("I know you are asking about someone, but I'm not that smart yet!")
+                        who_words.change_words_to_jerry()
+                        send_message(sender_id, who_words)
 
-                    elif re.match(r".*map|where|wheres|where's|building|looking|look", message_text, re.I):
+
+
+                    elif re.match(r".*map|where|wheres|where's|building|looking|look[0-354]", message_text, re.I):
                         if re.match(r'.*map', message_text, re.I):
-                            send_message(sender_id, "Here's a map! \nhttps://maps.jcu.edu.au/campus/townsville/")
+                            send_message(sender_id, "Here's a map! https://maps.jcu.edu.au/campus/townsville/")
 
                         elif re.match(r'.*[0-354]', message_text, re.I):
-                            # send_message(sender_id, "you have a number")
 
                             message_text_number = re.findall('\d+', message_text)
-                            send_message(sender_id, "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(message_text_number))
-                            #TODO add a csv with buildings and their numbers
+                            message_text_number = ("".join(message_text_number))
 
-                        # elif re.match(r'.*Facility of Science and Engineering|Science and Engineering|17', message_text, re.I):
-                        #     send_message(sender_id, "Are you looking for the Facility of Science and Engineering?\nhttps://maps.jcu.edu.au/campus/townsville/?location=17")
+                            send_message(sender_id, "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(message_text_number))
+                            # #TODO add a csv with buildings and their numbers
 
                         elif re.match(r'.*pool|swim|swimming', message_text, re.I):
                             send_message(sender_id, "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241")
@@ -151,7 +142,7 @@ def send_message(recipient_id, message_text):
 
 def get_reply(message_text):
     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
-        return "Hello, how can I help you today?"
+        return "hello, how can I help you today?"
 
     elif re.match(r'.*what', message_text, re.I):
         return "I know you are asking a question but I'm not that smart yet! :what"
@@ -159,16 +150,25 @@ def get_reply(message_text):
     elif re.match(r'.*when|date', message_text, re.I):
         return "I know you are asking when something is, but I'm not that smart yet!"
 
-    elif re.match(r".*who|whos|who's", message_text, re.I):
-        return "I know you are asking about someone, but I'm not that smart yet!"
+    elif re.match(r'.*who', message_text, re.I):
+        who_words = PeopleIndex("I know you are asking about someone, but I'm not that smart yet!")
+        who_words.change_words_to_jerry()
+        return who_words
 
-    elif re.match(r".*map|where|wheres|where's", message_text, re.I):
-
+    elif re.match(r".*map|where|wheres|where's|building|looking|look[0-354]", message_text, re.I):
         if re.match(r'.*map', message_text, re.I):
-            return "Here's a map!"
+            return "Here's a map! https://maps.jcu.edu.au/campus/townsville/"
 
+        elif re.match(r'.*[0-354]', message_text, re.I):
+            message_text_number = re.findall('\d+', message_text)
+            message_text_number = ("".join(message_text_number))
+            return "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(message_text_number)
+
+        elif re.match(r'.*pool|swim|swimming', message_text, re.I):
+            return "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241"
         else:
             return "I know you are asking where something is, but I'm not that smart yet!!"
+
     elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
         if len(message_text.split(" ")) > 1:
             text = message_text.split(" ")[1]
@@ -178,6 +178,8 @@ def get_reply(message_text):
 
     else:
         return "idk what you are saying"
+
+
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku

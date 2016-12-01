@@ -4,10 +4,10 @@ from app import get_reply
 
 class App_test(unittest.TestCase):
     def testOne(self):
-        self.assertEquals(get_reply("Hello"), "Hello, how can I help you today?")
+        self.assertEquals(get_reply("Hello"), "hello, how can I help you today?")
 
     def testTwo(self):
-        self.assertEquals(get_reply("Can you show me the map?"), "Here's a map!")
+        self.assertEquals(get_reply("Can you show me the map?"), "Here's a map! https://maps.jcu.edu.au/campus/townsville/")
 
     def testThree(self):
         self.assertEquals(get_reply("reverse thing"), "Reversed: gniht")
@@ -22,8 +22,13 @@ class App_test(unittest.TestCase):
         self.assertEquals(get_reply("when"), "I know you are asking when something is, but I'm not that smart yet!")
 
     def testSeven(self):
-        self.assertEquals(get_reply("who"), "I know you are asking about someone, but I'm not that smart yet!")
+        self.assertEquals(get_reply("who"), "Are you looking for Jerry?")
 
+    # def testEight(self):
+    #     self.assertEquals(get_reply(""),"")
+
+    def testNine(self):
+        self.assertEquals(get_reply("building 34"), "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location=34")
 
 def main():
     unittest.main()
