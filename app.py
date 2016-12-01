@@ -73,16 +73,19 @@ def webhook():
                     elif re.match(r'.*who', message_text, re.I):
                         send_message(sender_id, "I know you are asking about someone, but I'm not that smart yet!")
 
-                    elif re.match(r".*map|where|wheres|where's|building|looking|look|[0-354]", message_text, re.I):
+                    elif re.match(r".*map|where|wheres|where's|building|looking|look", message_text, re.I):
                         if re.match(r'.*map', message_text, re.I):
                             send_message(sender_id, "Here's a map! \nhttps://maps.jcu.edu.au/campus/townsville/")
 
                         elif re.match(r'.[0-354]', message_text, re.I):
-                            send_message(sender_id, "you have a number")
-                            # send_message(sender_id, "Are you looking for the Library? \nhttps://maps.jcu.edu.au/campus/townsville/?location=18")
+                            # send_message(sender_id, "you have a number")
 
-                        elif re.match(r'.*Facility of Science and Engineering|Science and Engineering|17', message_text, re.I):
-                            send_message(sender_id, "Are you looking for the Facility of Science and Engineering?\nhttps://maps.jcu.edu.au/campus/townsville/?location=17")
+                            message_text_number = re.findall('\d+', message_text)
+                            send_message(sender_id, "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(message_text_number))
+                            #TODO add a csv with buildings and their numbers
+
+                        # elif re.match(r'.*Facility of Science and Engineering|Science and Engineering|17', message_text, re.I):
+                        #     send_message(sender_id, "Are you looking for the Facility of Science and Engineering?\nhttps://maps.jcu.edu.au/campus/townsville/?location=17")
 
                         elif re.match(r'.*pool|swim|swimming', message_text, re.I):
                             send_message(sender_id, "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241")
