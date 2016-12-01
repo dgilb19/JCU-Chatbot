@@ -74,28 +74,25 @@ def webhook():
                         send_message(sender_id, "I know you are asking about someone, but I'm not that smart yet!")
 
                     elif re.match(r".*map|where|wheres|where's|building|looking|look", message_text, re.I):
-                        thing = location_module.process_message_str
+                        if re.match(r'.*map', message_text, re.I):
+                            send_message(sender_id, "Here's a map! \nhttps://maps.jcu.edu.au/campus/townsville/")
+
+                        elif re.match(r'.000-354', message_text, re.I):
+                            send_message(sender_id, "you have a number")
+                            # send_message(sender_id, "Are you looking for the Library? \nhttps://maps.jcu.edu.au/campus/townsville/?location=18")
+
+                        elif re.match(r'.*Facility of Science and Engineering|Science and Engineering|17', message_text, re.I):
+                            send_message(sender_id, "Are you looking for the Facility of Science and Engineering?\nhttps://maps.jcu.edu.au/campus/townsville/?location=17")
+
+                        elif re.match(r'.*pool|swim|swimming', message_text, re.I):
+                            send_message(sender_id, "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241")
+                        else:
+                            send_message(sender_id, "I know you are asking where something is, but I'm not that smart yet!!")
 
 
-                        send_message(sender_id, thing)
+                        # thing = location_module.process_message_str
+                        # send_message(sender_id, thing)
 
-
-
-
-
-                        # if re.match(r'.*map', message_text, re.I):
-                        #     send_message(sender_id, "Here's a map! \nhttps://maps.jcu.edu.au/campus/townsville/")
-
-                        # elif re.match(r'.*library|18', message_text, re.I):
-                        #     send_message(sender_id, "Are you looking for the Library? \nhttps://maps.jcu.edu.au/campus/townsville/?location=18")
-                        #
-                        # elif re.match(r'.*Facility of Science and Engineering|Science and Engineering|17', message_text, re.I):
-                        #     send_message(sender_id, "Are you looking for the Facility of Science and Engineering?\nhttps://maps.jcu.edu.au/campus/townsville/?location=17")
-                        #
-                        # elif re.match(r'.*pool|swim|swimming', message_text, re.I):
-                        #     send_message(sender_id, "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241")
-                        # else:
-                        #     send_message(sender_id, "I know you are asking where something is, but I'm not that smart yet!!")
 
                     elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
                         if len(message_text.split(" ")) > 1:
