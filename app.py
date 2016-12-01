@@ -77,7 +77,7 @@ def webhook():
                         if re.match(r'.*map', message_text, re.I):
                             send_message(sender_id, "Here's a map! \nhttps://maps.jcu.edu.au/campus/townsville/")
 
-                        elif re.match(r'.[0-354]', message_text, re.I):
+                        elif re.match(r'.*[0-354]', message_text, re.I):
                             # send_message(sender_id, "you have a number")
 
                             message_text_number = re.findall('\d+', message_text)
