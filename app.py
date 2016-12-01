@@ -1,9 +1,9 @@
 import os
 import sys
 import json
-# import random
+import random
 #
-# import re
+import re
 
 from flask import Flask, request
 import requests
@@ -53,36 +53,36 @@ def webhook():
 
 ###
 
-                    # if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
-                    #     send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
-                    #
-                    # elif re.match(r'.*what', message_text, re.I):
-                    #     send_message(sender_id, "I know you are asking a question but I'm not that smart yet! :what")
-                    #
-                    # elif re.match(r'.*when|date', message_text, re.I):
-                    #     send_message(sender_id, "I know you are asking when something is, but I'm not that smart yet!")
-                    #
-                    # elif re.match(r'.*who', message_text, re.I):
-                    #     send_message(sender_id, "I know you are asking about someone, but I'm not that smart yet!")
-                    #
-                    # elif re.match(r".*map|where|wheres|where's", message_text, re.I):
-                    #     if re.match(r'.*map', message_text, re.I):
-                    #         send_message(sender_id, "Here's a map!")
-                    #     else:
-                    #         send_message(sender_id, "I know you are asking where something is, but I'm not that smart yet!!")
-                    #
-                    # elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
-                    #     if len(message_text.split(" ")) > 1:
-                    #         text = message_text.split(" ")[1]
-                    #     else:
-                    #         text = " "
-                    #     send_message(sender_id, "Reversed: {}".format(text[::-1]))
-                    #
-                    # elif re.match(r'.*id', message_text):
-                    #     send_message(sender_id, recipient_id)
-                    #
-                    # else:
-                    send_message(sender_id, "idk what you are saying")
+                    if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
+                        send_message(sender_id, "{}, how can I help you today?".format(random.choice(ai_greetings_word_list)))
+
+                    elif re.match(r'.*what', message_text, re.I):
+                        send_message(sender_id, "I know you are asking a question but I'm not that smart yet! :what")
+
+                    elif re.match(r'.*when|date', message_text, re.I):
+                        send_message(sender_id, "I know you are asking when something is, but I'm not that smart yet!")
+
+                    elif re.match(r'.*who', message_text, re.I):
+                        send_message(sender_id, "I know you are asking about someone, but I'm not that smart yet!")
+
+                    elif re.match(r".*map|where|wheres|where's", message_text, re.I):
+                        if re.match(r'.*map', message_text, re.I):
+                            send_message(sender_id, "Here's a map!")
+                        else:
+                            send_message(sender_id, "I know you are asking where something is, but I'm not that smart yet!!")
+
+                    elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
+                        if len(message_text.split(" ")) > 1:
+                            text = message_text.split(" ")[1]
+                        else:
+                            text = " "
+                        send_message(sender_id, "Reversed: {}".format(text[::-1]))
+
+                    elif re.match(r'.*id', message_text):
+                        send_message(sender_id, recipient_id)
+
+                    else:
+                        send_message(sender_id, "idk what you are saying")
                         # send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
 
 
