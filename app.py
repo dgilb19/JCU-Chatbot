@@ -67,7 +67,7 @@ def webhook():
 
                     elif re.match(r".*map|where|wheres|where's", message_text, re.I):
                         if re.match(r'.*map', message_text, re.I):
-                            send_message(sender_id, "Here's a map! \nhttps://maps.jcu.edu.au/campus/townsville/")
+                            send_message(sender_id, "Here's a map! \nhttps://www.facebook.com/l.php?u=https%3A%2F%2Fmaps.jcu.edu.au%2Fcampus%2Ftownsville%2F&h=hAQH5wfTo&s=1")
                         else:
                             send_message(sender_id, "I know you are asking where something is, but I'm not that smart yet!!")
 
