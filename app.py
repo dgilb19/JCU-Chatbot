@@ -74,7 +74,7 @@ def webhook():
                         send_message(sender_id, "I know you are asking about someone, but I'm not that smart yet!")
 
                     elif re.match(r".*map|where|wheres|where's|building|looking|look", message_text, re.I):
-                        thing = location_module.LocationPasser.process_message
+                        thing = location_module.process_message_str
 
 
                         send_message(sender_id, thing)
