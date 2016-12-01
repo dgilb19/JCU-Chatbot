@@ -46,7 +46,8 @@ def webhook():
 
                     # reply = get_reply(message_text)
                     # send_message(sender_id, reply)
-                    send_message(sender_id, "this aint going to work")
+
+                    send_message(sender_id, ("thing" + 1))
 ###
 
                     # if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
