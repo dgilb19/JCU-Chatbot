@@ -18,7 +18,7 @@ app = Flask(__name__)
 class Main:
     def __init__(self):
         self.location = location_module
-        self.locationPasser = LocationPasser
+        # self.locationPasser = LocationPasser
 
 
 #TODO make location things work so i can put where(location) part in different module
@@ -75,7 +75,7 @@ def webhook():
 
                     elif re.match(r".*map|where|wheres|where's|building|looking|look", message_text, re.I):
 
-                        send_message(sender_id, "{}".format(location_module))
+                        send_message(sender_id, "{}".format(location_module.LocationPasser))
 
 
 
