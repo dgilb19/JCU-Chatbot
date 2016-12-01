@@ -13,7 +13,16 @@ class App_test(unittest.TestCase):
         self.assertEquals(get_reply("reverse thing"), "Reversed: gniht")
 
     def testFour(self):
-        self.assertEquals(get_reply("random words"), "idk what you are saying")
+        self.assertEquals(get_reply("random thingy"), "idk what you are saying")
+
+    def testFive(self):
+        self.assertEquals(get_reply("what"), "I know you are asking a question but I'm not that smart yet! :what")
+
+    def testSix(self):
+        self.assertEquals(get_reply("when"), "I know you are asking when something is, but I'm not that smart yet!")
+
+    def testSeven(self):
+        self.assertEquals(get_reply("who"), "I know you are asking about someone, but I'm not that smart yet!")
 
 
 def main():

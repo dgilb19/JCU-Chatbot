@@ -67,7 +67,7 @@ def webhook():
 
                     elif re.match(r".*map|where|wheres|where's", message_text, re.I):
                         if re.match(r'.*map', message_text, re.I):
-                            send_message(sender_id, "Here's a map!")
+                            send_message(sender_id, "Here's a map! \nhttps://maps.jcu.edu.au/campus/townsville/")
                         else:
                             send_message(sender_id, "I know you are asking where something is, but I'm not that smart yet!!")
 
@@ -134,7 +134,7 @@ def get_reply(message_text):
     elif re.match(r'.*when|date', message_text, re.I):
         return "I know you are asking when something is, but I'm not that smart yet!"
 
-    elif re.match(r'.*who', message_text, re.I):
+    elif re.match(r".*who|whos|who's", message_text, re.I):
         return "I know you are asking about someone, but I'm not that smart yet!"
 
     elif re.match(r".*map|where|wheres|where's", message_text, re.I):
@@ -149,10 +149,10 @@ def get_reply(message_text):
             text = message_text.split(" ")[1]
         else:
             text = " "
-        send_message("Reversed: {}".format(text[::-1]))
+        return ("Reversed: {}".format(text[::-1]))
 
     else:
-        send_message("idk what you are saying")
+        return ("idk what you are saying")
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
