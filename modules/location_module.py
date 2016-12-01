@@ -1,6 +1,6 @@
 
 
-class LocationPasser():
+class LocationPasser:
     def process_message(self):
         return "aegfaegreswgregrgha"
 
