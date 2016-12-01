@@ -1,9 +1,9 @@
 import os
 import sys
 import json
-import random
-
-import re
+# import random
+#
+# import re
 
 from flask import Flask, request
 import requests
@@ -78,7 +78,7 @@ def webhook():
                     #     send_message(sender_id, recipient_id)
                     #
                     # else:
-                    send_message(sender_id, "idk what you are saying")
+                    # send_message(sender_id, "idk what you are saying")
                         # send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
 
 
