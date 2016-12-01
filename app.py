@@ -73,11 +73,11 @@ def webhook():
                     elif re.match(r'.*who', message_text, re.I):
                         send_message(sender_id, "I know you are asking about someone, but I'm not that smart yet!")
 
-                    elif re.match(r".*map|where|wheres|where's|building|looking|look", message_text, re.I):
+                    elif re.match(r".*map|where|wheres|where's|building|looking|look|[0-354]", message_text, re.I):
                         if re.match(r'.*map', message_text, re.I):
                             send_message(sender_id, "Here's a map! \nhttps://maps.jcu.edu.au/campus/townsville/")
 
-                        elif re.match(r'.000-354', message_text, re.I):
+                        elif re.match(r'.[0-354]', message_text, re.I):
                             send_message(sender_id, "you have a number")
                             # send_message(sender_id, "Are you looking for the Library? \nhttps://maps.jcu.edu.au/campus/townsville/?location=18")
 
