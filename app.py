@@ -109,10 +109,10 @@ def get_reply(message_text):
             for line in opened_file:
                 return line
 
-    elif re.match(r',*last message', message_text, re.I):
-        with open("last_message.csv", "a") as opened_file_last_message:
-            for line in opened_file_last_message:
-                return line
+    # elif re.match(r',*last message', message_text, re.I):
+    #     with open("last_message.csv", "a") as opened_file_last_message:
+    #         for line in opened_file_last_message:
+    #             return line
 
     else:
         return "idk what you are saying"
