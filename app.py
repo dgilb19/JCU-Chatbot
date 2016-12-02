@@ -47,7 +47,10 @@ def webhook():
                     reply = get_reply(message_text)
                     send_message(sender_id, reply)
 
-                    opened_file.write(message_text)
+                    if re.match(r'.*log|logs|history', message_text, re.I):
+                        pass
+                    else:
+                        opened_file.write(message_text + " ")
                     opened_file.close()
 
 
