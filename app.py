@@ -97,7 +97,7 @@ def get_reply(message_text):
 
     elif re.match(r',*log', message_text, re.I):
         with open("test.csv", "r") as opened_file:
-            return "{}".format(str(opened_file))
+            return str(opened_file)
 
     else:
         return "idk what you are saying"
