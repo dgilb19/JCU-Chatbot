@@ -53,8 +53,6 @@ def webhook():
                     else:
                         opened_file.write(message_text + ", ")
                     opened_file.close()
-                    for line in opened_file:
-                        send_message(sender_id, line)
 
                     # last_message = opened_file
                     # last_message
