@@ -3,6 +3,8 @@ import sys
 import json
 import random
 from modules.people_module import PeopleIndex
+from modules.location_module import LocationIndex
+from modules.date_module import DateIndex
 
 import re
 
@@ -49,6 +51,11 @@ def webhook():
                     reply = get_reply(message_text)
                     send_message(sender_id, reply)
 
+                    file_save = open('test,csv', 'r')
+                    file_save.write(message_text)
+                    file_save.close()
+
+
                 # if messaging_event.get("delivery"):  # delivery confirmation
                 #     pass
                 #
@@ -72,26 +79,19 @@ def get_reply(message_text):
         return "I know you are asking a question but I'm not that smart yet! :what"
 
     elif re.match(r'.*when|date', message_text, re.I):
-        return "I know you are asking when something is, but I'm not that smart yet!"
+        date_words = DateIndex(message_text)
+        date_words.date_passer(message_text)
+        return str(date_words)
 
     elif re.match(r".*who|whos", message_text, re.I):
-        who_words = PeopleIndex("I know you are asking about someone, but I'm not that smart yet!")
-        who_words.change_words_to_jerry()
+        who_words = PeopleIndex("")
+        who_words.change_words_to_jerry(message_text)
         return str(who_words)
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look[0-354]", message_text, re.I):
-        if re.match(r'.*map', message_text, re.I):
-            return "Here's a map! https://maps.jcu.edu.au/campus/townsville/"
-
-        elif re.match(r'.*[0-354]', message_text, re.I):
-            message_text_number = re.findall('\d+', message_text)
-            message_text_number = ("".join(message_text_number))
-            return "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(message_text_number)
-
-        elif re.match(r'.*pool|swim|swimming', message_text, re.I):
-            return "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241"
-        else:
-            return "I know you are asking where something is, but I'm not that smart yet!!"
+        location_words = LocationIndex(message_text)
+        location_words.location_passer(message_text)
+        return str(location_words)
 
     elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
         if len(message_text.split(" ")) > 1:

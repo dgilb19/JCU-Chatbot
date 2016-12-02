@@ -1,3 +1,5 @@
+import re
+
 
 class PeopleIndex:
     def __init__(self, people_str):
@@ -6,8 +8,8 @@ class PeopleIndex:
     def __str__(self):
         return "{}".format(self.people_str)
 
-    def change_words_to_jerry(self):
-        self.people_str = "Are you looking for Jerry?"
-
-    def make_words_new(self):
-        self.people_str = "these are the newest words"
+    def change_words_to_jerry(self, message_text):
+        if re.match(r'.*jerry', message_text, re.I):
+            self.people_str = "this is Jerry"
+        else:
+            self.people_str = "I know you are asking about someone, but I'm not that smart yet!"
