@@ -42,7 +42,7 @@ def webhook():
                 pass
 
                 if messaging_event.get("message"):  # someone sent us a message
-                    pass
+
 
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
@@ -56,14 +56,14 @@ def webhook():
                     file_save.close()
 
 
-                if messaging_event.get("delivery"):  # delivery confirmation
-                    pass
-
-                if messaging_event.get("option"):  # option confirmation
-                    pass
-
-                if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
-                    pass
+                # if messaging_event.get("delivery"):  # delivery confirmation
+                #     pass
+                #
+                # if messaging_event.get("option"):  # option confirmation
+                #     pass
+                #
+                # if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
+                #     pass
                     # going to leave this here in case i need it!
 
     return "ok", 200
