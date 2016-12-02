@@ -38,6 +38,7 @@ def webhook():
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
                 if messaging_event.get("message"):  # someone sent us a message
+
                     opened_file = open('test.csv', 'a')
                     opened_file_last_message = open('last_message.csv', 'a')
 
@@ -52,12 +53,9 @@ def webhook():
                         pass
                     else:
                         opened_file.write(message_text + ", ")
-                    opened_file.close()
-
-                    if re.match(r'.*log|logs|history', message_text, re.I):
-                        pass
-                    else:
                         opened_file_last_message.write(message_text)
+
+                    opened_file.close()
                     opened_file_last_message.close()
 
 
@@ -107,12 +105,12 @@ def get_reply(message_text):
         return "Reversed: {}".format(text[::-1])
 
     elif re.match(r',*log', message_text, re.I):
-        with open("test.csv", "r") as opened_file:
+        with open("test.csv", "a") as opened_file:
             for line in opened_file:
                 return line
 
     elif re.match(r',*last message', message_text, re.I):
-        with open("last_message.csv", "r") as opened_file_last_message:
+        with open("last_message.csv", "a") as opened_file_last_message:
             for line in opened_file_last_message:
                 return line
 
