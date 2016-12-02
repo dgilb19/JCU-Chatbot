@@ -54,7 +54,7 @@ def webhook():
                         opened_file.write(message_text + ", ")
                     opened_file.close()
 
-                    opened_file_last_message = message_text
+                    opened_file_last_message.write(message_text)
                     opened_file_last_message.close()
 
 
