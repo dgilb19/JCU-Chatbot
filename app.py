@@ -95,6 +95,10 @@ def get_reply(message_text):
             text = " "
         return "Reversed: {}".format(text[::-1])
 
+    elif re.match(r',*log', message_text, re.I):
+        with open("test.csv", "r") as opened_file:
+            return "{}".format(opened_file)
+
     else:
         return "idk what you are saying"
         # send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
