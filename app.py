@@ -39,8 +39,6 @@ def webhook():
             for messaging_event in entry["messaging"]:
                 if messaging_event.get("message"):  # someone sent us a message
                     opened_file = open('test.csv', 'r')
-                    # opened_file_last_message = open('last_message.csv', 'a')
-
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
@@ -80,7 +78,7 @@ def webhook():
 def get_reply(message_text):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
-    if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
+    if re.match(r'.*hello |hey |hi (?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
 
     elif re.match(r'.*what', message_text, re.I):
@@ -91,12 +89,12 @@ def get_reply(message_text):
         date_words.date_passer(message_text)
         return str(date_words)
 
-    elif re.match(r".*who|whos", message_text, re.I):
+    elif re.match(r".*who |whos |who's", message_text, re.I):
         who_words = PeopleIndex("")
         who_words.change_words_to_jerry(message_text)
         return str(who_words)
 
-    elif re.match(r".*map|where|wheres|where's|building|looking|look[0-354]", message_text, re.I):
+    elif re.match(r".*map |where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)
         location_words.location_passer(message_text)
         return str(location_words)
@@ -108,15 +106,21 @@ def get_reply(message_text):
             text = " "
         return "Reversed: {}".format(text[::-1])
 
-    elif re.match(r',*log', message_text, re.I):
+    elif re.match(r',*log ', message_text, re.I):
         with open("test.csv", "r") as opened_file:
             for line in opened_file:
                 return line
 
-    elif re.match(r',*last message', message_text, re.I):
-        with open("last_message.csv", "r") as opened_file_last_message:
-            for line_last_message in opened_file_last_message:
-                return line_last_message
+    # elif re.match(r',*last message', message_text, re.I):
+    #     with open("last_message.csv", "r") as opened_file_last_message:
+    #         for line_last_message in opened_file_last_message:
+    #             return line_last_message
+    # TODO make function that can get the last user input(message_text)
+
+    elif message_text in open("peoplelist.csv").read():
+        people_words = PeopleIndex(message_text)
+        people_words.people_passer(message_text)
+        return str(people_words)
 
     else:
         return "idk what you are saying"

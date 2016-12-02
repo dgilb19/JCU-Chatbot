@@ -34,6 +34,9 @@ class App_test(unittest.TestCase):
     def testTen(self):
         self.assertEquals(get_reply("last message"), "last message")
 
+    def testEleven(self):
+        self.assertEquals(get_reply("daniel gilbert"), "Daniel Gilbert")
+
 
 def main():
     unittest.main()

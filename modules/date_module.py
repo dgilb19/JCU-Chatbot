@@ -8,3 +8,5 @@ class DateIndex:
 
     def date_passer(self, message_text):
         self.date_str = "I know you are asking when something is, but I'm not that smart yet!"
+
+#TODO start/finish this, add some events they can ask about same as people module but probs less complex

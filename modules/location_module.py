@@ -21,3 +21,6 @@ class LocationIndex:
             self.location_str = "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241"
         else:
             self.location_str = "I know you are asking where something is, but I'm not that smart yet!!"
+
+# TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
+# put the name in and still get the map up
