@@ -62,29 +62,6 @@ def webhook():
     return "ok", 200
 
 
-def send_message(recipient_id, message_text):
-    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
-
-    params = {
-        "access_token": os.environ["PAGE_ACCESS_TOKEN"]
-    }
-    headers = {
-        "Content-Type": "application/json"
-    }
-    data = json.dumps({
-        "recipient": {
-            "id": recipient_id
-        },
-        "message": {
-            "text": message_text
-        }
-    })
-    r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
-    if r.status_code != 200:
-        log(r.status_code)
-        log(r.text)
-
-
 def get_reply(message_text):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
@@ -97,10 +74,10 @@ def get_reply(message_text):
     elif re.match(r'.*when|date', message_text, re.I):
         return "I know you are asking when something is, but I'm not that smart yet!"
 
-    elif re.match(r'.*who', message_text, re.I):
+    elif re.match(r".*who|whos", message_text, re.I):
         who_words = PeopleIndex("I know you are asking about someone, but I'm not that smart yet!")
         who_words.change_words_to_jerry()
-        return who_words
+        return str(who_words)
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look[0-354]", message_text, re.I):
         if re.match(r'.*map', message_text, re.I):
@@ -126,6 +103,29 @@ def get_reply(message_text):
     else:
         return "idk what you are saying"
         # send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
+
+
+def send_message(recipient_id, message_text):
+    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
+
+    params = {
+        "access_token": os.environ["PAGE_ACCESS_TOKEN"]
+    }
+    headers = {
+        "Content-Type": "application/json"
+    }
+    data = json.dumps({
+        "recipient": {
+            "id": recipient_id
+        },
+        "message": {
+            "text": message_text
+        }
+    })
+    r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
+    if r.status_code != 200:
+        log(r.status_code)
+        log(r.text)
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku

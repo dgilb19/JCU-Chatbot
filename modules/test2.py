@@ -1,13 +1,22 @@
 from test2part2 import Things2
 
 
-def main():
-    words = Things2("these are words")
+words = Things2("these are words")
 
-    print(words)
-    words.new_string()
-    print(words)
-    words.new_string_two()
-    print(words)
+print(words)
+words.new_string()
+print(words)
+words.new_string_two()
+print(words)
 
-main()
+
+# def main():
+#     words = Things2("these are words")
+#
+#     print(words)
+#     words.new_string()
+#     print(words)
+#     words.new_string_two()
+#     print(words)
+#
+# main()
