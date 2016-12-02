@@ -51,7 +51,7 @@ def webhook():
                     reply = get_reply(message_text)
                     send_message(sender_id, reply)
 
-                    file_save = open('test,csv', 'r')
+                    file_save = open('test.csv', 'r')
                     file_save.write(message_text)
                     file_save.close()
 
