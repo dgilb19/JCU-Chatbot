@@ -54,6 +54,9 @@ def webhook():
                         opened_file.write(message_text + ", ")
                     opened_file.close()
 
+                    opened_file_last_message = message_text
+                    opened_file_last_message.close()
+
 
 
 
@@ -107,9 +110,9 @@ def get_reply(message_text):
                 return line
 
     elif re.match(r',*last message', message_text, re.I):
-        with open("last_message.csv", "r") as opened_file:
-            for line in opened_file:
-                return line
+        with open("last_message.csv", "r") as opened_file_last_message:
+            for line_last_message in opened_file_last_message:
+                return line_last_message
 
     else:
         return "idk what you are saying"
