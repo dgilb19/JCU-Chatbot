@@ -24,11 +24,16 @@ class App_test(unittest.TestCase):
     def testSeven(self):
         self.assertEquals(get_reply("who"), "Are you looking for Jerry?")
 
-    # def testEight(self):
-    #     self.assertEquals(get_reply(""),"")
+    def testEight(self):
+        self.assertEquals(get_reply("building 34"),
+                          "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location=34")
 
-    def testNine(self):
-        self.assertEquals(get_reply("building 34"), "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location=34")
+    # def testNine(self):
+    #     self.assertEquals(get_reply("log"), "log")
+    #
+    # def testTen(self):
+    #     self.assertEquals(get_reply("last message"), "last message")
+
 
 def main():
     unittest.main()
