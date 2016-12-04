@@ -34,11 +34,13 @@ def webhook():
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
+    list_test = []
+
     if data["object"] == "page":
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
                 if messaging_event.get("message"):  # someone sent us a message
-                    opened_file = open('test.csv', 'r')
+                    # opened_file = open('test.csv', 'r')
 
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
@@ -50,8 +52,9 @@ def webhook():
                     if re.match(r'.*log|logs|history', message_text, re.I):
                         pass
                     else:
-                        opened_file.write(message_text + ", ")
-                    opened_file.close()
+                        list_test.append(message_text)
+                    #     opened_file.write(message_text + ", ")
+                    # opened_file.close()
 
                     # last_message = opened_file
                     # last_message
@@ -76,7 +79,7 @@ def webhook():
     return "ok", 200
 
 
-def get_reply(message_text):
+def get_reply(message_text, list_test):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
@@ -108,9 +111,10 @@ def get_reply(message_text):
         return "Reversed: {}".format(text[::-1])
 
     elif re.match(r',*log', message_text, re.I):
-        with open("test.csv", "r") as opened_file:
-            for line in opened_file:
-                return line
+        # with open("test.csv", "r") as opened_file:
+        #     for line in opened_file:
+        #         return line
+        list_test
 
     # elif re.match(r',*last message', message_text, re.I):
     #     with open("last_message.csv", "r") as opened_file_last_message:
