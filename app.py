@@ -51,7 +51,7 @@ def webhook():
                     if re.match(r'.*log|logs|history', message_text, re.I):
                         pass
                     else:
-                        message_text += list_test
+                        list_test.append(message_text)
 
                     #     opened_file.write(message_text + ", ")
                     # opened_file.close()
