@@ -38,7 +38,7 @@ def webhook():
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
                 if messaging_event.get("message"):  # someone sent us a message
-                    # opened_file = open('test.csv', 'r')
+                    opened_file = open('test.csv', 'r')
 
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
@@ -47,11 +47,11 @@ def webhook():
                     reply = get_reply(message_text)
                     send_message(sender_id, reply)
 
-                    # if re.match(r'.*log|logs|history', message_text, re.I):
-                    #     pass
-                    # else:
-                    #     opened_file.write(message_text + ", ")
-                    # opened_file.close()
+                    if re.match(r'.*log|logs|history', message_text, re.I):
+                        pass
+                    else:
+                        opened_file.write(message_text + ", ")
+                    opened_file.close()
 
                     # last_message = opened_file
                     # last_message
@@ -95,7 +95,7 @@ def get_reply(message_text):
         who_words.change_words_to_jerry(message_text)
         return str(who_words)
 
-    elif re.match(r".*map |where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
+    elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)
         location_words.location_passer(message_text)
         return str(location_words)
@@ -107,7 +107,7 @@ def get_reply(message_text):
             text = " "
         return "Reversed: {}".format(text[::-1])
 
-    elif re.match(r',*log ', message_text, re.I):
+    elif re.match(r',*log', message_text, re.I):
         with open("test.csv", "r") as opened_file:
             for line in opened_file:
                 return line

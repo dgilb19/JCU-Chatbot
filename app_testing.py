@@ -4,7 +4,7 @@ from app import get_reply
 
 class App_test(unittest.TestCase):
     def testOne(self):
-        self.assertEquals(get_reply("Hello"), "hello, how can I help you today?")
+        self.assertEquals(get_reply("Hi"), "Hello, how can I help you today?")
 
     def testTwo(self):
         self.assertEquals(get_reply("Can you show me the map?"), "Here's a map! https://maps.jcu.edu.au/campus/townsville/")
