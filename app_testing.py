@@ -35,7 +35,22 @@ class App_test(unittest.TestCase):
         self.assertEquals(get_reply("last message"), "last message")
 
     def testEleven(self):
+        self.assertEquals(get_reply("daniel"), "Daniel Gilbert")
+
+    def testTwelve(self):
         self.assertEquals(get_reply("daniel gilbert"), "Daniel Gilbert")
+
+    def testThirteen(self):
+        self.assertEquals(get_reply("exam period"), "Exam Period")
+
+    def testFourteen(self):
+        self.assertEquals(get_reply("study"), "Study Vacation")
+
+    def testFifteen(self):
+        self.assertEquals(get_reply("week"), "O Week")
+
+    def testSixteen(self):
+        self.assertEquals(get_reply("exam"), "Exam Period")
 
 
 def main():

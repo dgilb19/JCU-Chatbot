@@ -80,7 +80,7 @@ def webhook():
     return "ok", 200
 
 
-def get_reply(message_text, list_test, full_list_test):
+def get_reply(message_text):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
 
@@ -88,9 +88,9 @@ def get_reply(message_text, list_test, full_list_test):
     #     pass
     # else:
     # list_test.append(str(message_text))
-    list_test[:0] = [message_text]
-
-    full_list_test.append(list_test)
+    # list_test[:0] = [message_text]
+    #
+    # full_list_test.append(list_test)
 
     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
@@ -99,6 +99,16 @@ def get_reply(message_text, list_test, full_list_test):
         return "I know you are asking a question but I'm not that smart yet! :what"
 
     elif re.match(r'.*when|whens|date', message_text, re.I):
+        if message_text in open("datelist.csv").read():
+            date_words = DateIndex(message_text)
+            date_words.date_passer(message_text)
+            return str(date_words)
+        else:
+            date_words = DateIndex(message_text)
+            date_words.date_passer(message_text)
+            return str(date_words)
+
+    elif message_text or "exams" in open("datelist.csv").read():
         date_words = DateIndex(message_text)
         date_words.date_passer(message_text)
         return str(date_words)
@@ -107,6 +117,11 @@ def get_reply(message_text, list_test, full_list_test):
         who_words = PeopleIndex("")
         who_words.change_words_to_jerry(message_text)
         return str(who_words)
+
+    elif message_text in open("peoplelist.csv").read():
+        people_words = PeopleIndex(message_text)
+        people_words.people_passer(message_text)
+        return str(people_words)
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)
@@ -120,28 +135,23 @@ def get_reply(message_text, list_test, full_list_test):
             text = " "
         return "Reversed: {}".format(text[::-1])
 
-    elif re.match(r',*log', message_text, re.I):
-        # with open("test.csv", "r") as opened_file:
-        #     for line in opened_file:
-        #         return line
-        return str(list_test)
-
-    elif re.match(r',*list', message_text, re.I):
-        # with open("test.csv", "r") as opened_file:
-        #     for line in opened_file:
-        #         return line
-        return str(full_list_test)
+    # elif re.match(r',*log', message_text, re.I):
+    #     # with open("test.csv", "r") as opened_file:
+    #     #     for line in opened_file:
+    #     #         return line
+    #     return str(list_test)
+    #
+    # elif re.match(r',*list', message_text, re.I):
+    #     # with open("test.csv", "r") as opened_file:
+    #     #     for line in opened_file:
+    #     #         return line
+    #     return str(full_list_test)
 
     # elif re.match(r',*last message', message_text, re.I):
     #     with open("last_message.csv", "r") as opened_file_last_message:
     #         for line_last_message in opened_file_last_message:
     #             return line_last_message
     # TODO make function that can get the last user input(message_text)
-
-    elif message_text in open("peoplelist.csv").read():
-        people_words = PeopleIndex(message_text)
-        people_words.people_passer(message_text)
-        return str(people_words)
 
     else:
         return "idk what you are saying"

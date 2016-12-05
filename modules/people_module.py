@@ -13,8 +13,9 @@ class PeopleIndex:
             for line in peoplelist:
                 line_name = line.split(", ")[0]
                 line_length = len(line_name)
-                line
-                if line_name in message_text:
+                line_first_name = line_name[0]
+                line_last_name = line_name[1]
+                if line_name or line_first_name or line_last_name in message_text:
                     line = line[:line_length].title()
                     self.people_str = line
                     #TODO make it so that if they only put it fisrt name it still works and if there is two of the same name it gives the user an option about which one

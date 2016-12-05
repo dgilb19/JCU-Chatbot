@@ -1,6 +1,3 @@
-import re
-
-
 class DateIndex:
     def __init__(self, date_str):
         self.date_str = date_str
@@ -13,12 +10,12 @@ class DateIndex:
             for line in datelist:
                 line_name = line.split(", ")[0]
                 line_length = len(line_name)
-                if line_name in message_text:
+                line_first_name = line_name[0]
+                line_last_name = line_name[1]
+                if line_name or line_first_name or line_last_name in message_text:
                     line = line[:line_length].title()
                     self.date_str = line
+                else:
+                    self.date_str = "I know you are asking when something is, but I'm not that smart yet!"
 
-
-
-        self.date_str = "I know you are asking when something is, but I'm not that smart yet!"
-
-#TODO start/finish this, add some events they can ask about same as people module but probs less complex
+# TODO start/finish this, add some events they can ask about same as people module but probs less complex
