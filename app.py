@@ -100,7 +100,7 @@ def get_reply(message_text):
 
     elif re.match(r'.*when|whens|date', message_text, re.I):
         if message_text in open("datelist.csv").read():
-            date_words = DateIndex(message_text)
+            date_words = DateIndex("")
             date_words.date_passer(message_text)
             return str(date_words)
         else:
@@ -113,10 +113,15 @@ def get_reply(message_text):
         date_words.date_passer(message_text)
         return str(date_words)
 
-    elif re.match(r".*who |whos |who's", message_text, re.I):
-        who_words = PeopleIndex("")
-        who_words.change_words_to_jerry(message_text)
-        return str(who_words)
+    # elif re.match(r".*who |whos |who's", message_text, re.I):
+    #     if message_text in open("peoplelist.csv").read():
+    #         people_words = PeopleIndex(message_text)
+    #         people_words.people_passer(message_text)
+    #         return str(people_words)
+    #     else:
+    #         who_words = PeopleIndex("")
+    #         who_words.change_words_to_jerry(message_text)
+    #         return str(who_words)
 
     elif message_text in open("peoplelist.csv").read():
         people_words = PeopleIndex(message_text)
