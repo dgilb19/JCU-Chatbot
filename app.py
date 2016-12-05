@@ -34,7 +34,7 @@ def webhook():
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
-    list_test = []
+    list_test = ["test 1"]
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -52,7 +52,7 @@ def webhook():
                     # if re.match(r'.*log|logs|history', message_text, re.I):
                     #     pass
                     # else:
-                    list_test.append(message_text)
+                    list_test.append(message_text + ", ")
                     #     opened_file.write(message_text + ", ")
                     # opened_file.close()
 
@@ -114,7 +114,7 @@ def get_reply(message_text, list_test):
         # with open("test.csv", "r") as opened_file:
         #     for line in opened_file:
         #         return line
-        return str(list_test[0])
+        return str(list_test)
 
     # elif re.match(r',*last message', message_text, re.I):
     #     with open("last_message.csv", "r") as opened_file_last_message:
