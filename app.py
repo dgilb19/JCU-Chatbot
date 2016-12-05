@@ -122,6 +122,12 @@ def get_reply(message_text):
         #         return line
         return str(list_test)
 
+    elif re.match(r',*log list', message_text, re.I):
+        # with open("test.csv", "r") as opened_file:
+        #     for line in opened_file:
+        #         return line
+        return str(full_list_test)
+
     # elif re.match(r',*last message', message_text, re.I):
     #     with open("last_message.csv", "r") as opened_file_last_message:
     #         for line_last_message in opened_file_last_message:
