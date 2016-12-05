@@ -156,12 +156,12 @@ def get_reply(message_text, list_test):
     elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)
 
-        with open("buildinglist.csv") as buildinglist:
-            for line in buildinglist:
-                if message_text in line:
-                    location_words.location_passer_name(message_text)
-                else:
-                    location_words.location_passer(message_text)
+        # with open("buildinglist.csv") as buildinglist:
+        #     for line in buildinglist:
+        #         if message_text in line:
+        #             location_words.location_passer_name(message_text)
+        #         else:
+        location_words.location_passer(message_text)
         return str(location_words)
 
     elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
