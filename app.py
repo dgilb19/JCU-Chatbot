@@ -98,35 +98,35 @@ def get_reply(message_text):
     elif re.match(r'.*what', message_text, re.I):
         return "I know you are asking a question but I'm not that smart yet! :what"
 
-    elif re.match(r'.*when|whens|date', message_text, re.I):
-        if message_text in open("datelist.csv").read():
-            date_words = DateIndex("")
-            date_words.date_passer(message_text)
-            return str(date_words)
-        else:
-            date_words = DateIndex(message_text)
-            date_words.date_passer(message_text)
-            return str(date_words)
-
-    elif message_text or "exams" in open("datelist.csv").read():
-        date_words = DateIndex(message_text)
-        date_words.date_passer(message_text)
-        return str(date_words)
-
-    # elif re.match(r".*who |whos |who's", message_text, re.I):
-    #     if message_text in open("peoplelist.csv").read():
-    #         people_words = PeopleIndex(message_text)
-    #         people_words.people_passer(message_text)
-    #         return str(people_words)
+    # elif re.match(r'.*when|whens|date', message_text, re.I):
+    #     if message_text in open("datelist.csv").read():
+    #         date_words = DateIndex("")
+    #         date_words.date_passer(message_text)
+    #         return str(date_words)
     #     else:
-    #         who_words = PeopleIndex("")
-    #         who_words.change_words_to_jerry(message_text)
-    #         return str(who_words)
+    #         date_words = DateIndex(message_text)
+    #         date_words.date_passer(message_text)
+    #         return str(date_words)
 
-    elif message_text in open("peoplelist.csv").read():
-        people_words = PeopleIndex(message_text)
-        people_words.people_passer(message_text)
-        return str(people_words)
+    # elif message_text or "exams" in open("datelist.csv").read():
+    #     date_words = DateIndex(message_text)
+    #     date_words.date_passer(message_text)
+    #     return str(date_words)
+
+    elif re.match(r".*who |whos |who's", message_text, re.I):
+        if message_text in open("peoplelist.csv").read():
+            people_words = PeopleIndex(message_text)
+            people_words.people_passer(message_text)
+            return str(people_words)
+        else:
+            who_words = PeopleIndex("")
+            who_words.change_words_to_jerry(message_text)
+            return str(who_words)
+
+    # elif message_text in open("peoplelist.csv").read():
+    #     people_words = PeopleIndex(message_text)
+    #     people_words.people_passer(message_text)
+    #     return str(people_words)
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)
