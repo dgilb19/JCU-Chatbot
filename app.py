@@ -87,7 +87,9 @@ def get_reply(message_text, list_test, full_list_test):
     # if re.match(r'.*log|logs|history', message_text, re.I):
     #     pass
     # else:
-    list_test.append(str(message_text))
+    # list_test.append(str(message_text))
+    list_test[:0] = [message_text]
+
     full_list_test.append(list_test)
 
     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
