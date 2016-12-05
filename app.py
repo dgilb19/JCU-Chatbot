@@ -100,6 +100,7 @@ def get_reply(message_text, list_test):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
 
     elif re.match(r'.*what', message_text, re.I):
+        list_test = str(list_test)
         if re.match(r'.*email', message_text, re.I):
             with open("peoplelist.csv") as peoplelist:
                 for line in peoplelist:
