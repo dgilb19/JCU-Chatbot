@@ -98,7 +98,7 @@ def get_reply(message_text, list_test, full_list_test):
     elif re.match(r'.*what', message_text, re.I):
         return "I know you are asking a question but I'm not that smart yet! :what"
 
-    elif re.match(r'.*when|date', message_text, re.I):
+    elif re.match(r'.*when|whens|date', message_text, re.I):
         date_words = DateIndex(message_text)
         date_words.date_passer(message_text)
         return str(date_words)
