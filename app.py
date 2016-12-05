@@ -114,7 +114,7 @@ def get_reply(message_text, list_test):
         # with open("test.csv", "r") as opened_file:
         #     for line in opened_file:
         #         return line
-        return str(list_test)
+        return str(list_test[0])
 
     # elif re.match(r',*last message', message_text, re.I):
     #     with open("last_message.csv", "r") as opened_file_last_message:
