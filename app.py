@@ -104,7 +104,6 @@ def get_reply(message_text, list_test):
             with open("peoplelist.csv") as peoplelist:
                 for line in peoplelist:
                     if "daniel" in line:
-                        # return "swag"
                         return line.split(", ")[1]
 
 
@@ -178,6 +177,8 @@ def get_reply(message_text, list_test):
     #         for line_last_message in opened_file_last_message:
     #             return line_last_message
     # TODO make function that can get the last user input(message_text)
+
+    # TODO make a version function so i can see what function it is in the chat
 
     else:
         return "idk what you are saying"
