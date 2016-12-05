@@ -34,8 +34,6 @@ def webhook():
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
-    list_test = ["test 1"]
-
     if data["object"] == "page":
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
@@ -46,13 +44,13 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    reply = get_reply(message_text, list_test)
+                    reply = get_reply(message_text)
                     send_message(sender_id, reply)
 
                     # if re.match(r'.*log|logs|history', message_text, re.I):
                     #     pass
                     # else:
-                    list_test.append('test two')
+
                     #     opened_file.write(message_text + ", ")
                     # opened_file.close()
 
@@ -79,8 +77,11 @@ def webhook():
     return "ok", 200
 
 
-def get_reply(message_text, list_test):
+def get_reply(message_text):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
+    list_test = ["test 1"]
+
+    list_test.append(message_text)
 
     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
