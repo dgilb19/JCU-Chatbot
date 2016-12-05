@@ -88,7 +88,7 @@ def get_reply(message_text, list_test, full_list_test):
     #     pass
     # else:
     list_test.append(str(message_text))
-    full_list_test.append(full_list_test + list_test)
+    full_list_test.append(list_test)
 
     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
