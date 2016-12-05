@@ -47,7 +47,7 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    str(list_test.append(message_text))
+                    list_test.append(message_text)
 
                     reply = get_reply(message_text, list_test)
                     send_message(sender_id, reply)
@@ -100,7 +100,7 @@ def get_reply(message_text, list_test):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
 
     elif re.match(r'.*what', message_text, re.I):
-        return list_test
+        return str(list_test)
 
 
 
