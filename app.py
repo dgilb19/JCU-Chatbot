@@ -50,6 +50,8 @@ def webhook():
                     reply = get_reply(message_text)
                     send_message(sender_id, reply)
 
+                    list_test.append(message_text)
+
                     # if re.match(r'.*log|logs|history', message_text, re.I):
                     #     pass
                     # else:
@@ -80,7 +82,7 @@ def webhook():
     return "ok", 200
 
 
-def get_reply(message_text):
+def get_reply(message_text, list_test):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
 
@@ -96,7 +98,7 @@ def get_reply(message_text):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
 
     elif re.match(r'.*what', message_text, re.I):
-        return log
+        return str(list_test)
 
 
 
