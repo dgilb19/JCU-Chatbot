@@ -103,7 +103,7 @@ def get_reply(message_text, list_test):
         if re.match(r'.*email', message_text, re.I):
             with open("peoplelist.csv") as peoplelist:
                 for line in peoplelist:
-                    if list_test in line:
+                    if str(list_test) in line:
                         return line.split(", ")[1]
 
 
