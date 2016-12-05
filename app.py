@@ -79,7 +79,7 @@ def webhook():
 
 def get_reply(message_text):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
-    list_test = ['test 1', message_text]
+    list_test = ['test 1', str(message_text)]
 
     # if re.match(r'.*log|logs|history', message_text, re.I):
     #     pass
