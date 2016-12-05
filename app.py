@@ -106,6 +106,8 @@ def get_reply(message_text, list_test):
                     if "daniel" in line:
                         return line.split(", ")[1]
 
+    # TODO fix daniel so it take last input
+
 
         # if list_test == "what":
         #     return "good job"
