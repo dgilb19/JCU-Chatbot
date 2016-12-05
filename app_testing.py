@@ -55,6 +55,12 @@ class App_test(unittest.TestCase):
     def testSeventeen(self):
         self.assertEquals(get_reply("when is exam week?"), "Exam Period")
 
+    def testEighteen(self):
+        self.assertEquals(get_reply("daniel gilbert"), "What about Daniel Gilbert?")
+
+    def testNineteen(self):
+        self.assertEquals(get_reply("what"), "tbh im not even sure what will show up here")
+
 
 def main():
     unittest.main()
