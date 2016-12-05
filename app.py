@@ -86,7 +86,7 @@ def get_reply(message_text):
     #     pass
     # else:
     list_test.append(str(message_text))
-    full_list_test.append(str(full_list_test) + "swag")
+    full_list_test.append(str(full_list_test))
 
     if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
@@ -126,7 +126,7 @@ def get_reply(message_text):
         # with open("test.csv", "r") as opened_file:
         #     for line in opened_file:
         #         return line
-        return full_list_test
+        return str(full_list_test)
 
     # elif re.match(r',*last message', message_text, re.I):
     #     with open("last_message.csv", "r") as opened_file_last_message:
