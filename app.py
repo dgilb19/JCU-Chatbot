@@ -79,25 +79,24 @@ def get_reply(message_text, list_test):
                     else:
                         pass
 
-
     # TODO fix daniel so it take last input
 
+    elif re.match(r'.*when|whens|date|exam|exams', message_text, re.I):
+        date_words = DateIndex(message_text)
+        if message_text in open("datelist.csv").read():
+            date_words.date_passer(message_text)
+            return str(date_words)
+        elif re.match(r'.*exam|exams', message_text, re.I):
+            date_words.exam_list_passer(message_text)
+            return str(date_words)
+        else:
+            date_words.date_passer(message_text)
+            return str(date_words)
 
-
-    # elif re.match(r'.*when|whens|date', message_text, re.I):
-    #     if message_text in open("datelist.csv").read():
-    #         date_words = DateIndex("")
-    #         date_words.date_passer(message_text)
-    #         return str(date_words)
-    #     else:
-    #         date_words = DateIndex(message_text)
-    #         date_words.date_passer(message_text)
-    #         return str(date_words)
-    #
-    # elif message_text or "exams" in open("datelist.csv").read():
-    #     date_words = DateIndex(message_text)
-    #     date_words.date_passer(message_text)
-    #     return str(date_words)
+    elif message_text in open("datelist.csv").read():
+        date_words = DateIndex(message_text)
+        date_words.date_passer(message_text)
+        return str(date_words)
 
     elif re.match(r".*who |whos |who's", message_text, re.I):
         if message_text in open("peoplelist.csv").read():
@@ -130,28 +129,13 @@ def get_reply(message_text, list_test):
             text = " "
         return "Reversed: {}".format(text[::-1])
 
-    # elif re.match(r',*log', message_text, re.I):
-    #     # with open("test.csv", "r") as opened_file:
-    #     #     for line in opened_file:
-    #     #         return line
-    #     return str(list_test)
-    #
-    # elif re.match(r',*list', message_text, re.I):
-    #     # with open("test.csv", "r") as opened_file:
-    #     #     for line in opened_file:
-    #     #         return line
-    #     return str(full_list_test)
+    elif re.match(r',*last message', message_text, re.I):
+        return list_test
 
-    # elif re.match(r',*last message', message_text, re.I):
-    #     with open("last_message.csv", "r") as opened_file_last_message:
-    #         for line_last_message in opened_file_last_message:
-    #             return line_last_message
-    # TODO make function that can get the last user input(message_text)
-
-    # TODO make a version function so i can see what function it is in the chat
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
-        return "version 16"
+        return "version 17"
+
     elif re.match(r'.*help', message_text, re.I):
         return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only know a few people(try Daniel))"
 

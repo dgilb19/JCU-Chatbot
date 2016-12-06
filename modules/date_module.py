@@ -14,7 +14,15 @@ class DateIndex:
                     self.date_str = line.title().split(", ")[0]
                     """returns the appropriate name from the csv file"""
 
-
+    def exam_list_passer(self, message_text):
+        with open("examlist.csv") as examlist:
+            for line in examlist:
+                if "maths" in examlist:
+                # if message_text in line:
+                    self.date_str = line.title()
+                else:
+                    self.date_str = "this shouldnt be here"
+# TODO fix this, it dont work, idk why
 
                     # line_name = line.split(", ")[0]
                     # line_length = len(line_name)

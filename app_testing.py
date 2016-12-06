@@ -70,6 +70,12 @@ class App_test(unittest.TestCase):
     def testTwentyone(self):
         self.assertEquals(get_reply("what is Daniels email", list_test=""), "daniel.gilbert1@my.jcu.edu.au")
 
+    def testTwentytwo(self):
+        self.assertEquals(get_reply("when is the maths exam", list_test=""), "maths 21/5")
+
+    def testTwentythree(self):
+        self.assertEquals(get_reply("last message", list_test="TestyMcTestFace"), "TestyMcTestFace")
+
 
 def main():
     unittest.main()
