@@ -41,7 +41,6 @@ def webhook():
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
                 if messaging_event.get("message"):  # someone sent us a message
-                    # opened_file = open('test.csv', 'r')
 
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
@@ -51,25 +50,6 @@ def webhook():
 
                     reply = get_reply(message_text, list_test)
                     send_message(sender_id, reply)
-
-
-
-                    # if re.match(r'.*log|logs|history', message_text, re.I):
-                    #     pass
-                    # else:
-
-                    #     opened_file.write(message_text + ", ")
-                    # opened_file.close()
-
-                    # last_message = opened_file
-                    # last_message
-
-
-                    # opened_file_last_message.write(message_text)
-                    # opened_file_last_message.close()
-
-
-
 
                 # if messaging_event.get("delivery"):  # delivery confirmation
                 #     pass
@@ -189,13 +169,12 @@ def get_reply(message_text, list_test):
     # TODO make a version function so i can see what function it is in the chat
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
-        return "version 10"
+        return "version 16"
     elif re.match(r'.*help', message_text, re.I):
         return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only know a few people(try Daniel))"
 
-    elif re.match(r'.*allan', message_text, re.I):
-        return "Allan you are a massive drongo."
-
+    elif re.match(r'.*allan|cameron|cam|sanio|jesse|ramisa|remi', message_text, re.I):
+        return "Sorry - Sanio"
 
     else:
         return "idk what you are saying"
