@@ -23,7 +23,7 @@ class LocationIndex:
         else:
             with open("buildinglist.csv") as buildinglist:
                 for line in buildinglist:
-                    if message_text in line:
+                    if message_text in line[0]:
                         building_number = line.title().split(", ")[1]
                         self.location_str = "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(building_number)
                     else:

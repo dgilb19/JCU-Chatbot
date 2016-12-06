@@ -10,7 +10,7 @@ class App_test(unittest.TestCase):
         self.assertEquals(get_reply("Can you show me the map?", list_test=''), "Here's a map! https://maps.jcu.edu.au/campus/townsville/")
 
     def testThree(self):
-        self.assertEquals(get_reply("reverse thing", list_test=''), "Reversed: gniht")
+        self.assertEquals(get_reply("reverse thing that is awesome", list_test=''), "Reversed: emosewa si taht gniht")
 
     def testFour(self):
         self.assertEquals(get_reply("random thingy", list_test=''), "idk what you are saying")
@@ -62,7 +62,7 @@ class App_test(unittest.TestCase):
     #     self.assertEquals(get_reply("what", list_test='daniel gilbert'), "good job")
 
     def testNineteen(self):
-        self.assertEquals(get_reply("what is his email", list_test="daniel gilbert"), "daniel.gilbert1@my.jcu.edu.au")
+        self.assertEquals(get_reply("what is his email", list_test="ted cruz"), "ted.cruz@my.jcu.edu.au")
 
     def testTwenty(self):
         self.assertEquals(get_reply("where is Humanities", list_test=""), "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location=3")

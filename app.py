@@ -103,7 +103,7 @@ def get_reply(message_text, list_test):
         if re.match(r'.*email', message_text, re.I):
             with open("peoplelist.csv") as peoplelist:
                 for line in peoplelist:
-                    if "daniel" in line:
+                    if list_test in line:
                         return line.split(", ")[1]
                     else:
                         pass
@@ -160,7 +160,10 @@ def get_reply(message_text, list_test):
 
     elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
         if len(message_text.split(" ")) > 1:
-            text = message_text.split(" ")[1]
+            if re.match(r".*reverse", message_text, re.I):
+                text = message_text[8:]
+            else:
+                text = message_text[9:]
         else:
             text = " "
         return "Reversed: {}".format(text[::-1])
@@ -187,6 +190,8 @@ def get_reply(message_text, list_test):
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
         return "version 10"
+    elif re.match(r'.*help', message_text, re.I):
+        return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only know a few people(try Daniel))"
 
     elif re.match(r'.*allan', message_text, re.I):
         return "Allan you are a massive drongo."
