@@ -74,6 +74,9 @@ class App_test(unittest.TestCase):
         self.assertEquals(get_reply("when is the maths exam", list_test=""), "maths 21/5")
 
     def testTwentythree(self):
+        self.assertEquals(get_reply("maths", list_test=""), "maths, 21/5")
+
+    def testTwentyfour(self):
         self.assertEquals(get_reply("last message", list_test="TestyMcTestFace"), "TestyMcTestFace")
 
 

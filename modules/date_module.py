@@ -19,8 +19,9 @@ class DateIndex:
         with open("examlist.csv") as examlist:
             for line in examlist:
                 if "maths" in examlist:
-                # if message_text in line:
-                    self.date_str = line.title()
+                # if line.split(", ")[0] in message_text:
+                # if re.match(message_text, line):
+                    self.date_str = line.title().split(", ")[0]
                 else:
                     self.date_str = "this shouldnt be here"
 # TODO fix this, it dont work, idk why
