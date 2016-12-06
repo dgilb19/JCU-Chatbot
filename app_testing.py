@@ -67,6 +67,9 @@ class App_test(unittest.TestCase):
     def testTwenty(self):
         self.assertEquals(get_reply("where is Humanities", list_test=""), "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location=3")
 
+    def testTwentyone(self):
+        self.assertEquals(get_reply("what is Daniels email", list_test=""), "daniel.gilbert1@my.jcu.edu.au")
+
 
 def main():
     unittest.main()

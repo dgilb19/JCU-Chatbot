@@ -45,8 +45,6 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
-                    # message_text = str(message_text).lower
-                    # list_test.append(message_text)
 
                     reply = get_reply(message_text, list_test)
                     send_message(sender_id, reply)
@@ -67,23 +65,16 @@ def webhook():
 def get_reply(message_text, list_test):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
-
-    # if re.match(r'.*log|logs|history', message_text, re.I):
-    #     pass
-    # else:
-    # list_test.append(str(message_text))
-    # list_test[:0] = [message_text]
-    #
-    # full_list_test.append(list_test)
-
-    if re.match(r'.*hello|hey|hi(?!reverse|reversed|backwards)', message_text, re.I):
+    if re.match(r'.*hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
 
     elif re.match(r'.*what', message_text, re.I):
         if re.match(r'.*email', message_text, re.I):
             with open("peoplelist.csv") as peoplelist:
                 for line in peoplelist:
-                    if str(list_test) in line:
+                    if re.match(message_text, line, re.I):
+                        return line.split(", ")[1]
+                    elif re.match(list_test, line, re.I):
                         return line.split(", ")[1]
                     else:
                         pass
@@ -91,15 +82,6 @@ def get_reply(message_text, list_test):
 
     # TODO fix daniel so it take last input
 
-
-        # if list_test == "what":
-        #     return "good job"
-        # else:
-        #     return "bad job"
-
-
-
-        # return "I know you are asking a question but I'm not that smart yet! :what"
 
 
     # elif re.match(r'.*when|whens|date', message_text, re.I):
