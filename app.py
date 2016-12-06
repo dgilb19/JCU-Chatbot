@@ -35,7 +35,6 @@ def webhook():
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
     list_test = []
-    full_list_test = []
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -145,8 +144,6 @@ def get_reply(message_text, list_test):
     else:
         return "idk what you are saying"
         # send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
-
-
 
 
 def send_message(recipient_id, message_text):

@@ -1,5 +1,6 @@
 import re
 
+
 class DateIndex:
     def __init__(self, date_str):
         self.date_str = date_str
@@ -34,4 +35,4 @@ class DateIndex:
                     # else:
                     #     self.date_str = "I know you are asking when something is, but I'm not that smart yet!"
 
-# TODO start/finish this, add some events they can ask about same as people module but probs less complex
+# TODO work on this, add some events they can ask about questions, same as people module but probs less complex, probably
