@@ -25,8 +25,7 @@ class LocationIndex:
                 for line in buildinglist:
                     if message_text in line:
                         building_number = line.title().split(", ")[1]
-                        self.location_str = "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(
-                            building_number)
+                        self.location_str = "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(building_number)
                     else:
                         self.location_str = "I know you are asking where something is, but I'm not that smart yet!!"
 

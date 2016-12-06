@@ -155,12 +155,6 @@ def get_reply(message_text, list_test):
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)
-
-        # with open("buildinglist.csv") as buildinglist:
-        #     for line in buildinglist:
-        #         if message_text in line:
-        #             location_words.location_passer_name(message_text)
-        #         else:
         location_words.location_passer(message_text)
         return str(location_words)
 
@@ -190,10 +184,19 @@ def get_reply(message_text, list_test):
     # TODO make function that can get the last user input(message_text)
 
     # TODO make a version function so i can see what function it is in the chat
+    elif re.match(r".*version", message_text, re.I):
+        """"add number to this every time you push it"""
+        return "version 10"
+
+    elif re.match(r'.*allan', message_text, re.I):
+        return "Allan you are a massive drongo."
+
 
     else:
         return "idk what you are saying"
         # send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
+
+
 
 
 def send_message(recipient_id, message_text):
