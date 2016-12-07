@@ -80,7 +80,7 @@ def get_reply(message_text, list_test):
                     else:
                         pass
 
-    # TODO fix daniel so it take last input
+    # TODO fix daniel so it take last input(list_test) or (last_name_used)
 
     elif re.match(r'.*when|whens|date|exam|exams', message_text, re.I):
         date_words = DateIndex(message_text)
