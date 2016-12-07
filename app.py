@@ -37,6 +37,8 @@ def webhook():
     list_test = []
     last_name_used = []
 
+    # TODO add more memory list type things
+
     if data["object"] == "page":
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
@@ -46,7 +48,7 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    reply = get_reply(message_text, list_test)
+                    reply = get_reply(message_text, list_test, last_name_used)
                     send_message(sender_id, reply)
 
                 # if messaging_event.get("delivery"):  # delivery confirmation
