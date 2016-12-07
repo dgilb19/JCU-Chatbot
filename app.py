@@ -35,6 +35,7 @@ def webhook():
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
     list_test = []
+    last_name_used = []
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -61,8 +62,9 @@ def webhook():
     return "ok", 200
 
 
-def get_reply(message_text, list_test):
+def get_reply(message_text, list_test, last_name_used):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
+
 
     if re.match(r'.*hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
@@ -73,7 +75,7 @@ def get_reply(message_text, list_test):
                 for line in peoplelist:
                     if re.match(message_text, line, re.I):
                         return line.split(", ")[1]
-                    elif re.match(list_test, line, re.I):
+                    elif re.match(last_name_used, line, re.I):
                         return line.split(", ")[1]
                     else:
                         pass
@@ -96,7 +98,7 @@ def get_reply(message_text, list_test):
         date_words = DateIndex(message_text)
         date_words.exam_list_passer(message_text)
         return str(date_words)
-
+# TODO fix this, its broken
         # with open("examlist.csv") as examlist:
         #     for line in examlist:
         #         if message_text in line:
@@ -121,7 +123,9 @@ def get_reply(message_text, list_test):
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if message_text in line:
+                    last_name_used = line.split(", ")[0]
                     return "What about {}?".format(line.title().split(", ")[0])
+
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)

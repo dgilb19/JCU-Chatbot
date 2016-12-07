@@ -29,5 +29,12 @@ class LocationIndex:
                     else:
                         self.location_str = "I know you are asking where something is, but I'm not that smart yet!!"
 
+    def location_name_passer(self, message_test):
+        with open("buildinglist.csv") as buildinglist:
+            for line in buildinglist:
+                if message_test in line[0]:
+                    self.location_str = line.title().split(", ")[1]
+
+
 # TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
 # put the name in and still get the map up

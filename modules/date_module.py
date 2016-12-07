@@ -19,7 +19,7 @@ class DateIndex:
         with open("examlist.csv") as examlist:
             for line in examlist:
                 if message_text in line:
-                    self.date_str = line.title().split(", ")
+                    self.date_str = line
                 else:
                     self.date_str = "thing"
 # TODO fix this, it dont work, idk why THIS IS LITERALLY KILLING ME
