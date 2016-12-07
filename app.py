@@ -34,8 +34,8 @@ def webhook():
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
-    last_word_used = []
-    last_name_used = []
+    last_word_used = ''
+    last_name_used = ''
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -50,11 +50,11 @@ def webhook():
                     else:
                         pass
 
-                    last_word_used.append(message_text)
+                    last_word_used = message_text
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
                             if message_text in line:
-                                str(last_name_used.append(line.split(", ")[0]))
+                                last_name_used = line.split(", ")[0]
 
                     reply = get_reply(message_text, last_word_used, last_name_used)
                     send_message(sender_id, reply)
