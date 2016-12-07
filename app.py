@@ -34,7 +34,8 @@ def webhook():
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
-    list_test = []
+    last_word_used = []
+    last_name_used = []
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -44,10 +45,16 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
+                    if "?" in message_text:
+                        message_text = message_text[:-1]
+                    else:
+                        pass
 
-                    list_test.append(message_text)
+                    last_word_used.append(message_text)
+                    if message_text in open("peoplelist.csv"):
+                        last_name_used.append(message_text)
 
-                    reply = get_reply(message_text, list_test)
+                    reply = get_reply(message_text, last_word_used, last_name_used)
                     send_message(sender_id, reply)
 
                 # if messaging_event.get("delivery"):  # delivery confirmation
@@ -63,7 +70,7 @@ def webhook():
     return "ok", 200
 
 
-def get_reply(message_text, list_test):
+def get_reply(message_text, last_word_used, last_name_used):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
     if re.match(r'.*hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
@@ -75,7 +82,7 @@ def get_reply(message_text, list_test):
                 for line in peoplelist:
                     if re.match(message_text, line, re.I):
                         return line.split(", ")[1]
-                    elif re.match("daniel", line, re.I):
+                    elif re.match(last_name_used, line, re.I):
                         return line.split(", ")[1]
                     else:
                         pass
@@ -141,7 +148,7 @@ def get_reply(message_text, list_test):
         return "Reversed: {}".format(text[::-1])
 
     elif re.match(r',*last message', message_text, re.I):
-        return list_test
+        return last_word_used
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
