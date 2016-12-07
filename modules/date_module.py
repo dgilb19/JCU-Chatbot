@@ -22,7 +22,7 @@ class DateIndex:
                     self.date_str = line.title().split(", ")
                 else:
                     self.date_str = "thing"
-# TODO fix this, it dont work, idk why
+# TODO fix this, it dont work, idk why THIS IS LITERALLY KILLING ME
 
                     # line_name = line.split(", ")[0]
                     # line_length = len(line_name)
