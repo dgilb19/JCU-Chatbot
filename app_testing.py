@@ -79,6 +79,9 @@ class App_test(unittest.TestCase):
     def testTwentyfour(self):
         self.assertEquals(get_reply("last message", list_test="TestyMcTestFace"), "TestyMcTestFace")
 
+    def testTwentyfive(self):
+        self.assertEquals(get_reply("exam", list_test=""), "Exam Period")
+
 
 def main():
     unittest.main()

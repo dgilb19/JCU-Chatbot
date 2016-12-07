@@ -18,12 +18,10 @@ class DateIndex:
     def exam_list_passer(self, message_text):
         with open("examlist.csv") as examlist:
             for line in examlist:
-                if "maths" in examlist:
-                # if line.split(", ")[0] in message_text:
-                # if re.match(message_text, line):
-                    self.date_str = line.title().split(", ")[0]
+                if message_text in line:
+                    self.date_str = line.title().split(", ")
                 else:
-                    self.date_str = "this shouldnt be here"
+                    self.date_str = "thing"
 # TODO fix this, it dont work, idk why
 
                     # line_name = line.split(", ")[0]

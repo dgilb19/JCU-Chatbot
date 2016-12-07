@@ -80,21 +80,27 @@ def get_reply(message_text, list_test):
 
     # TODO fix daniel so it take last input
 
-    # elif re.match(r'.*when|whens|date|exam|exams', message_text, re.I):
-    #     date_words = DateIndex(message_text)
-    #     if message_text in open("datelist.csv").read():
-    #         date_words.date_passer(message_text)
-    #         return str(date_words)
-    #     elif re.match(r'.*exam|exams', message_text, re.I):
-    #         date_words.exam_list_passer(message_text)
-    #         return str(date_words)
-    #     else:
-    #         date_words.date_passer(message_text)
-    #         return str(date_words)
+    elif re.match(r'.*when|whens|date|exam|exams', message_text, re.I):
+        date_words = DateIndex(message_text)
+        if message_text in open("datelist.csv").read():
+            date_words.date_passer(message_text)
+            return str(date_words)
+        elif re.match(r'.*exam|exams', message_text, re.I):
+            date_words.exam_list_passer(message_text)
+            return str(date_words)
+        else:
+            date_words.date_passer(message_text)
+            return str(date_words)
+
     elif message_text in open("examlist.csv").read():
         date_words = DateIndex(message_text)
         date_words.exam_list_passer(message_text)
         return str(date_words)
+
+        # with open("examlist.csv") as examlist:
+        #     for line in examlist:
+        #         if message_text in line:
+        #             return str(line.title())
 
     elif message_text in open("datelist.csv").read():
         date_words = DateIndex(message_text)
