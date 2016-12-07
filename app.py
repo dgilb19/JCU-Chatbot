@@ -35,9 +35,6 @@ def webhook():
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
     list_test = []
-    last_name_used = []
-
-    # TODO add more memory list type things
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -48,7 +45,7 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    reply = get_reply(message_text, list_test, last_name_used)
+                    reply = get_reply(message_text, list_test)
                     send_message(sender_id, reply)
 
                 # if messaging_event.get("delivery"):  # delivery confirmation
@@ -64,9 +61,8 @@ def webhook():
     return "ok", 200
 
 
-def get_reply(message_text, list_test, last_name_used):
+def get_reply(message_text, list_test):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
-
 
     if re.match(r'.*hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
@@ -77,7 +73,7 @@ def get_reply(message_text, list_test, last_name_used):
                 for line in peoplelist:
                     if re.match(message_text, line, re.I):
                         return line.split(", ")[1]
-                    elif re.match(last_name_used, line, re.I):
+                    elif re.match(list_test, line, re.I):
                         return line.split(", ")[1]
                     else:
                         pass
@@ -100,7 +96,7 @@ def get_reply(message_text, list_test, last_name_used):
         date_words = DateIndex(message_text)
         date_words.exam_list_passer(message_text)
         return str(date_words)
-# TODO fix this, its broken
+# TODO fix this its broken
         # with open("examlist.csv") as examlist:
         #     for line in examlist:
         #         if message_text in line:
@@ -125,9 +121,7 @@ def get_reply(message_text, list_test, last_name_used):
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if message_text in line:
-                    last_name_used = line.split(", ")[0]
                     return "What about {}?".format(line.title().split(", ")[0])
-
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)
