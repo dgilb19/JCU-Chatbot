@@ -54,7 +54,7 @@ def webhook():
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
                             if message_text in line:
-                                last_name_used.append(line.split(", ")[0])
+                                str(last_name_used.append(line.split(", ")[0]))
 
                     reply = get_reply(message_text, last_word_used, last_name_used)
                     send_message(sender_id, reply)
