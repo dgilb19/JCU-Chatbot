@@ -84,7 +84,7 @@ def get_reply(message_text, last_word_used, last_name_used):
                 for line in peoplelist:
                     if re.match(message_text, line, re.I):
                         return line.split(", ")[1]
-                    elif re.match(last_name_used, line, re.I):
+                    elif re.match("daniel", line, re.I):
                         return line
                     else:
                         pass
