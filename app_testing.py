@@ -62,7 +62,7 @@ class App_test(unittest.TestCase):
     #     self.assertEquals(get_reply("what", list_test='daniel gilbert'), "good job")
 
     def testNineteen(self):
-        self.assertEquals(get_reply("what is his email", last_word_used="ted cruz", last_name_used=''), "ted.cruz@my.jcu.edu.au")
+        self.assertEquals(get_reply("what is his email", last_word_used="", last_name_used='ted'), "ted.cruz@my.jcu.edu.au")
 
     def testNineteenPointOne(self):
         self.assertEquals(get_reply("what is his email", last_word_used="", last_name_used='ted cruz'), "ted.cruz@my.jcu.edu.au")
@@ -84,6 +84,7 @@ class App_test(unittest.TestCase):
 
     def testTwentyfive(self):
         self.assertEquals(get_reply("exam", last_word_used="", last_name_used=''), "Exam Period")
+
 
 
 def main():
