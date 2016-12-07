@@ -39,11 +39,14 @@ def webhook():
     if data["object"] == "page":
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
+            for messaging_event in entry["messaging"]:
                 if messaging_event.get("message"):  # someone sent us a message
 
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
+
+                    list_test = message_text
 
                     reply = get_reply(message_text, list_test)
                     send_message(sender_id, reply)
@@ -143,7 +146,7 @@ def get_reply(message_text, list_test):
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
-        return "version 17"
+        return "version 18"
 
     elif re.match(r'.*help', message_text, re.I):
         return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only know a few people(try Daniel))"
