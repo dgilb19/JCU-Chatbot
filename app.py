@@ -82,12 +82,12 @@ def get_reply(message_text, last_word_used, last_name_used):
         if re.match(r'.*email', message_text, re.I):
             with open("peoplelist.csv") as peoplelist:
                 for line in peoplelist:
-                    if re.match(last_name_used, line, re.I):
+                    if last_name_used in line:
                         return line.split(", ")[1]
                     else:
                         pass
         else:
-            return str(last_name_used)[0]
+            return str(last_name_used)
 
     # TODO fix daniel so it take last input(list_test) or (last_name_used)
 
@@ -103,7 +103,8 @@ def get_reply(message_text, last_word_used, last_name_used):
             date_words.date_passer(message_text)
             return str(date_words)
 
-    elif message_text in open("examlist.csv").read():
+    elif message_text >= 5:
+        message_text in open("examlist.csv").read()
         date_words = DateIndex(message_text)
         date_words.exam_list_passer(message_text)
         return str(date_words)
