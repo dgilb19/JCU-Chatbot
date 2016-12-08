@@ -128,7 +128,7 @@ def get_reply(message_text, last_word_used, last_name_used):
             who_words.change_words_to_jerry(message_text)
             return str(who_words)
 
-    elif message_text <= 5:
+    elif len(message_text) <= 5:
         message_text in open("peoplelist.csv").read()
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:

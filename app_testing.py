@@ -85,6 +85,9 @@ class App_test(unittest.TestCase):
     def testTwentyfive(self):
         self.assertEquals(get_reply("exam", last_word_used="", last_name_used=''), "Exam Period")
 
+    def testTwentysix(self):
+        self.assertEquals(get_reply("library", last_word_used="", last_name_used=""), "18")
+
 
 
 def main():

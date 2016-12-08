@@ -1,6 +1,5 @@
 text = 'thing?'
-if "?" in text:
-    text = text[:-1]
+if len(text) <= 6:
     print text
 else:
-    print "ha"
+    print "gyped"
