@@ -34,9 +34,8 @@ def webhook():
     # endpoint for processing incoming messaging events
 
     data = request.get_json()
-    log(data)  # you may not want to log every incoming message in production, but it's good for testing
+    # log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
-    last_word_used = ''
     last_name_used = ''
 
     if data["object"] == "page":
@@ -56,7 +55,7 @@ def webhook():
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
                             if line.split(", ")[0] in message_text:
-                                last_name_used = line.split(", ")[0]
+                                last_name_used = str(line.split(", ")[0])
 
                     reply = get_reply(message_text, last_word_used, last_name_used)
                     send_message(sender_id, reply)
@@ -110,17 +109,10 @@ def get_reply(message_text, last_word_used, last_name_used):
         return str(date_words)
 # TODO fix this its broken
 
-
     elif message_text >= 5 and message_text in open("datelist.csv").read():
-        # with open("datelist.csv") as datelist:
-        #     for line in datelist:
-        #         if message_text in line:
-        #             return "What about {}?".format(line.title().split(", ")[0])
-        """below one is better"""
         date_words = DateIndex(message_text)
         date_words.date_passer(message_text)
         return str(date_words)
-
 
     elif re.match(r".*who|whos|who's", message_text, re.I):
         if message_text in open("peoplelist.csv").read():
@@ -163,7 +155,7 @@ def get_reply(message_text, last_word_used, last_name_used):
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
-        return "version 27"
+        return "version 28"
 
     elif re.match(r'.*help', message_text, re.I):
         return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only know a few people(try Daniel))"
