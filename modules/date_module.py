@@ -12,6 +12,8 @@ class DateIndex:
         with open("datelist.csv") as datelist:
             for line in datelist:
                 if message_text in line:
+                    print "test message text is {}".format(message_text)
+                    print "test line thing{}".format(line)
                     self.date_str = line.title().split(", ")[0]
                     """broken, same problem returns the appropriate name from the csv file"""
 

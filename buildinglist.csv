@@ -1,198 +1,197 @@
-01, Ken Back Chancellery Building
-02, Computer Centre
-03, Humanities
-04, Social Sciences
-05, Central Lecture Theatre
-06, The Green Plate
-07, International Admissions
-08, James Cook International
-09, Multi-purpose Building 1 and Audio Visual Services
-10, International Recruitment and GATCF Lab
-12, Refectory
-13, Student Association
-14, Engineering and Physical Sciences 2
-15, Engineering and Physical Sciences 1
-16, Store
-17, Faculty of Science and Engineering
-18, Eddie Koiki Mabo Library
-18, A End of Ride Facility
-19, Kevin Stark Research Building
-20, Molecular Genetics Laboratory
-21, Molecular Sciences
-24, Glass House A
-25, Nursing Sciences
-26, Sir George Kneipp Auditorium
-27, Law, Business & Creative Arts
-28, Marine and Tropical Biology 2
-29, Student Mall
-30, School of Indigenous Australian Studies
-31, Immunogenetics Research Facility
-32, Sir George Fisher Research Building
-33, School of Indigenous Australian Studies Media Centre
-34, Earth and Environmental Sciences
-35, Solvent Store
-39, Medical 1
-40, Padua Theatre
-41, Public and Indigenous Health
-42, Anton Breinl Centre
-43, Rehabilitation and Exercise Sciences
-45, Medical Lecture Theatre
-46, Anatomy and Clinical Skills
-47, Pharmacy and Medical Research
-48, Australian Institute of Tropical Health & Medicine
-50, Equipment Shed - Estate Office
-53, Cyclone Testing Station Wind Tunnel
-54, Demountable C
-55, Demountables A and B
-56, Facilities Workshop
-57, Estate Office
-58, Mechanical Engineering Workshop
-59, Bulk Store 1
-60, Bulk Store 2
-61, Engineering Lab and Pilot Plant
-61, A Chemical Engineering Garage
-62, Chemical Waste Storage
-63, ATSIP General Store
-65, AIMS@JCU Aqua Shed
-66, Garden Shed
-67, Marine and Aquaculture Research
-69, CO2 Research Glass House
-70, Animal and Entomology House
-71, Aquaculture Research
-76, Zoology Freshwater Research
-79, Amphibian Research
-80, The North Queensland Controlled Environment Facility
-81, Cattle Pens
-82, Metabolism Unit
-83, Hay Shed
-85, Aquatic Pathology Lab
-86, Small Animal House
-87, Veterinary and Biomedical Sciences
-88, Barra Shed
-89, Microbiology Teaching Lab
-90, Medical Laboratory Science Teaching Lab
-91, Veterinary and Biomedical Sciences Store
-92, Physiology and Pharmacology Research Lab
-93, Central Solvent Store
-94, Veterinary and Biomedical Sciences
-95, Unicare Centre
-96, Pump House
-97, Veterinary and Biomedical Sciences
-99, Sport and Recreation Centre
-100, Squash Courts
-101, Cricket Pavillion
-102, Veterinary Anatomy and Pathology
-103, Lamb Shed
-104, Veterinary Emergency Centre and Hospital
-105, Veterinary Amenities Building
-106, Veterinary Reproduction Facility
-107, Veterinary Post-Grad Facility
-108, Veterinary Pathology and Biomedical Sciences
-110, MARFU Teaching Facility
-111, University Hall - A and B Wings
-112, University Hall - Administration
-113, University Hall - Store
-114, University Hall - Townhouse 5
-115, University Hall - Townhouse 4
-116, University Hall - Townhouse 3
-117, University Hall - Townhouse 2
-118, University Hall - Townhouse 1
-119, University Hall - Manager's Residence
-120, Uni Hall Storage Shed
-121, Uni Hall Storage Shed 2
-122, Pig Shed
-131, Chaplaincy
-132, Uni Kids
-133, Student Mall
-134, Education Central
-136, St Marks College - Clark Wing
-137, St Marks College - McGregor Wing
-142, The Science Place
-145, Australian Tropical Science and Innovation Precinct
-146, ATSIP Booster Pump House
-148, ATSIP Support
-150, ATSIP Glass House
-151, ATSIP Shade House
-152, ATSIP Vehicle Shelter
-161, The Catholic College of St Raphael and St Paul - Grail and Merrick
-162, The Catholic College of St Raphael and St Paul - O'Leary
-164, The Catholic College of St Raphael and St Paul - Kneipp
-166, The Catholic College of St Raphael and St Paul - Tom Priestly
-168, MacKillop Wing
-170, Reef Research Aquarium Laboratories
-180, Macroalgae Research Facility
-191, Rotary International House - Administration
-192, Rotary International House - Common Room 1
-193, Rotary International House - B Block
-194, Rotary International House - A Block
-195, Rotary International House - D Block
-196, Rotary International House - C Block
-197, Rotary International House - F Block
-198, Rotary International House - E Block
-199, Rotary International House - Laundry and Toilets
-200, Rotary International House - Common Room 2
-201, The John Flynn College - Rosendale House
-202, The John Flynn College - Martin House
-203, The John Flynn College - Stewart Close
-204, The John Flynn College - Mackay House
-205, The John Flynn College - Philip Wing
-206, The John Flynn College - Dining Hall
-207, The John Flynn College - Harrison Wing
-242, Pool Change Rooms
-243, Cow Shed Theatre
-251, E Block
-252, C Block
-253, D Block
-254, Western Campus Amenities
-255, B Block
-256, A Block
-257, F Block
-258, Western Campus Annex
-261, Western Hall - Manager's Residence
-262, Western Hall - A Block
-263, Western Hall - B Block
-264, Western Hall - C Block
-265, Western Hall - Dining Hall
-266, Western Hall - E Block
-267, Western Hall - F Block
-281, George Roberts Hall - Dining Hall
-282, George Roberts Hall - Manager's Residence
-283, George Roberts Hall - Administration
-284, George Roberts Hall - A Block
-285, George Roberts Hall - B Block
-286, George Roberts Hall - C Block
-287, George Roberts Hall - D Block
-288, George Roberts Hall - E Block
-289, George Roberts Hall - F Block
-290, George Roberts Hall - G Block
-291, George Roberts Hall - H Block
-300, School Of Creative Arts - Administr
-301, School of Creative Arts Visual Media
-302, School of Creative Arts Music
-303, School of Creative Arts Amenities
-310, Chilled Water Plant
-311, Chilled Water Tank
-315, Estate Office Storage Shed
-340, Western Courts - Administration
-341, Western Courts - A Block
-342, Western Courts - B Block
-343, Western Courts - C Block
-344, Western Courts - D Block
-345, Western Courts - E Block
-346, Western Courts - F Block
-347, Western Courts - G Block
-348, Western Courts - G Block
-349, Western Courts - F Block
-350, Western Courts - E Block
-351, Western Courts - D Block
-352, Western Courts - C Block
-353, Western Courts - B Block
-354, Western Courts - A Block
-403, Sport and Recreation Store
-404, Equine Shed
-500, Clinical Practice Building
-900, NQAIF Laboratory
-901, Biological Sciences Storage Container Complex
-902, Dangerous Goods Store
-903, Biology Field Trip Preparation and Stores
-420, Library
+01, ken back chancellery building
+02, computer centre
+03, humanities
+04, social sciences
+05, central lecture theatre
+06, the green plate
+07, international admissions
+08, james cook international
+09, multi-purpose building 1 and audio visual services
+10, international recruitment and gatcf lab
+12, refectory
+13, student association
+14, engineering and physical sciences 2
+15, engineering and physical sciences 1
+16, store
+17, faculty of science and engineering
+18, eddie koiki mabo library
+18, a end of ride facility
+19, kevin stark research building
+20, molecular genetics laboratory
+21, molecular sciences
+24, glass house a
+25, nursing sciences
+26, sir george kneipp auditorium
+27, law, business & creative arts
+28, marine and tropical biology 2
+29, student mall
+30, school of indigenous australian studies
+31, immunogenetics research facility
+32, sir george fisher research building
+33, school of indigenous australian studies media centre
+34, earth and environmental sciences
+35, solvent store
+39, medical 1
+40, padua theatre
+41, public and indigenous health
+42, anton breinl centre
+43, rehabilitation and exercise sciences
+45, medical lecture theatre
+46, anatomy and clinical skills
+47, pharmacy and medical research
+48, australian institute of tropical health & medicine
+50, equipment shed - estate office
+53, cyclone testing station wind tunnel
+54, demountable c
+55, demountables a and b
+56, facilities workshop
+57, estate office
+58, mechanical engineering workshop
+59, bulk store 1
+60, bulk store 2
+61, engineering lab and pilot plant
+61, a chemical engineering garage
+62, chemical waste storage
+63, atsip general store
+65, aims@jcu aqua shed
+66, garden shed
+67, marine and aquaculture research
+69, co2 research glass house
+70, animal and entomology house
+71, aquaculture research
+76, zoology freshwater research
+79, amphibian research
+80, the north queensland controlled environment facility
+81, cattle pens
+82, metabolism unit
+83, hay shed
+85, aquatic pathology lab
+86, small animal house
+87, veterinary and biomedical sciences
+88, barra shed
+89, microbiology teaching lab
+90, medical laboratory science teaching lab
+91, veterinary and biomedical sciences store
+92, physiology and pharmacology research lab
+93, central solvent store
+94, veterinary and biomedical sciences
+95, unicare centre
+96, pump house
+97, veterinary and biomedical sciences
+99, sport and recreation centre
+100, squash courts
+101, cricket pavillion
+102, veterinary anatomy and pathology
+103, lamb shed
+104, veterinary emergency centre and hospital
+105, veterinary amenities building
+106, veterinary reproduction facility
+107, veterinary post-grad facility
+108, veterinary pathology and biomedical sciences
+110, marfu teaching facility
+111, university hall - a and b wings
+112, university hall - administration
+113, university hall - store
+114, university hall - townhouse 5
+115, university hall - townhouse 4
+116, university hall - townhouse 3
+117, university hall - townhouse 2
+118, university hall - townhouse 1
+119, university hall - manager's residence
+120, uni hall storage shed
+121, uni hall storage shed 2
+122, pig shed
+131, chaplaincy
+132, uni kids
+133, student mall
+134, education central
+136, st marks college - clark wing
+137, st marks college - mcgregor wing
+142, the science place
+145, australian tropical science and innovation precinct
+146, atsip booster pump house
+148, atsip support
+150, atsip glass house
+151, atsip shade house
+152, atsip vehicle shelter
+161, the catholic college of st raphael and st paul - grail and merrick
+162, the catholic college of st raphael and st paul - o'leary
+164, the catholic college of st raphael and st paul - kneipp
+166, the catholic college of st raphael and st paul - tom priestly
+168, mackillop wing
+170, reef research aquarium laboratories
+180, macroalgae research facility
+191, rotary international house - administration
+192, rotary international house - common room 1
+193, rotary international house - b block
+194, rotary international house - a block
+195, rotary international house - d block
+196, rotary international house - c block
+197, rotary international house - f block
+198, rotary international house - e block
+199, rotary international house - laundry and toilets
+200, rotary international house - common room 2
+201, the john flynn college - rosendale house
+202, the john flynn college - martin house
+203, the john flynn college - stewart close
+204, the john flynn college - mackay house
+205, the john flynn college - philip wing
+206, the john flynn college - dining hall
+207, the john flynn college - harrison wing
+242, pool change rooms
+243, cow shed theatre
+251, e block
+252, c block
+253, d block
+254, western campus amenities
+255, b block
+256, a block
+257, f block
+258, western campus annex
+261, western hall - manager's residence
+262, western hall - a block
+263, western hall - b block
+264, western hall - c block
+265, western hall - dining hall
+266, western hall - e block
+267, western hall - f block
+281, george roberts hall - dining hall
+282, george roberts hall - manager's residence
+283, george roberts hall - administration
+284, george roberts hall - a block
+285, george roberts hall - b block
+286, george roberts hall - c block
+287, george roberts hall - d block
+288, george roberts hall - e block
+289, george roberts hall - f block
+290, george roberts hall - g block
+291, george roberts hall - h block
+300, school of creative arts - administr
+301, school of creative arts visual media
+302, school of creative arts music
+303, school of creative arts amenities
+310, chilled water plant
+311, chilled water tank
+315, estate office storage shed
+340, western courts - administration
+341, western courts - a block
+342, western courts - b block
+343, western courts - c block
+344, western courts - d block
+345, western courts - e block
+346, western courts - f block
+347, western courts - g block
+348, western courts - g block
+349, western courts - f block
+350, western courts - e block
+351, western courts - d block
+352, western courts - c block
+353, western courts - b block
+354, western courts - a block
+403, sport and recreation store
+404, equine shed
+500, clinical practice building
+900, nqaif laboratory
+901, biological sciences storage container complex
+902, dangerous goods store
+903, biology field trip preparation and stores

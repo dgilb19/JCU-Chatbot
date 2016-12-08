@@ -1,2 +1,7 @@
-text = ["thing", 'new', '3']
-print text[:-1]
+final_text = ''
+
+with open("buildinglist.csv") as text:
+    for line in text:
+        final_text += "{}".format(line.lower())
+
+print final_text

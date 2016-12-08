@@ -34,7 +34,7 @@ def webhook():
     # endpoint for processing incoming messaging events
 
     data = request.get_json()
-    # log(data)  # you may not want to log every incoming message in production, but it's good for testing
+    log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
     last_name_used = ''
 
@@ -107,7 +107,7 @@ def get_reply(message_text, last_word_used, last_name_used):
         date_words = DateIndex(message_text)
         date_words.exam_list_passer(message_text)
         return str(date_words)
-# TODO fix this its broken
+# TODO fix this, its broken
 
     elif message_text >= 5 and message_text in open("datelist.csv").read():
         date_words = DateIndex(message_text)
@@ -124,16 +124,21 @@ def get_reply(message_text, last_word_used, last_name_used):
             who_words.change_words_to_jerry(message_text)
             return str(who_words)
 
-    elif len(message_text) >= 5 and message_text in open("peoplelist.csv").read():
+    elif len(message_text) >= 3 and message_text in open("peoplelist.csv").read():
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if message_text in line:
                     return "What about {}?".format(line.title().split(", ")[0])
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
-        location_words = LocationIndex(message_text)
-        location_words.location_passer(message_text)
-        return str(location_words)
+        if message_text in open("buildinglist.csv").read():
+            location_words = LocationIndex(message_text)
+            location_words.location_name_passer(message_text)
+            return str(location_words)
+        else:
+            location_words = LocationIndex(message_text)
+            location_words.location_passer(message_text)
+            return str(location_words)
 
     elif len(message_text) >= 5 and message_text in open("buildinglist.csv").read():
         location_words = LocationIndex(message_text)
@@ -168,7 +173,7 @@ def get_reply(message_text, last_word_used, last_name_used):
         elif re.match(r".*sanio", message_text, re.I):
             return "Sorry"
         elif re.match(r".*jesse", message_text, re.I):
-            return "heres Jesse's number uhhhh note to self get jesse's number"
+            return "heres Jesse's number; 0412263945"
         else:
             return "ａｅｓｔｈｅｔｉｃ"
 

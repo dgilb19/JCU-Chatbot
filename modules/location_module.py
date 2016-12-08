@@ -26,14 +26,13 @@ class LocationIndex:
                     if message_text in line[0]:
                         building_number = line.title().split(", ")[1]
                         self.location_str = "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(building_number)
-                    else:
-                        self.location_str = "I know you are asking where something is, but I'm not that smart yet!!"
 
-    def location_name_passer(self, message_test):
+    def location_name_passer(self, message_text):
         with open("buildinglist.csv") as buildinglist:
             for line in buildinglist:
-                if message_test in line[0]:
-                    self.location_str = line.title().split(", ")[1]
+                if message_text in line.split(", ")[1]:
+                    self.location_str = line.title().split(", ")[0]
+
 
 
 # TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
