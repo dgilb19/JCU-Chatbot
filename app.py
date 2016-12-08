@@ -140,6 +140,11 @@ def get_reply(message_text, last_word_used, last_name_used):
         location_words.location_passer(message_text)
         return str(location_words)
 
+    elif message_text in open("buildinglist.csv").read():
+        location_words = LocationIndex(message_text)
+        location_words.location_name_passer(message_text)
+        return str(location_words)
+
     elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
         if len(message_text.split(" ")) > 1:
             if re.match(r".*reverse", message_text, re.I):
