@@ -21,7 +21,7 @@ class DateIndex:
                 if message_text in line:
                     self.date_str = line
                 else:
-                    self.date_str = "thing"
+                    self.date_str = "is this is?: thing"
 # TODO fix this, it dont work, idk why THIS IS LITERALLY KILLING ME
 
                     # line_name = line.split(", ")[0]
