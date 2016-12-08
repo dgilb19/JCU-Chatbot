@@ -82,7 +82,7 @@ def get_reply(message_text, last_word_used, last_name_used):
         if re.match(r'.*email', message_text, re.I):
             with open("peoplelist.csv") as peoplelist:
                 for line in peoplelist:
-                    if last_name_used == line.split(", "[0]):
+                    if last_name_used in line.split(", "[0]):
                         return line.split(", ")[1]
                     else:
                         pass
