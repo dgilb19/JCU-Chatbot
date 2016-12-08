@@ -54,7 +54,7 @@ def webhook():
                     if message_text == "daniel":
                         last_name_used = message_text
                     else:
-                        pass
+                        last_name_used = "thingy"
 
                     print last_word_used
                     print last_name_used
