@@ -13,3 +13,5 @@ class WhatIndex:
             for line in peoplelist:
                 if last_name_used in line:
                     self.what_str = line.split(", ")[1]
+                else:
+                    pass
