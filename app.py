@@ -60,10 +60,12 @@ def webhook():
                         for line in peoplelist:
                             if line.split(", ")[0] in message_text:
                                 last_name_used = line
-                                last_name_used = str(last_name_used)
                                 send_message(sender_id, last_name_used)
+                                print last_name_used
+                                print(last_name_used)
+                                print str(last_name_used)
                     print(
-                    "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH{}".format(
+                    "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH{}fff".format(
                         last_name_used))
                     reply = get_reply(message_text, last_word_used, last_name_used)
                     send_message(sender_id, reply)
