@@ -58,15 +58,9 @@ def webhook():
                             if line.split(", ")[0] in message_text:
                                 last_name_used = line
                                 send_message(sender_id, last_name_used)
-                                print last_name_used
-                                print(last_name_used)
-                                print str(last_name_used)
-                                print line
-                                print(line)
-                                print str(line)
-                    print(
-                    "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH{}fff".format(
-                        last_name_used))
+
+                    print last_word_used
+
                     reply = get_reply(message_text, last_word_used, last_name_used)
                     send_message(sender_id, reply)
 
