@@ -159,7 +159,7 @@ def get_reply(message_text, last_word_used, last_name_used):
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
-        return "version 24"
+        return "version 25"
 
     elif re.match(r'.*help', message_text, re.I):
         return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only know a few people(try Daniel))"
