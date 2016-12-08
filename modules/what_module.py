@@ -12,7 +12,7 @@ class WhatIndex:
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if last_name_used in line:
-                    self.what_str = last_name_used
+                    self.what_str = str(last_name_used)
                     # self.what_str = line.split(", ")[1]
                 else:
                     pass
