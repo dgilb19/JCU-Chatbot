@@ -35,7 +35,6 @@ def webhook():
 
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
-    last_name_used = 'this should be replaced'
 
 
     if data["object"] == "page":
@@ -56,6 +55,9 @@ def webhook():
                         for line in peoplelist:
                             if message_text in line:
                                 last_name_used = message_text
+                            else:
+                                last_name_used = "i need to figure this one"
+                        # TODO fix this so that it takes and remembers only names without causing errors
 
                     print last_word_used
                     print last_name_used
