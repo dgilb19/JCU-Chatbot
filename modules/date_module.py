@@ -17,6 +17,7 @@ class DateIndex:
                     self.date_str = line.title().split(", ")[0]
                     """broken, same problem returns the appropriate name from the csv file"""
 
+    """passes the relative exam information back"""
     def exam_list_passer(self, message_text):
         with open("examlist.csv") as examlist:
             for line in examlist:

@@ -8,7 +8,8 @@ class WhatIndex:
     def __str__(self):
         return "{}".format(self.what_str)
 
-    def what_passer(self, last_name_used):
+    """gets the last name entered and and gets email based of that"""
+    def email_passer(self, last_name_used):
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if last_name_used in line:

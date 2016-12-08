@@ -87,7 +87,7 @@ def get_reply(message_text, last_word_used, last_name_used):
         if re.match(r'.*email', message_text, re.I):
             """put this stuff in function; below"""
             what_words = WhatIndex(message_text)
-            what_words.what_passer(last_name_used)
+            what_words.email_passer(last_name_used)
             return str(what_words)
 
         else:
