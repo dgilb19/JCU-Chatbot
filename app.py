@@ -53,6 +53,8 @@ def webhook():
 
                     last_word_used = message_text
 
+                    print("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+
 
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
