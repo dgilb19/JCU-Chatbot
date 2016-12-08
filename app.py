@@ -87,7 +87,7 @@ def get_reply(message_text, last_word_used, last_name_used):
                     else:
                         pass
         else:
-            return str(last_name_used)
+            return str(last_name_used)[0]
 
     # TODO fix daniel so it take last input(list_test) or (last_name_used)
 
