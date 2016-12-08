@@ -49,19 +49,29 @@ def webhook():
                         message_text = message_text[:-1]
                     else:
                         pass
-
                     last_word_used = message_text
+
+                    #### Testing area
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
                             if message_text in line:
-                                last_name_used = message_text
+                                last_name_used = line.split(", ")[0]
                             else:
-                                last_name_used = "i need to figure this one"
-                        # TODO fix this so that it takes and remembers only names without causing errors
+                                if last_name_used == peoplelist:
+                                    pass
+                                else:
+                                    last_name_used = "unused"
+
+
+# TODO fix this so that it takes and remembers only names without causing errors
 
                     print last_word_used
                     print last_name_used
 
+
+
+
+                    ###
                     reply = get_reply(message_text, last_word_used, last_name_used)
                     send_message(sender_id, reply)
 
