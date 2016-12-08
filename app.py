@@ -156,8 +156,10 @@ def get_reply(message_text, last_word_used, last_name_used):
             text = " "
         return "Reversed: {}".format(text[::-1])
 
-    elif re.match(r',*last message', message_text, re.I):
+    elif re.match(r'.*last message', message_text, re.I):
         return last_word_used
+    elif re.match(r'.*last name used', message_text, re.I):
+        return last_name_used
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
