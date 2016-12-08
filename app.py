@@ -103,8 +103,7 @@ def get_reply(message_text, last_word_used, last_name_used):
             date_words.date_passer(message_text)
             return str(date_words)
 
-    elif message_text >= 5:
-        message_text in open("examlist.csv").read()
+    elif message_text >= 5 and message_text in open("examlist.csv").read():
         date_words = DateIndex(message_text)
         date_words.exam_list_passer(message_text)
         return str(date_words)
@@ -129,8 +128,7 @@ def get_reply(message_text, last_word_used, last_name_used):
             who_words.change_words_to_jerry(message_text)
             return str(who_words)
 
-    elif len(message_text) >= 5:
-        message_text in open("peoplelist.csv").read()
+    elif len(message_text) >= 5 and message_text in open("peoplelist.csv").read():
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if message_text in line:
@@ -141,8 +139,7 @@ def get_reply(message_text, last_word_used, last_name_used):
         location_words.location_passer(message_text)
         return str(location_words)
 
-    elif len(message_text) >= 5:
-        message_text in open("buildinglist.csv").read()
+    elif len(message_text) >= 5 and message_text in open("buildinglist.csv").read():
         location_words = LocationIndex(message_text)
         location_words.location_name_passer(message_text)
         return str(location_words)
@@ -162,7 +159,7 @@ def get_reply(message_text, last_word_used, last_name_used):
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
-        return "version 19"
+        return "version 20"
 
     elif re.match(r'.*help', message_text, re.I):
         return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only know a few people(try Daniel))"
