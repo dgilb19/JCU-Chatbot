@@ -16,7 +16,7 @@ import requests
 
 app = Flask(__name__)
 
-test_num = 1
+last_name_used = "unused"
 
 
 @app.route('/', methods=['GET'])
@@ -38,7 +38,7 @@ def verify():
 def webhook():
     # endpoint for processing incoming messaging events
 
-    global test_num
+    global last_name_used
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
@@ -60,27 +60,20 @@ def webhook():
 
                     #### Testing area
 
-                    test_num = test_num * 10
-
-                    print test_num
-
-                    # with open("peoplelist.csv") as peoplelist:
-                    #     for line in peoplelist:
-                    #         if message_text in line:
-                    #             last_name_used = line.split(", ")[0]
-                    #         else:
-                    #             if last_name_used == peoplelist:
-                    #                 pass
-                    #             else:
-                    #                 last_name_used = "unused"
+                    with open("peoplelist.csv") as peoplelist:
+                        for line in peoplelist:
+                            if message_text in line:
+                                last_name_used = line.split(", ")[0]
+                            # else:
+                            #     if last_name_used == peoplelist:
+                            #         pass
 
 
 # TODO fix this so that it takes and remembers only names without causing errors
 
-                    # print last_word_used
-                    # print last_name_used
+                    print last_word_used
+                    print last_name_used
 
-                    last_name_used = "greg"
 
 
                     ###
