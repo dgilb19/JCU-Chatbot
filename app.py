@@ -53,7 +53,7 @@ def webhook():
                     last_word_used = message_text
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
-                            if message_text in line:
+                            if message_text in line.split(", ")[0]:
                                 last_name_used = line.split(", ")[0]
 
                     reply = get_reply(message_text, last_word_used, last_name_used)
@@ -86,6 +86,8 @@ def get_reply(message_text, last_word_used, last_name_used):
                         return line.split(", ")[1]
                     else:
                         pass
+        else:
+            return "yeah, im getting there"
 
     # TODO fix daniel so it take last input(list_test) or (last_name_used)
 
