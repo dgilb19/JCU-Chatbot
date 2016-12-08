@@ -15,8 +15,8 @@ import requests
 
 
 app = Flask(__name__)
-
 last_name_used = "unused"
+global last_name_used
 
 
 @app.route('/', methods=['GET'])
@@ -38,7 +38,7 @@ def verify():
 def webhook():
     # endpoint for processing incoming messaging events
 
-    global last_name_used
+
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
