@@ -12,5 +12,6 @@ class WhatIndex:
         # test = str(last_name_used)
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
-                if last_name_used == line.split(', ')[0]:
+                test = line.split(", ")[0]
+                if last_name_used in test:
                     self.what_str = line.split(", ")[1]
