@@ -51,10 +51,8 @@ def webhook():
 
                     last_word_used = message_text
 
-                    if message_text == "daniel":
+                    if message_text in open("peoplelist.csv"):
                         last_name_used = message_text
-                    else:
-                        last_name_used = "thingy"
 
                     print last_word_used
                     print last_name_used
