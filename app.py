@@ -128,7 +128,7 @@ def get_reply(message_text, last_word_used, last_name_used):
             who_words.change_words_to_jerry(message_text)
             return str(who_words)
 
-    elif len(message_text) <= 5:
+    elif len(message_text) >= 5:
         message_text in open("peoplelist.csv").read()
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
@@ -140,7 +140,8 @@ def get_reply(message_text, last_word_used, last_name_used):
         location_words.location_passer(message_text)
         return str(location_words)
 
-    elif message_text in open("buildinglist.csv").read():
+    elif len(message_text) >= 5:
+        message_text in open("buildinglist.csv").read()
         location_words = LocationIndex(message_text)
         location_words.location_name_passer(message_text)
         return str(location_words)
