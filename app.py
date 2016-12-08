@@ -62,7 +62,7 @@ def webhook():
 
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
-                            if message_text in line and message_text >= 5:
+                            if message_text in line and len(message_text) >= 5:
                                 last_name_used = line.split(", ")[0]
                             # else:
                             #     if last_name_used == peoplelist:
