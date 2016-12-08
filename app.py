@@ -52,9 +52,9 @@ def webhook():
                         pass
 
                     last_word_used = message_text
-
-                    if message_text in open("peoplelist.csv"):
-                        last_name_used = message_text
+                    with open("peoplelist.csv") as peoplelist:
+                        if message_text in peoplelist:
+                            last_name_used = message_text
 
                     print last_word_used
                     print last_name_used
