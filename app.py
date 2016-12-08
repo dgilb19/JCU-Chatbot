@@ -5,6 +5,7 @@ import random
 from modules.people_module import PeopleIndex
 from modules.location_module import LocationIndex
 from modules.date_module import DateIndex
+from modules.what_module import WhatIndex
 
 import re
 
@@ -80,12 +81,11 @@ def get_reply(message_text, last_word_used, last_name_used):
 
     elif re.match(r'.*what', message_text, re.I):
         if re.match(r'.*email', message_text, re.I):
-            with open("peoplelist.csv") as peoplelist:
-                for line in peoplelist:
-                    if last_name_used in line:
-                        return line.split(", ")[1]
-                    else:
-                        pass
+            """put this stuff in function; below"""
+            what_words = WhatIndex(message_text)
+            what_words.what_passer(last_name_used)
+            return str(what_words)
+
         else:
             return str(last_name_used)
 
@@ -159,7 +159,7 @@ def get_reply(message_text, last_word_used, last_name_used):
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
-        return "version 20"
+        return "version 21"
 
     elif re.match(r'.*help', message_text, re.I):
         return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only know a few people(try Daniel))"
