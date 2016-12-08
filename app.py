@@ -111,9 +111,15 @@ def get_reply(message_text, last_word_used, last_name_used):
 
 
     elif message_text >= 5 and message_text in open("datelist.csv").read():
+        # with open("datelist.csv") as datelist:
+        #     for line in datelist:
+        #         if message_text in line:
+        #             return "What about {}?".format(line.title().split(", ")[0])
+        """below one is better"""
         date_words = DateIndex(message_text)
         date_words.date_passer(message_text)
         return str(date_words)
+
 
     elif re.match(r".*who|whos|who's", message_text, re.I):
         if message_text in open("peoplelist.csv").read():
@@ -162,7 +168,16 @@ def get_reply(message_text, last_word_used, last_name_used):
         return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only know a few people(try Daniel))"
 
     elif re.match(r'.*allan|cameron|cam|sanio|jesse|ramisa|remi', message_text, re.I):
-        return "Sorry - Sanio"
+        if re.match(r'.*allan', message_text, re.I):
+            return "Allan you are a drongo"
+        elif re.match(r".*cameron|cam", message_text, re.I):
+            return "Rena loves yogurt"
+        elif re.match(r".*sanio", message_text, re.I):
+            return "Sorry"
+        elif re.match(r".*jesse", message_text, re.I):
+            return "heres Jesse's number uhhhh note to self get jesse's number"
+        else:
+            return "ａｅｓｔｈｅｔｉｃ"
 
     else:
         return "idk what you are saying"
