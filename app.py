@@ -1,3 +1,4 @@
+# coding=utf-8
 import os
 import sys
 import json
@@ -176,7 +177,8 @@ def get_reply(message_text, last_word_used, last_name_used):
             return "Sorry"
         elif re.match(r".*jesse", message_text, re.I):
             return "heres Jesse's number uhhhh note to self get jesse's number"
-
+        else:
+            return "ａｅｓｔｈｅｔｉｃ"
 
     else:
         return "idk what you are saying"
