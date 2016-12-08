@@ -22,23 +22,23 @@ class App_test(unittest.TestCase):
         self.assertEquals(get_reply("when", last_word_used='', last_name_used=''), "I know you are asking when something is, but I'm not that smart yet!")
 
     def testSeven(self):
-        self.assertEquals(get_reply("who", last_word_used='', last_name_used=''), "Are you looking for Jerry?")
+        self.assertEquals(get_reply("whos jerry", last_word_used='', last_name_used=''), "this is Jerry")
 
     def testEight(self):
         self.assertEquals(get_reply("building 34", last_word_used='', last_name_used=''),
                           "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location=34")
 
-    def testNine(self):
-        self.assertEquals(get_reply("log", last_word_used='', last_name_used=''), "log")
+    # def testNine(self):
+    #     self.assertEquals(get_reply("log", last_word_used='', last_name_used=''), "log")
 
-    def testTen(self):
-        self.assertEquals(get_reply("last message", last_word_used='', last_name_used=''), "last message")
+    # def testTen(self):
+    #     self.assertEquals(get_reply("last message", last_word_used='', last_name_used=''), "last message")
 
     def testEleven(self):
-        self.assertEquals(get_reply("daniel", last_word_used='', last_name_used=''), "Daniel Gilbert")
+        self.assertEquals(get_reply("daniel", last_word_used='', last_name_used=''), "What about Daniel Gilbert?")
 
     def testTwelve(self):
-        self.assertEquals(get_reply("daniel gilbert", last_word_used='', last_name_used=''), "Daniel Gilbert")
+        self.assertEquals(get_reply("daniel gilbert", last_word_used='', last_name_used=''), "What about Daniel Gilbert?")
 
     def testThirteen(self):
         self.assertEquals(get_reply("exam period", last_word_used='', last_name_used=''), "Exam Period")
@@ -71,7 +71,7 @@ class App_test(unittest.TestCase):
         self.assertEquals(get_reply("where is Humanities", last_word_used="", last_name_used=''), "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location=3")
 
     def testTwentyone(self):
-        self.assertEquals(get_reply("what is Daniels email", last_word_used="", last_name_used=''), "daniel.gilbert1@my.jcu.edu.au")
+        self.assertEquals(get_reply("what is Daniels email", last_word_used="", last_name_used='daniel'), "daniel.gilbert1@my.jcu.edu.au")
 
     def testTwentytwo(self):
         self.assertEquals(get_reply("when is the maths exam", last_word_used="", last_name_used=''), "maths 21/5")

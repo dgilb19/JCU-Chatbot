@@ -1,5 +1,2 @@
-text = 'thing?'
-if len(text) <= 6:
-    print text
-else:
-    print "gyped"
+text = ["thing", 'new', '3']
+print text[:-1]

@@ -87,9 +87,9 @@ def get_reply(message_text, last_word_used, last_name_used):
             return str(what_words)
 
         else:
-            return str(last_name_used)
+            return "I know you are asking a question but I'm not that smart yet! :what"
 
-    # TODO fix daniel so it take last input(list_test) or (last_name_used)
+    # TODO fix it so it take last input(list_test) or (last_name_used)
 
     elif re.match(r'.*when|whens|date|exam|exams', message_text, re.I):
         date_words = DateIndex(message_text)
@@ -108,23 +108,20 @@ def get_reply(message_text, last_word_used, last_name_used):
         date_words.exam_list_passer(message_text)
         return str(date_words)
 # TODO fix this its broken
-        # with open("examlist.csv") as examlist:
-        #     for line in examlist:
-        #         if message_text in line:
-        #             return str(line.title())
 
-    elif message_text in open("datelist.csv").read():
+
+    elif message_text >= 5 and message_text in open("datelist.csv").read():
         date_words = DateIndex(message_text)
         date_words.date_passer(message_text)
         return str(date_words)
 
-    elif re.match(r".*who |whos |who's", message_text, re.I):
+    elif re.match(r".*who|whos|who's", message_text, re.I):
         if message_text in open("peoplelist.csv").read():
             people_words = PeopleIndex(message_text)
             people_words.people_passer(message_text)
             return str(people_words)
         else:
-            who_words = PeopleIndex("")
+            who_words = PeopleIndex(message_text)
             who_words.change_words_to_jerry(message_text)
             return str(who_words)
 

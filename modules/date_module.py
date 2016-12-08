@@ -13,15 +13,15 @@ class DateIndex:
             for line in datelist:
                 if message_text in line:
                     self.date_str = line.title().split(", ")[0]
-                    """returns the appropriate name from the csv file"""
+                    """broken, same problem returns the appropriate name from the csv file"""
 
     def exam_list_passer(self, message_text):
         with open("examlist.csv") as examlist:
             for line in examlist:
                 if message_text in line:
-                    self.date_str = line
-                else:
-                    self.date_str = "is this is?: thing"
+                    line = line.split(", ")
+                    self.date_str = "{}, {}".format(line[0], line[1])
+
 # TODO fix this, it dont work, idk why THIS IS LITERALLY KILLING ME
 
                     # line_name = line.split(", ")[0]
