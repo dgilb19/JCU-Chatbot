@@ -71,7 +71,7 @@ class App_test(unittest.TestCase):
     #     self.assertEquals(get_reply("where is humanities", last_word_used="", last_name_used=''), "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location=3")
 
     def testTwentyone(self):
-        self.assertEquals(get_reply("what is Daniels email", last_word_used="", last_name_used='daniel'), "daniel.gilbert1@my.jcu.edu.au")
+        self.assertEquals(get_reply("what is his email", last_word_used="", last_name_used='daniel'), "")
 
     def testTwentytwo(self):
         self.assertEquals(get_reply("when is the maths exam", last_word_used="", last_name_used=''), "maths 21/5")
