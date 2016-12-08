@@ -9,8 +9,7 @@ class WhatIndex:
         return "{}".format(self.what_str)
 
     def what_passer(self, last_name_used):
-        # test = str(last_name_used)
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
-                if "jerry" in line:
-                    self.what_str = line.split(", ")[1]
+                if last_name_used in line:
+                    self.what_str = last_name_used
