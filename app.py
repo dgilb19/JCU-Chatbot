@@ -12,8 +12,7 @@ import re
 
 from flask import Flask, request
 import requests
-last_name_used = "unused"
-# global last_name_used
+
 
 
 app = Flask(__name__)
@@ -41,7 +40,7 @@ def webhook():
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
-
+    last_name_used = "unused"
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -64,7 +63,8 @@ def webhook():
                             if message_text in line and len(message_text) >= 5:
                                 last_name_used = line.split(", ")[0]
                                 global last_name_used
-
+                    # TODO fix this, i need it to save the last name used, but right now it is resetting it every message
+                                # TODO, so it prints the variable stated above
 
 
 
