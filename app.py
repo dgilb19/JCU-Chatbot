@@ -50,6 +50,7 @@ def webhook():
                     last_word_used = message_text
 
                     #### Testing area
+                    last_name_used = []
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
                             if message_text in line and len(message_text) >= 3:
