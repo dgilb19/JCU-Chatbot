@@ -57,7 +57,7 @@ def webhook():
                             if message_text in line and len(message_text) >= 3:
                                 last_name_used = line.split(", ")[0]
                                 with open("last_name_message.csv") as last_name_message:
-                                    last_name_message.write(line.split(", ")[0])
+                                    last_name_message.write(line)
                             else:
                                 last_name_used = "unused"
 
@@ -73,7 +73,9 @@ def webhook():
                     print last_word_used
                     print last_name_used
                     print get_last_name_used(message_text)
-                    print open("last_name_message.csv")
+                    with open("last_name_message.csv") as last_name_message:
+                        print str(last_name_message)
+                        print last_name_message
                     ###
                     reply = get_reply(message_text, last_word_used)
                     send_message(sender_id, reply)
@@ -96,7 +98,6 @@ def get_last_name_used(message_text):
         for line in peoplelist:
             if message_text in line and len(message_text) >= 3:
                 last_name_used = line.split(", ")[0]
-                last_name_used_backup = last_name_used
                 return last_name_used
 
 
