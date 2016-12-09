@@ -60,13 +60,18 @@ def webhook():
 
                     #### Testing area
 
-                    with open("peoplelist.csv") as peoplelist:
-                        for line in peoplelist:
-                            if message_text in line and len(message_text) >= 5:
-                                last_name_used = line.split(", ")[0]
-                            # else:
-                            #     if last_name_used == peoplelist:
-                            #         pass
+                    if last_name_used == "unused":
+                        with open("peoplelist.csv") as peoplelist:
+                            for line in peoplelist:
+                                if message_text in line and len(message_text) >= 5:
+                                    last_name_used = line.split(", ")[0]
+
+                    if last_name_used == open("peoplelist.csv"):
+                        with open("peoplelist.csv") as peoplelist:
+                            for line in peoplelist:
+                                if message_text in line and len(message_text) >= 5:
+                                    last_name_used = line.split(", ")[0]
+
 
 
 # TODO fix this so that it takes and remembers only names without causing errors
