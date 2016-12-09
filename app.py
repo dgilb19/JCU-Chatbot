@@ -56,13 +56,13 @@ def webhook():
                     last_word_used = message_text
 
                     #### Testing area
-
+                    last_name_used = "unused"
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
                             if message_text in line and len(message_text) >= 5:
                                 last_name_used = line.split(", ")[0]
-                            else:
-                                last_name_used = "unused"
+
+
 
 
 
