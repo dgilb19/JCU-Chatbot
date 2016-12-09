@@ -59,7 +59,7 @@ def webhook():
                     with open("peoplelist.csv") as peoplelist:
                         if message_text in peoplelist:
                             for line in peoplelist:
-                                if message_text in line.split(", ")[0]:
+                                if message_text in line:
                                     last_name_used = line.split(", ")[0]
                         else:
                             last_name_used = "unused"
