@@ -76,7 +76,7 @@ def webhook():
 
                     json_str = json.dumps(data)
 
-                    print json_str
+                    # print json_str
                     #
                     # with open('data.json', 'r') as testingthing:
                     #     data = json.load(testingthing)
