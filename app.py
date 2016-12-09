@@ -73,9 +73,14 @@ def webhook():
                     print last_word_used
                     print last_name_used
                     print get_last_name_used(message_text)
-                    with open("last_name_message.csv") as last_name_message:
+                    with open("last_name_message.csv", "r") as last_name_message:
                         print str(last_name_message)
                         print last_name_message
+                        print str(last_name_message[4])
+                        print last_name_message[4]
+                        for line in last_name_message:
+                            print line
+                            print str(line)
                     ###
                     reply = get_reply(message_text, last_word_used)
                     send_message(sender_id, reply)
