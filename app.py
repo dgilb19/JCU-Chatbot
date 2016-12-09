@@ -50,7 +50,7 @@ def webhook():
                     last_word_used = message_text
 
                     #### Testing area
-                    get_last_name_used(message_text)
+                    # get_last_name_used(message_text)
 
 
 
@@ -82,7 +82,6 @@ def webhook():
 
 
 def get_last_name_used(message_text):
-    last_name_used = "daniel gilbert"
     with open("peoplelist.csv") as peoplelist:
         for line in peoplelist:
             if message_text in line and len(message_text) >= 3:
