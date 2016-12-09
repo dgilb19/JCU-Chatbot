@@ -76,8 +76,8 @@ def webhook():
                     with open("last_name_message.csv", "r") as last_name_message:
                         print str(last_name_message)
                         print last_name_message
-                        print str(last_name_message[4])
-                        print last_name_message[4]
+                        # print str(last_name_message[4])
+                        # print last_name_message[4]
                         for line in last_name_message:
                             print line
                             print str(line)
