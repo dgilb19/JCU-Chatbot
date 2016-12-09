@@ -12,7 +12,6 @@ import re
 
 from flask import Flask, request
 import requests
-word_1 = "word 1"
 
 app = Flask(__name__)
 
@@ -36,9 +35,6 @@ def webhook():
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
-    last_name_used = "unused"
-    word_2 = "word 2"
-
     if data["object"] == "page":
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
@@ -54,13 +50,12 @@ def webhook():
                     last_word_used = message_text
 
                     #### Testing area
-                    word_3 = "word 2"
-
+                    last_name_used = "daniel gilbert"
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
                             if message_text in line and len(message_text) >= 5:
                                 last_name_used = line.split(", ")[0]
-                                global last_name_used
+
 
 
                     # TODO fix this, i need it to save the last name used, but right now it is resetting it every message
@@ -71,14 +66,6 @@ def webhook():
 
                     print last_word_used
                     print last_name_used
-                    print word_1
-                    word_1 = "new_word_one"
-                    print word_2
-                    word_2 = "new_word_two"
-                    print word_3
-                    word_3 = "new_word_three"
-                    print word_4
-                    word_4 = "new_word_four"
                     ###
                     reply = get_reply(message_text, last_word_used, last_name_used)
                     send_message(sender_id, reply)
@@ -94,7 +81,6 @@ def webhook():
                     # going to leave this here in case i need it!
 
     return "ok", 200
-word_4 = "word 4"
 
 
 def get_reply(message_text, last_word_used, last_name_used):
