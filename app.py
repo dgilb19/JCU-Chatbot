@@ -52,11 +52,12 @@ def webhook():
 
                     #### Testing area
 
-                    with open("peoplelist.csv") as peoplelist:
-                        for line in peoplelist:
+                    with open("last_name_message.csv") as last_name:
+                        for line in last_name:
                             if message_text in line and len(message_text) >= 3:
-                                last_name_used = line.split(", ")[0]
 
+                                last_name = line.split(", ")[0]
+    # TODO finish this, make it so it saves all names to a csv file
                     # with open("peoplelist.csv") as peoplelist:
                     #     for line in peoplelist:
                     #         if message_text in line and len(message_text) >= 3:
@@ -66,10 +67,7 @@ def webhook():
                     #         else:
                     #             last_name_used = "unused"
 
-                    with open("last_name_message.csv", "r") as last_name_message:
-                        for line in last_name_message:
-                            latest_name = line
-                        print latest_name
+                    last_name_message()
 
                     # with open("name_save.json", 'r') as name_save:
                     #     send_message(sender_id, str(json.load(name_save)))
@@ -98,6 +96,12 @@ def webhook():
 
     return "ok", 200
 
+def last_name_message():
+    with open("last_name_message.csv", "r") as last_name_message:
+        for line in last_name_message:
+            latest_name = line
+        return latest_name
+# TODO make it so this gets latest entry from the csv file
 
 def get_last_name_used(message_text):
     with open("peoplelist.csv") as peoplelist:
