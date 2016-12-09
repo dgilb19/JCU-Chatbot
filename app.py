@@ -68,11 +68,15 @@ def webhook():
                     #         else:
                     #             last_name_used = "unused"
 
-                    data = {'name': 'ACME', 'shares': 100, 'price': 542.23}
+                    # data = {'name': 'ACME', 'shares': 100, 'price': 542.23}
+                    #
+                    # json_str = json.dumps(data['name'])
+                    #
+                    # send_message(sender_id, json_str)
 
-                    json_str = json.dumps(data['name'])
-
-                    send_message(sender_id, json_str)
+                    with open("name_save.json", 'r') as name_save:
+                        json_str = json.load(name_save)
+                        send_message(sender_id, json_str)
 
                     # with open('data.json', 'r') as testingthing:
                     #     data = json.load(testingthing)
