@@ -70,11 +70,9 @@ def webhook():
 
                     data = {'name': 'ACME', 'shares': 100, 'price': 542.23}
 
-                    json_str = json.dumps(data)
+                    json_str = json.dumps(data['name'])
 
-                    json_str_final = json_str['name']
-
-                    send_message(sender_id, json_str_final)
+                    send_message(sender_id, json_str)
 
                     # with open('data.json', 'r') as testingthing:
                     #     data = json.load(testingthing)
