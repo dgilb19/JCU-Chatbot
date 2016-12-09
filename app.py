@@ -16,6 +16,7 @@ import requests
 app = Flask(__name__)
 
 
+
 @app.route('/', methods=['GET'])
 def verify():
     # when the endpoint is registered as a webhook, it must echo back
@@ -31,6 +32,8 @@ def verify():
 @app.route('/', methods=['POST'])
 def webhook():
     # endpoint for processing incoming messaging events
+
+    thingything = ""
 
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
@@ -50,13 +53,14 @@ def webhook():
                     last_word_used = message_text
 
                     #### Testing area
-                    # last_name_used = 'unused'
-                    # with open("peoplelist.csv") as peoplelist:
-                    #     for line in peoplelist:
-                    #         if message_text in line and len(message_text) >= 3:
-                    #             last_name_used = line.split(", ")[0]
-                    #         else:
-                    #             last_name_used = "unused"
+                    last_name_used = 'unused'
+                    with open("peoplelist.csv") as peoplelist:
+                        for line in peoplelist:
+                            if message_text in line and len(message_text) >= 3:
+                                last_name_used = line.split(", ")[0]
+                            else:
+                                last_name_used = "unused"
+                    thingything += message_text
 
 
                     # TODO fix this, i need it to save the last name used, but right now it is resetting it every message
@@ -66,8 +70,9 @@ def webhook():
 # TODO fix this so that it takes and remembers only names without causing errors
 
                     print last_word_used
-                    # print last_name_used
+                    print last_name_used
                     print get_last_name_used(message_text)
+                    print thingything
                     ###
                     reply = get_reply(message_text, last_word_used)
                     send_message(sender_id, reply)
@@ -92,7 +97,6 @@ def get_last_name_used(message_text):
                 last_name_used = line.split(", ")[0]
                 last_name_used_backup = last_name_used
                 return last_name_used
-
 
 
 def get_reply(message_text, last_word_used):
