@@ -72,9 +72,13 @@ def webhook():
                     print last_word_used
                     print last_name_used
                     print word_1
+                    word_1 = "new_word_one"
                     print word_2
+                    word_2 = "new_word_two"
                     print word_3
+                    word_3 = "new_word_three"
                     print word_4
+                    word_4 = "new_word_four"
                     ###
                     reply = get_reply(message_text, last_word_used, last_name_used)
                     send_message(sender_id, reply)
