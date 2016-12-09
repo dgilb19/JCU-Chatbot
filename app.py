@@ -78,6 +78,10 @@ def webhook():
 
                     print json_str
 
+                    with open('data.json', 'r') as testingthing:
+                        data = json.load(testingthing)
+                        print data
+
                     # TODO fix this, i need it to save the last name used, but right now it is resetting it every message
                                 # TODO, so it prints the variable stated above
 
