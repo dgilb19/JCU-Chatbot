@@ -15,9 +15,6 @@ import requests
 
 
 app = Flask(__name__)
-last_name_used = "unused"
-global last_name_used
-
 
 @app.route('/', methods=['GET'])
 def verify():
@@ -59,18 +56,13 @@ def webhook():
                     last_word_used = message_text
 
                     #### Testing area
-
-                    if last_name_used == "unused":
-                        with open("peoplelist.csv") as peoplelist:
+                    with open("peoplelist.csv") as peoplelist:
+                        if message_text in peoplelist:
                             for line in peoplelist:
-                                if message_text in line and len(message_text) >= 5:
+                                if line.split(", ")[0] in message_text:
                                     last_name_used = line.split(", ")[0]
-
-                    if last_name_used == open("peoplelist.csv"):
-                        with open("peoplelist.csv") as peoplelist:
-                            for line in peoplelist:
-                                if message_text in line and len(message_text) >= 5:
-                                    last_name_used = line.split(", ")[0]
+                        else:
+                            last_name_used = "unused"
 
 
 
