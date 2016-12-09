@@ -68,7 +68,8 @@ def webhook():
 
                     with open("last_name_message.csv", "r") as last_name_message:
                         for line in last_name_message:
-                            print line
+                            latest_name = line
+                        print latest_name
 
                     # with open("name_save.json", 'r') as name_save:
                     #     send_message(sender_id, str(json.load(name_save)))
