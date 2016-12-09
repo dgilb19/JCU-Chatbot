@@ -12,6 +12,8 @@ import re
 
 from flask import Flask, request
 import requests
+last_name_used = "unused"
+global last_name_used
 
 
 app = Flask(__name__)
@@ -56,11 +58,12 @@ def webhook():
                     last_word_used = message_text
 
                     #### Testing area
-                    last_name_used = "unused"
+
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
                             if message_text in line and len(message_text) >= 5:
                                 last_name_used = line.split(", ")[0]
+                                global last_name_used
 
 
 
