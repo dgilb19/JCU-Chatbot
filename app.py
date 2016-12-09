@@ -13,7 +13,7 @@ import re
 from flask import Flask, request
 import requests
 last_name_used = "unused"
-global last_name_used
+# global last_name_used
 
 
 app = Flask(__name__)
