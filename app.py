@@ -75,7 +75,7 @@ def webhook():
                     # send_message(sender_id, json_str)
 
                     with open("name_save.json", 'r') as name_save:
-                        send_message(sender_id, json.load(name_save))
+                        send_message(sender_id, str(json.load(name_save)))
 
 
                     # with open('data.json', 'r') as testingthing:
