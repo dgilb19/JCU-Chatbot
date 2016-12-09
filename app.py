@@ -74,7 +74,7 @@ def webhook():
                         'price': 542.23
                     }
 
-                    json_str = json.dumps(data)
+                    json_str = json.dumps(data, "name")
 
                     send_message(sender_id, json_str)
 
