@@ -50,10 +50,12 @@ def webhook():
                     last_word_used = message_text
 
                     #### Testing area
-                    # get_last_name_used(message_text)
-
-
-
+                    with open("peoplelist.csv") as peoplelist:
+                        for line in peoplelist:
+                            if message_text in line and len(message_text) >= 3:
+                                last_name_used = line.split(", ")[0]
+                            else:
+                                last_name_used = "unused"
 
 
                     # TODO fix this, i need it to save the last name used, but right now it is resetting it every message
@@ -63,6 +65,7 @@ def webhook():
 # TODO fix this so that it takes and remembers only names without causing errors
 
                     print last_word_used
+                    print last_name_used
                     print get_last_name_used(message_text)
                     ###
                     reply = get_reply(message_text, last_word_used)
@@ -97,7 +100,6 @@ def get_reply(message_text, last_word_used):
 
     elif re.match(r'.*what', message_text, re.I):
         if re.match(r'.*email', message_text, re.I):
-            """put this stuff in function; below"""
             what_words = WhatIndex(message_text)
             what_words.email_passer(last_word_used)
             return str(what_words)
