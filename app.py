@@ -56,8 +56,8 @@ def webhook():
                         for line in peoplelist:
                             if message_text in line and len(message_text) >= 3:
                                 last_name_used = line.split(", ")[0]
-                                with open("last_name_message.csv") as last_name_message:
-                                    last_name_message.write(line)
+                                # with open("last_name_message.csv") as last_name_message:
+                                #     last_name_message.write(line)
                             else:
                                 last_name_used = "unused"
 
