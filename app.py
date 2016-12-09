@@ -50,12 +50,9 @@ def webhook():
                     last_word_used = message_text
 
                     #### Testing area
+                    get_last_name_used(message_text)
 
-                    last_name_used = last_name_used or "daniel gilbert"
-                    with open("peoplelist.csv") as peoplelist:
-                        for line in peoplelist:
-                            if message_text in line and len(message_text) >= 3:
-                                last_name_used = line.split(", ")[0]
+
 
 
 
@@ -66,9 +63,9 @@ def webhook():
 # TODO fix this so that it takes and remembers only names without causing errors
 
                     print last_word_used
-                    print last_name_used
+                    print get_last_name_used(message_text)
                     ###
-                    reply = get_reply(message_text, last_word_used, last_name_used)
+                    reply = get_reply(message_text, last_word_used)
                     send_message(sender_id, reply)
 
                 # if messaging_event.get("delivery"):  # delivery confirmation
@@ -84,7 +81,16 @@ def webhook():
     return "ok", 200
 
 
-def get_reply(message_text, last_word_used, last_name_used):
+def get_last_name_used(message_text):
+    last_name_used = "daniel gilbert"
+    with open("peoplelist.csv") as peoplelist:
+        for line in peoplelist:
+            if message_text in line and len(message_text) >= 3:
+                last_name_used = line.split(", ")[0]
+                return last_name_used
+
+
+def get_reply(message_text, last_word_used):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
     if re.match(r'.*hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
@@ -94,7 +100,7 @@ def get_reply(message_text, last_word_used, last_name_used):
         if re.match(r'.*email', message_text, re.I):
             """put this stuff in function; below"""
             what_words = WhatIndex(message_text)
-            what_words.email_passer(last_name_used)
+            what_words.email_passer(last_word_used)
             return str(what_words)
 
         else:
@@ -169,8 +175,8 @@ def get_reply(message_text, last_word_used, last_name_used):
     elif re.match(r'.*last message', message_text, re.I):
         return last_word_used
 
-    elif re.match(r'.*last name used', message_text, re.I):
-        return last_name_used
+    # elif re.match(r'.*last name used', message_text, re.I):
+    #     return last_name_used
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
