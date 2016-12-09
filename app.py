@@ -57,8 +57,6 @@ def webhook():
                             if message_text in line and len(message_text) >= 3:
                                 last_name_used = line.split(", ")[0]
 
-
-                    # last_name_used = 'unused'
                     # with open("peoplelist.csv") as peoplelist:
                     #     for line in peoplelist:
                     #         if message_text in line and len(message_text) >= 3:
@@ -68,32 +66,21 @@ def webhook():
                     #         else:
                     #             last_name_used = "unused"
 
-                    # data = {'name': 'ACME', 'shares': 100, 'price': 542.23}
-                    #
-                    # json_str = json.dumps(data['name'])
-                    #
-                    # send_message(sender_id, json_str)
+                    with open("last_name_message.csv", "r") as last_name_message:
+                        for line in last_name_message:
+                            print line
 
-                    with open("name_save.json", 'r') as name_save:
-                        send_message(sender_id, str(json.load(name_save)))
+                    # with open("name_save.json", 'r') as name_save:
+                    #     send_message(sender_id, str(json.load(name_save)))
 
-
-                    # with open('data.json', 'r') as testingthing:
-                    #     data = json.load(testingthing)
-                    #     send_message(sender_id, data)
-
-                    # TODO fix this, i need it to save the last name used, but right now it is resetting it every message
-                                # TODO, so it prints the variable stated above
+                    # TODO fix this, i need it to save the last name used, but right now it is resetting it every
+                        # message TODO, so it prints the variable stated above
 
 
 # TODO fix this so that it takes and remembers only names without causing errors
 
                     print last_word_used
-                    # print last_name_used
-                    # print get_last_name_used(message_text)
-                    with open("last_name_message.csv", "r") as last_name_message:
-                        for line in last_name_message:
-                            print line
+
                     ###
                     reply = get_reply(message_text, last_word_used)
                     send_message(sender_id, reply)
