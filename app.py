@@ -67,7 +67,7 @@ def webhook():
                     #         else:
                     #             last_name_used = "unused"
 
-                    last_name_message()
+                    last_name_message(last_name)
 
                     # with open("name_save.json", 'r') as name_save:
                     #     send_message(sender_id, str(json.load(name_save)))
@@ -79,6 +79,7 @@ def webhook():
 # TODO fix this so that it takes and remembers only names without causing errors
 
                     print last_word_used
+                    print last_name_message
 
                     ###
                     reply = get_reply(message_text, last_word_used)
@@ -96,10 +97,10 @@ def webhook():
 
     return "ok", 200
 
-def last_name_message():
+def last_name_message(latest_name):
     with open("last_name_message.csv", "r") as last_name_message:
         for line in last_name_message:
-            latest_name = line
+            latest_name = line.split(', ')[:1]
         return latest_name
 # TODO make it so this gets latest entry from the csv file
 
