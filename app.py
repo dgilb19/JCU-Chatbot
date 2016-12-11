@@ -56,7 +56,7 @@ def webhook():
                         for line in last_name:
                             if message_text in line and len(message_text) >= 3:
 
-                                last_name = line.split(", ")[0]
+                                last_name.write(line)
     # TODO finish this, make it so it saves all names to a csv file
                     # with open("peoplelist.csv") as peoplelist:
                     #     for line in peoplelist:
@@ -79,7 +79,7 @@ def webhook():
 # TODO fix this so that it takes and remembers only names without causing errors
 
                     print last_word_used
-                    print last_name_message
+                    print last_name_message(latest_name='')
 
                     ###
                     reply = get_reply(message_text, last_word_used)
