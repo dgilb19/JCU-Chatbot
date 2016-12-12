@@ -119,7 +119,7 @@ def get_reply(message_text, last_word_used):
         date_words = DateIndex(message_text)
         date_words.exam_list_passer(message_text)
         return str(date_words)
-# TODO fix this, its broken
+    # TODO fix this, its broken
 
     elif message_text >= 5 and message_text in open("datelist.csv").read():
         date_words = DateIndex(message_text)
