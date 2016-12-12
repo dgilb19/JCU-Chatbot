@@ -148,7 +148,8 @@ def get_reply(message_text, last_word_used):
             location_words.location_name_passer(message_text)
             return str(location_words)
         elif re.match(r'.*office|desk', message_text, re.I):
-            location_words.
+            location_words.office_passer(message_text)
+            return str(location_words)
 
         else:
             location_words = LocationIndex(message_text)
