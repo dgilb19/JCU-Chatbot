@@ -55,7 +55,7 @@ def webhook():
                     with open("last_name_message.csv") as last_name:
                         for line in last_name:
                             if message_text in line and len(message_text) >= 3:
-                                last_name.write(line)
+                                last_name.writerow(line)
     # TODO finish this, make it so it saves all names to a csv file
                     # with open("peoplelist.csv") as peoplelist:
                     #     for line in peoplelist:
@@ -98,8 +98,8 @@ def webhook():
 
 def last_name_message(latest_name):
     with open("last_name_message.csv", "r") as last_name_message:
-        # for line in last_name_message:
-        latest_name = last_name_message
+        for line in last_name_message:
+            latest_name = line
             # latest_name = line.split(', ')[:1]
         return latest_name
 # TODO make it so this gets latest entry from the csv file
