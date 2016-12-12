@@ -55,13 +55,16 @@ def webhook():
                                 with open("last_name_message.csv", 'w') as last_name:
                                     last_name.write(line.split(", ")[0])
 
-                    print last_word_used
-                    print "start"
-                    print last_name_message(latest_name='')
-                    # print get_last_name_used(message_text)
-                    print "stop"
+                    with open("peoplelist.csv") as peoplelist:
+                        for line in peoplelist:
+                            if message_text in line and len(message_text) >= 3:
+                                with open("last_name_message.csv", 'w') as last_name:
+                                    last_name.write(line.split(", ")[0])
 
-                    ###
+
+                    print last_word_used
+                    print last_name_message(latest_name='')
+
                     reply = get_reply(message_text, last_word_used)
                     send_message(sender_id, reply)
 
@@ -83,6 +86,12 @@ def last_name_message(latest_name):
         for line in last_name:
             latest_name = line
         return latest_name
+
+def last_building_message(latest_building):
+    with open("last_name_message.csv", "r") as last_building:
+        for line in last_building:
+            latest_building = line
+        return latest_building
 
 
 def get_reply(message_text, last_word_used):
@@ -147,6 +156,9 @@ def get_reply(message_text, last_word_used):
             location_words.location_name_passer(message_text)
             return str(location_words)
         elif re.match(r'.*office|desk', message_text, re.I):
+            location_words.office_passer(message_text)
+            return str(location_words)
+        elif message_text in open("peoplelist.csv"):
             location_words.office_passer(message_text)
             return str(location_words)
 
