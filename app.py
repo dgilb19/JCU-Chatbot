@@ -55,7 +55,6 @@ def webhook():
                     with open("last_name_message.csv") as last_name:
                         for line in last_name:
                             if message_text in line and len(message_text) >= 3:
-
                                 last_name.write(line)
     # TODO finish this, make it so it saves all names to a csv file
                     # with open("peoplelist.csv") as peoplelist:
