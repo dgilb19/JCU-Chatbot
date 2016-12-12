@@ -51,9 +51,10 @@ def webhook():
                     last_word_used = message_text
 
                     #### Testing area
-                    if message_text == "daniel":
-                        with open("last_name_message.csv", 'w') as last_name:
-                            last_name.write("timmy the bossman")
+                    if message_text in open("peoplelist.csv") and len(message_text) >= 3:
+                        with open("last_name_message.csv" 'w') as last_name:
+
+                            last_name.write(message_text)
     # TODO finish this, make it so it saves all names to a csv file
                     # with open("peoplelist.csv") as peoplelist:
                     #     for line in peoplelist:
