@@ -52,6 +52,7 @@ def webhook():
 
                     #### Testing area
                     if message_text in open("peoplelist.csv"):
+                        print("help me bossss")
                         with open("last_name_message.csv", 'w') as last_name:
                             last_name.write("timmy the bossman")
     # TODO finish this, make it so it saves all names to a csv file
