@@ -16,7 +16,6 @@ import requests
 app = Flask(__name__)
 
 
-
 @app.route('/', methods=['GET'])
 def verify():
     # when the endpoint is registered as a webhook, it must echo back
@@ -80,8 +79,8 @@ def webhook():
 
 
 def last_name_message(latest_name):
-    with open("last_name_message.csv", "r") as last_name_message:
-        for line in last_name_message:
+    with open("last_name_message.csv", "r") as last_name:
+        for line in last_name:
             latest_name = line
         return latest_name
 
@@ -179,7 +178,8 @@ def get_reply(message_text, last_word_used):
         return "version 28"
 
     elif re.match(r'.*help', message_text, re.I):
-        return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only know a few people(try Daniel))"
+        return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only " \
+               "know a few people(try Daniel)) "
 
     elif re.match(r'.*allan|cameron|cam|sanio|jesse|ramisa|remi', message_text, re.I):
         if re.match(r'.*allan', message_text, re.I):
