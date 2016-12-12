@@ -51,13 +51,10 @@ def webhook():
                     last_word_used = message_text
 
                     #### Testing area
-                    print("help me bossss1")
-                    with open("peoplelist.csv", 'r') as peoplelist:
-                        if message_text in peoplelist:
-                            print("help me bossss2")
-                            with open("last_name_message.csv", 'w') as last_name:
-                                last_name.write("timmy the bossman")
-                                print("help me bossss3")
+                    if message_text in open("peoplelist.csv"):
+                        print("help me bosss")
+                        with open("last_name_message.csv", 'w') as last_name:
+                            last_name.write("timmy the bossman")
     # TODO finish this, make it so it saves all names to a csv file
                     # with open("peoplelist.csv") as peoplelist:
                     #     for line in peoplelist:
@@ -117,7 +114,7 @@ def get_last_name_used(message_text):
 def get_reply(message_text, last_word_used):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
-    if re.match(r'.* *hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
+    if re.match(r'.*hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
 
     elif re.match(r'.*what', message_text, re.I):
