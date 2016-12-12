@@ -158,7 +158,7 @@ def get_reply(message_text, last_word_used):
         elif re.match(r'.*office|desk', message_text, re.I):
             location_words.office_passer(message_text)
             return str(location_words)
-        elif message_text in open("peoplelist.csv".split(", ")[0]).read():
+        elif open("peoplelist.csv".split(", ")[0]).read() in message_text:
             location_words.office_passer(message_text)
             return str(location_words)
 
