@@ -52,7 +52,7 @@ def webhook():
 
                     #### Testing area
                     print("help me bosss1")
-                    if message_text in open("peoplelist.csv", 'r'):
+                    if "daniel" in open("peoplelist.csv", 'r'):
                         print("help me bosss2")
                         with open("last_name_message.csv", 'w') as last_name:
                             last_name.write("timmy the bossman")
