@@ -60,6 +60,7 @@ def webhook():
                                 with open("last_name_message.csv", 'w') as last_name:
                                     last_name.write("timmy the bossman")
                                     print("help me bosss3")
+                                    print(line.split(", ")[0])
 
 
 
