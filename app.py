@@ -50,40 +50,11 @@ def webhook():
                         pass
                     last_word_used = message_text
 
-                    #### Testing area
-                    print("help me bosss1")
-                    # if message_text in open("peoplelist.csv", 'r'):
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
                             if message_text in line and len(message_text) >= 3:
-                                print("help me bosss2")
                                 with open("last_name_message.csv", 'w') as last_name:
-                                    last_name.write("timmy the bossman")
-                                    print("help me bosss3")
-                                    print(line.split(", ")[0])
-
-
-
-    # TODO finish this, make it so it saves all names to a csv file
-                    # with open("peoplelist.csv") as peoplelist:
-                    #     for line in peoplelist:
-                    #         if message_text in line and len(message_text) >= 3:
-                    #             last_name_used = line.split(", ")[0]
-                    #             # with open("last_name_message.csv") as last_name_message:
-                    #             #     last_name_message.write(line)
-                    #         else:
-                    #             last_name_used = "unused"
-
-                    # last_name_message(last_name)
-
-                    # with open("name_save.json", 'r') as name_save:
-                    #     send_message(sender_id, str(json.load(name_save)))
-
-                    # TODO fix this, i need it to save the last name used, but right now it is resetting it every
-                        # message TODO, so it prints the variable stated above
-
-
-# TODO fix this so that it takes and remembers only names without causing errors
+                                    last_name.write(line.split(", ")[0])
 
                     print last_word_used
                     print last_name_message(latest_name='')
