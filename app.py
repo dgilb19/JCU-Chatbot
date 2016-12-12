@@ -59,7 +59,7 @@ def webhook():
                     print last_word_used
                     print "start"
                     print last_name_message(latest_name='')
-                    print get_last_name_used(message_text)
+                    # print get_last_name_used(message_text)
                     print "stop"
 
                     ###
@@ -85,12 +85,12 @@ def last_name_message(latest_name):
         return latest_name
 # TODO make it so this gets latest entry from the csv file
 
-def get_last_name_used(message_text):
-    with open("peoplelist.csv") as peoplelist:
-        for line in peoplelist:
-            if message_text in line and len(message_text) >= 3:
-                last_name_used = line.split(", ")[0]
-                return last_name_used
+# def get_last_name_used(message_text):
+#     with open("peoplelist.csv") as peoplelist:
+#         for line in peoplelist:
+#             if message_text in line and len(message_text) >= 3:
+#                 last_name_used = line.split(", ")[0]
+#                 return last_name_used
 
 
 def get_reply(message_text, last_word_used):
@@ -102,7 +102,7 @@ def get_reply(message_text, last_word_used):
     elif re.match(r'.*what', message_text, re.I):
         if re.match(r'.*email', message_text, re.I):
             what_words = WhatIndex(message_text)
-            what_words.email_passer(last_word_used)
+            what_words.email_passer(last_name_message(latest_name=''))
             return str(what_words)
 
         else:
