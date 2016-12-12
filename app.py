@@ -53,7 +53,7 @@ def webhook():
                     #### Testing area
                     if message_text in open("peoplelist.csv") and len(message_text) >= 3:
                         with open("last_name_message.csv") as last_name:
-                            last_name.writerow("timmy the bossman")
+                            last_name.write("timmy the bossman")
     # TODO finish this, make it so it saves all names to a csv file
                     # with open("peoplelist.csv") as peoplelist:
                     #     for line in peoplelist:
