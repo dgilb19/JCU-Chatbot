@@ -78,19 +78,12 @@ def webhook():
 
     return "ok", 200
 
+
 def last_name_message(latest_name):
     with open("last_name_message.csv", "r") as last_name_message:
         for line in last_name_message:
             latest_name = line
         return latest_name
-# TODO make it so this gets latest entry from the csv file
-
-# def get_last_name_used(message_text):
-#     with open("peoplelist.csv") as peoplelist:
-#         for line in peoplelist:
-#             if message_text in line and len(message_text) >= 3:
-#                 last_name_used = line.split(", ")[0]
-#                 return last_name_used
 
 
 def get_reply(message_text, last_word_used):
@@ -150,10 +143,13 @@ def get_reply(message_text, last_word_used):
                     return "What about {}?".format(line.title().split(", ")[0])
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
+        location_words = LocationIndex(message_text)
         if message_text in open("buildinglist.csv").read():
-            location_words = LocationIndex(message_text)
             location_words.location_name_passer(message_text)
             return str(location_words)
+        elif re.match(r'.*office|desk', message_text, re.I):
+            location_words.
+
         else:
             location_words = LocationIndex(message_text)
             location_words.location_passer(message_text)
@@ -176,9 +172,6 @@ def get_reply(message_text, last_word_used):
 
     elif re.match(r'.*last message', message_text, re.I):
         return last_word_used
-
-    # elif re.match(r'.*last name used', message_text, re.I):
-    #     return last_name_used
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""

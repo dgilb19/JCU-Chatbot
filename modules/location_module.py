@@ -33,7 +33,12 @@ class LocationIndex:
                 if message_text in line.split(", ")[1]:
                     self.location_str = line.title().split(", ")[0]
 
-
+    def office_passer(self, last_name_message):
+        with open("peoplelist.csv") as peoplelist:
+            for line in peoplelist:
+                if last_name_message in line:
+                    office_number = line.split(", ")[2].split("-")
+                    self.location_str = "building {}, room {}".format(office_number[0], office_number[1])
 
 # TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
 # put the name in and still get the map up
