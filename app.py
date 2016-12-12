@@ -64,7 +64,7 @@ def webhook():
                     #         else:
                     #             last_name_used = "unused"
 
-                    last_name_message(last_name)
+                    # last_name_message(last_name)
 
                     # with open("name_save.json", 'r') as name_save:
                     #     send_message(sender_id, str(json.load(name_save)))
