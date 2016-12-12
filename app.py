@@ -98,8 +98,8 @@ def webhook():
 
 def last_name_message(latest_name):
     with open("last_name_message.csv", "r") as last_name_message:
-        for line in last_name_message:
-            latest_name = line
+        # for line in last_name_message:
+        latest_name = last_name_message
             # latest_name = line.split(', ')[:1]
         return latest_name
 # TODO make it so this gets latest entry from the csv file
