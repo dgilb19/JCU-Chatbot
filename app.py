@@ -55,12 +55,13 @@ def webhook():
                     # if message_text in open("peoplelist.csv", 'r'):
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
-                            if message_text in line and message_text >= 3:
-                                print("help me bosss2")
-                                with open("last_name_message.csv", 'w') as last_name:
-                                    last_name.write("timmy the bossman")
-                                    print("help me bosss3")
-                                    print(line.split(", ")[0])
+                            if message_text >= 3:
+                                if message_text in line:
+                                    print("help me bosss2")
+                                    with open("last_name_message.csv", 'w') as last_name:
+                                        last_name.write("timmy the bossman")
+                                        print("help me bosss3")
+                                        print(line.split(", ")[0])
 
 
 
