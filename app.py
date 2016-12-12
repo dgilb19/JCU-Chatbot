@@ -158,14 +158,14 @@ def get_reply(message_text, last_word_used):
         elif re.match(r'.*office|desk', message_text, re.I):
             location_words.office_passer(message_text)
             return str(location_words)
-        elif message_text in open("peoplelist.csv"):
+        elif message_text in open("peoplelist.csv").read():
             location_words.office_passer(message_text)
-            return "heitgeitgbeig"
+            return str(location_words)
 
         else:
             location_words = LocationIndex(message_text)
             location_words.location_passer(message_text)
-            return "saassasssasasas"
+            return str(location_words)
 
     elif len(message_text) >= 5 and message_text in open("buildinglist.csv").read():
         location_words = LocationIndex(message_text)
