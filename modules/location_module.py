@@ -43,6 +43,8 @@ class LocationIndex:
                     # if office_number == 0:
                     #     return "he has no office or desk"
                     # else:
+                    print last_name_message
+                    print line
                     self.location_str = last_name_message
 
 # TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
