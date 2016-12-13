@@ -171,7 +171,7 @@ def get_reply(message_text, people_name, building_name):
             return "tjimgugj"
         # TODO fix this ^^^ with the new list of building names i made
         elif re.match(r'.*office|desk', message_text, re.I):
-            location_words.office_passer(people_name)
+            location_words.office_passer(message_text)
             return str(location_words)
         else:
             location_words.location_passer(message_text)
