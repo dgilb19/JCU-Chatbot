@@ -36,15 +36,14 @@ class LocationIndex:
     def office_passer(self, last_name_message):
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
-                if last_name_message in line:
-                    if any(line.find(s) >= 0 for s in last_name_message):
-                        # office_number = line.split(", ")[2].split("-")
-                        # self.location_str = "building {}, room {}".format(office_number[0], office_number[1])
-                        # office_number = line.split(', ')[2]
-                        # if office_number == 0:
-                        #     return "he has no office or desk"
-                        # else:
-                        self.location_str = line
+                if any(line.find(s) >= 0 for s in last_name_message):
+                    # office_number = line.split(", ")[2].split("-")
+                    # self.location_str = "building {}, room {}".format(office_number[0], office_number[1])
+                    # office_number = line.split(', ')[2]
+                    # if office_number == 0:
+                    #     return "he has no office or desk"
+                    # else:
+                    self.location_str = line
 
 # TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
 # put the name in and still get the map up
