@@ -50,7 +50,7 @@ class LocationIndex:
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if last_name_message in line:
-                    if line.split(', ')[2] == 0:
+                    if line.split(', ')[2] == "0":
                         self.location_str = "{} does not have an office".format(line.split(', ')[0])
                         # TODO fix this its so close^^^^^^
                     else:
