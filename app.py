@@ -135,7 +135,7 @@ def get_reply(message_text, people_name, building_name):
             return str(date_words)
         else:
             date_words.date_passer(message_text)
-            return str(date_words)
+            return "swaggg"
 
     elif message_text >= 5 and message_text in open("examlist.csv").read():
         date_words = DateIndex(message_text)
