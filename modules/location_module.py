@@ -45,6 +45,7 @@ class LocationIndex:
                         #     return "he has no office or desk"
                         # else:
                         self.location_str = line
+                        self.location_str = last_name_message
 
 # TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
 # put the name in and still get the map up
