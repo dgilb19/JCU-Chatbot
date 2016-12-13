@@ -50,8 +50,11 @@ class LocationIndex:
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if last_name_message in line:
-                    building_number = line.split(", ")[2]
-                    self.location_str = "{}: {}".format(building_number.split("-")[0], building_number.split("-")[1])
+                    if line.split(', ')[2] == 0:
+                        self.location_str = "{} does not have an office".format(line.split(', ')[0])
+                    else:
+                        building_number = line.split(", ")[2]
+                        self.location_str = "{}: {}".format(building_number.split("-")[0], building_number.split("-")[1])
 
 # TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
 # put the name in and still get the map up
