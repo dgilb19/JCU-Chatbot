@@ -135,7 +135,7 @@ def get_reply(message_text, people_name, building_name):
             return str(date_words)
         else:
             date_words.date_passer(message_text)
-            return "swaggg"
+            return str(date_words)
 
     elif message_text >= 5 and message_text in open("examlist.csv").read():
         date_words = DateIndex(message_text)
@@ -169,12 +169,13 @@ def get_reply(message_text, people_name, building_name):
         if message_text in open("buildinglist.csv").read():
             location_words.location_name_passer(message_text)
             return "tjimgugj"
+        # TODO fix this ^^^
         elif re.match(r'.*office|desk', message_text, re.I):
             location_words.office_passer(message_text)
-            return str(location_words)
+            return "swag1"
         else:
             location_words.location_passer(message_text)
-            return str(location_words)
+            return "swag2"
 
         # location_words = LocationIndex(message_text)
         # if message_text in open("buildinglist.csv").read():
