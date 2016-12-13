@@ -169,13 +169,13 @@ def get_reply(message_text, people_name, building_name):
         if message_text in open("buildinglist.csv").read():
             location_words.location_name_passer(message_text)
             return "tjimgugj"
-        # TODO fix this ^^^
+        # TODO fix this ^^^ with the new list of building names i made
         elif re.match(r'.*office|desk', message_text, re.I):
-            location_words.office_passer(message_text)
-            return "swag1"
+            location_words.office_passer(people_name)
+            return str(location_words)
         else:
             location_words.location_passer(message_text)
-            return "swag2"
+            return str(location_words)
 
         # location_words = LocationIndex(message_text)
         # if message_text in open("buildinglist.csv").read():
