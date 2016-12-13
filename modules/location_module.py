@@ -34,8 +34,10 @@ class LocationIndex:
                     self.location_str = "are you looking for building {}?".format(line.title().split(", ")[0])
 
     def office_passer(self, last_name_message):
+        print last_name_message
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
+                print last_name_message
                 if any(line.find(s) >= 0 for s in last_name_message):
                     # office_number = line.split(", ")[2].split("-")
                     # self.location_str = "building {}, room {}".format(office_number[0], office_number[1])
@@ -43,6 +45,7 @@ class LocationIndex:
                     # if office_number == 0:
                     #     return "he has no office or desk"
                     # else:
+                    print last_name_message
                     self.location_str = last_name_message
 
 # TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
