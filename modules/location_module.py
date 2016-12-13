@@ -36,7 +36,8 @@ class LocationIndex:
     def office_passer(self, last_name_message):
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
-                if str(last_name_message) in line:
+                if any(line.find(s) >= 0 for s in last_name_message):
+                # if str(last_name_message) in line:
                     self.location_str = "swag"
                     # office_number = line.split(", ")[2].split("-")
                     # self.location_str = "building {}, room {}".format(office_number[0], office_number[1])
