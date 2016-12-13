@@ -77,16 +77,19 @@ class App_test(unittest.TestCase):
         self.assertEquals(get_reply("when is the maths exam", last_word_used="", last_name_used=''), "maths 21/5")
 
     def testTwentythree(self):
-        self.assertEquals(get_reply("maths", last_word_used="", last_name_used=''), "maths, 21/5")
+        self.assertEquals(get_reply("maths", last_word_used=""), "maths, 21/5")
 
     def testTwentyfour(self):
-        self.assertEquals(get_reply("last message", last_word_used="TestyMcTestFace", last_name_used=''), "TestyMcTestFace")
+        self.assertEquals(get_reply("last message", last_word_used="TestyMcTestFace"), "TestyMcTestFace")
 
     def testTwentyfive(self):
-        self.assertEquals(get_reply("exam", last_word_used="", last_name_used=''), "Exam Period")
+        self.assertEquals(get_reply("exam", last_word_used=""), "Exam Period")
 
     def testTwentysix(self):
-        self.assertEquals(get_reply("library", last_word_used="", last_name_used=""), "18")
+        self.assertEquals(get_reply("library", last_word_used=""), "18")
+
+    def testTwentyseven(self):
+        self.assertEquals(get_reply("", ))
 
 
 

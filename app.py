@@ -152,15 +152,17 @@ def get_reply(message_text, last_word_used):
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)
-        if message_text in open("buildinglist.csv").read():
+        if message_text in open("peoplelist.csv").read():
+            location_words.office_passer(message_text)
+            return "thihngygyughygygygygygygyggyg"
+
+        elif message_text in open("buildinglist.csv").read():
             location_words.location_name_passer(message_text)
             return str(location_words)
         elif re.match(r'.*office|desk', message_text, re.I):
             location_words.office_passer(message_text)
             return str(location_words)
-        elif open("peoplelist.csv").read() in message_text:
-            location_words.office_passer(message_text)
-            return str(location_words)
+
 
         else:
             location_words = LocationIndex(message_text)
