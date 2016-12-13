@@ -75,8 +75,8 @@ def webhook():
                             line = line.split(", ")[1]
                             building_name += tuple(line.split(", "))
 
-                    print last_name_message(latest_name='')
-                    print building_name
+                    # print last_name_message(latest_name='')
+                    # print building_name
 
                     reply = get_reply(message_text, people_name, building_name)
                     send_message(sender_id, reply)
