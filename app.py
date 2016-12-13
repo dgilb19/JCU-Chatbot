@@ -73,7 +73,7 @@ def webhook():
 
                     print last_name_message(latest_name='')
 
-                    reply = get_reply(message_text, people_name)
+                    reply = get_reply(message_text, people_name, building_name)
                     send_message(sender_id, reply)
 
                 # if messaging_event.get("delivery"):  # delivery confirmation
@@ -103,7 +103,7 @@ def last_building_message(latest_building):
         return latest_building
 
 
-def get_reply(message_text, people_name):
+def get_reply(message_text, people_name, building_name):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
     if re.match(r'.*hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
@@ -185,7 +185,7 @@ def get_reply(message_text, people_name):
         # #     return "sasaasasassas"
 
     # elif len(message_text) >= 5 and message_text in open("buildinglist.csv").read():
-    elif any(message_text.find(s) >= 0 for s in people_name):
+    elif any(message_text.find(s) >= 0 for s in building_name):
         location_words = LocationIndex(message_text)
         location_words.location_name_passer(message_text)
         return str(location_words)
