@@ -31,7 +31,7 @@ class LocationIndex:
         with open("buildinglist.csv") as buildinglist:
             for line in buildinglist:
                 if message_text in line.split(", ")[1]:
-                    self.location_str = line.title().split(", ")[0]
+                    self.location_str = "are you looking for building {}?".format(line.title().split(", ")[0])
 
     def office_passer(self, last_name_message):
         with open("peoplelist.csv") as peoplelist:

@@ -34,6 +34,9 @@ def webhook():
 
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
+    ###
+    people_name = ()
+    building_name = ()
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -47,7 +50,6 @@ def webhook():
                         message_text = message_text[:-1]
                     else:
                         pass
-                    last_word_used = message_text
 
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
@@ -61,10 +63,17 @@ def webhook():
                                 with open("last_building_message.csv", 'w') as last_building:
                                     last_building.write(line.split(", ")[0])
 
-                    print last_word_used
+                    with open("peoplelist.csv") as people_name_list:
+                        for line in people_name_list:
+                            people_name += tuple(line.split(", ")[0])
+
+                    with open("buildinglist.csv") as building_name_list:
+                        for line in building_name_list:
+                            building_name += tuple(line.split(", ")[0])
+
                     print last_name_message(latest_name='')
 
-                    reply = get_reply(message_text, last_word_used)
+                    reply = get_reply(message_text, people_name)
                     send_message(sender_id, reply)
 
                 # if messaging_event.get("delivery"):  # delivery confirmation
@@ -94,7 +103,7 @@ def last_building_message(latest_building):
         return latest_building
 
 
-def get_reply(message_text, last_word_used):
+def get_reply(message_text, people_name):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
     if re.match(r'.*hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
@@ -175,7 +184,8 @@ def get_reply(message_text, last_word_used):
         # #     location_words.location_passer(message_text)
         # #     return "sasaasasassas"
 
-    elif len(message_text) >= 5 and message_text in open("buildinglist.csv").read():
+    # elif len(message_text) >= 5 and message_text in open("buildinglist.csv").read():
+    elif any(message_text.find(s) >= 0 for s in people_name):
         location_words = LocationIndex(message_text)
         location_words.location_name_passer(message_text)
         return str(location_words)
@@ -189,9 +199,6 @@ def get_reply(message_text, last_word_used):
         else:
             text = " "
         return "Reversed: {}".format(text[::-1])
-
-    elif re.match(r'.*last message', message_text, re.I):
-        return last_word_used
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
