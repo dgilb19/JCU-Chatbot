@@ -151,20 +151,29 @@ def get_reply(message_text, last_word_used):
                     return "What about {}?".format(line.title().split(", ")[0])
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
-        location_words = LocationIndex(message_text)
         if message_text in open("buildinglist.csv").read():
+            location_words = LocationIndex(message_text)
             location_words.location_name_passer(message_text)
             return str(location_words)
-        elif re.match(r'.*office|desk', message_text, re.I):
-            location_words.office_passer(message_text)
+        else:
+            location_words = LocationIndex(message_text)
+            location_words.location_passer(message_text)
             return str(location_words)
-        elif message_text in open("peoplelist.csv").read():
-            location_words.office_passer(message_text)
-            return "thihngygyughygygygygygygyggyg"
-        # else:
-        #     location_words = LocationIndex(message_text)
-        #     location_words.location_passer(message_text)
-        #     return "sasaasasassas"
+
+        # location_words = LocationIndex(message_text)
+        # if message_text in open("buildinglist.csv").read():
+        #     location_words.location_name_passer(message_text)
+        #     return str(location_words)
+        # elif re.match(r'.*office|desk', message_text, re.I):
+        #     location_words.office_passer(message_text)
+        #     return str(location_words)
+        # elif message_text in open("peoplelist.csv").read():
+        #     location_words.office_passer(message_text)
+        #     return "thihngygyughygygygygygygyggyg"
+        # # else:
+        # #     location_words = LocationIndex(message_text)
+        # #     location_words.location_passer(message_text)
+        # #     return "sasaasasassas"
 
     elif len(message_text) >= 5 and message_text in open("buildinglist.csv").read():
         location_words = LocationIndex(message_text)
