@@ -89,7 +89,7 @@ class App_test(unittest.TestCase):
         self.assertEquals(get_reply("library", last_word_used=""), "18")
 
     def testTwentyseven(self):
-        self.assertEquals(get_reply("", ))
+        self.assertEquals(get_reply(""))
 
 
 

@@ -35,8 +35,8 @@ def webhook():
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
     ###
-    people_name = ()
-    building_name = ()
+    people_name = ("curse", "cursing")
+    building_name = ("curse", "cursing")
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -65,11 +65,17 @@ def webhook():
 
                     with open("peoplelist.csv") as people_name_list:
                         for line in people_name_list:
-                            people_name += tuple(line.split(", ")[0])
+                            line = line.split(", ")[0]
+                            people_name += tuple(line.split(", "))
+                            line = line.split(" ")
+                            people_name += tuple(line)
 
                     with open("buildinglist.csv") as building_name_list:
                         for line in building_name_list:
-                            building_name += tuple(line.split(", ")[0])
+                            line = line.split(", ")[0]
+                            building_name += tuple(line.split(", "))
+                            line = line.split(" ")
+                            building_name += tuple(line)
 
                     print last_name_message(latest_name='')
                     print building_name
