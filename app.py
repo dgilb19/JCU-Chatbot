@@ -227,6 +227,8 @@ def get_reply(message_text, people_name, building_name):
             return "heres Jesse's number; 0412263945"
         else:
             return "ａｅｓｔｈｅｔｉｃ"
+    elif re.match(r'.*Bangarang', message_text, re.I):
+        return "Allan stop, thats not a word, its a skrillex song"
 
     else:
         return "idk what you are saying"
