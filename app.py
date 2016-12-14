@@ -199,10 +199,8 @@ def get_reply(message_text, people_name, building_name):
         if re.match(r'.*show', message_text, re.I):
             return 'http://i.imgur.com/wKBDSfM.png'
         # elif re.match(r'.*', message_text, re,I):
-        elif any(message_text) in open("classlist.csv"):
+        elif any(message_text.split(" ")) in open("classlist.csv"):
             return "10 out of 10, good job"
-
-
         else:
             return "what about your schedule?"
 
