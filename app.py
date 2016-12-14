@@ -130,9 +130,9 @@ def get_reply(message_text, people_name, building_name):
         if message_text in open("datelist.csv").read():
             date_words.date_passer(message_text)
             return str(date_words)
-        elif re.match(r'.*class|lecture|practical|prac', message_text, re.I):
-            date_words.class_list_passer(message_text)
-            return str(date_words)
+        # elif re.match(r'.*class|lecture|practical|prac', message_text, re.I):
+        #     date_words.class_list_passer(message_text)
+        #     return str(date_words)
             # TODO make this work
         elif re.match(r'.*exam|exams', message_text, re.I):
             date_words.exam_list_passer(message_text)
@@ -194,10 +194,10 @@ def get_reply(message_text, people_name, building_name):
         else:
             text = " "
         return "Reversed: {}".format(text[::-1])
-    # elif re.match(r'.*timetable|schedule|class', message_text, re.I):
-    #     # timetable_words = class_list_passer
-    #     if re.match(r'.*show', message_text, re.I):
-    #         return "http://l.facebook.com/l.php?u=http%3A%2F%2Fi.imgur.com%2FwKBDSfM.png&h=fAQFDp3to&s=1&__mref=message_bubble"
+    elif re.match(r'.*timetable|schedule|class', message_text, re.I):
+        # timetable_words = class_list_passer
+        if re.match(r'.*show', message_text, re.I):
+            return "http://l.facebook.com/l.php?u=http%3A%2F%2Fi.imgur.com%2FwKBDSfM.png&h=fAQFDp3to&s=1&__mref=message_bubble"
 
         # elif
         # else:
