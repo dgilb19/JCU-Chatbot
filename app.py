@@ -129,10 +129,9 @@ def get_reply(message_text, people_name, building_name):
 
     elif re.match(r'.*what', message_text, re.I):
         what_words = WhatIndex(message_text)
-        lenght = len(people_name)
         for line in people_name:
             if line in message_text:
-                return str(people_name)
+                return "test {}".format(line)
         if re.match(r'.*email', message_text, re.I):
             what_words.email_passer(last_name_message(latest_name=''))
             return str(what_words)
