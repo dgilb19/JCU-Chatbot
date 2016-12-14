@@ -194,15 +194,17 @@ def get_reply(message_text, people_name, building_name):
         else:
             text = " "
         return "Reversed: {}".format(text[::-1])
-    elif re.match(r'.*timetable|schedule|class', message_text, re.I):
+    elif re.match(r'.*timetable|schedule|class|practical|prac', message_text, re.I):
         # timetable_words = class_list_passer
         if re.match(r'.*show', message_text, re.I):
-            return "http://l.facebook.com/l.php?u=http%3A%2F%2Fi.imgur.com%2FwKBDSfM.png&h=fAQFDp3to&s=1&__mref=message_bubble"
+            return 'http://i.imgur.com/wKBDSfM.png'
+        # elif re.match(r'.*', message_text, re,I):
+        elif message_text in open("classlist.csv"):
+            return "10 out of 10, good job"
 
-        # elif
-        # else:
-        #     return "what about your schedule?"
 
+        else:
+            return "what about your schedule?"
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""
@@ -212,7 +214,7 @@ def get_reply(message_text, people_name, building_name):
         return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only " \
                "know a few people(try Daniel)) "
 
-    elif re.match(r'.*allan|cameron|cam|sanio|jesse|ramisa|remi', message_text, re.I):
+    elif re.match(r'.*allan|cameron|cam|sanio|jesse|ramisa|remi|bangarang', message_text, re.I):
         if re.match(r'.*allan', message_text, re.I):
             return "Allan you are a drongo"
         elif re.match(r".*cameron|cam", message_text, re.I):
@@ -221,10 +223,10 @@ def get_reply(message_text, people_name, building_name):
             return "Sorry"
         elif re.match(r".*jesse", message_text, re.I):
             return "heres Jesse's number; 0412263945"
+        elif re.match(r'.*bangarang', message_text, re.I):
+            return "Allan stop, thats not a word, its a skrillex song"
         else:
             return "ａｅｓｔｈｅｔｉｃ"
-    elif re.match(r'.*Bangarang', message_text, re.I):
-        return "Allan stop, thats not a word, its a skrillex song"
 
     else:
         return "idk what you are saying"
