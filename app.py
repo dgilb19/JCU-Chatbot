@@ -192,7 +192,7 @@ def get_reply(message_text, people_name, building_name):
                     return "What about {}?".format(line.title().split(", ")[0])
 
     elif re.match(r".*map|.*where|.*wheres|.*building|.*looking|.*look [0-354]", message_text, re.I):
-        location_words = LocationIndex(message_text)
+        # location_words = LocationIndex(message_text)
         with open("buildinglist.csv") as building_list:
             for line in building_list:
                 if message_text in line:
