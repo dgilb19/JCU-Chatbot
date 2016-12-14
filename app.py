@@ -218,7 +218,7 @@ def get_reply(message_text, people_name, building_name):
         else:
             text = " "
         return "Reversed: {}".format(text[::-1])
-    elif re.match(r'.*timetable|schedule|class|practical|prac', message_text, re.I):
+    elif re.match(r'.*timetable|.*schedule|.*class|.*practical|.*prac', message_text, re.I):
         # timetable_words = class_list_passer
         if re.match(r'.*show', message_text, re.I):
             return 'http://i.imgur.com/wKBDSfM.png'
