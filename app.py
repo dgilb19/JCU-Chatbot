@@ -138,7 +138,7 @@ def get_reply(message_text, people_name, building_name):
             else:
                 return "idk who you are talking about"
 
-
+# TODO fix this
 
         else:
             return "I know you are asking a question but I'm not that smart yet! :what"
