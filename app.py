@@ -80,8 +80,8 @@ def webhook():
                         for line in class_name_list:
                             line = line.split(", ")[3]
                             class_name += tuple(line.split(", "))
-                            # line = line.split(", ")[5]
-                            # class_name += tuple(line.split(", "))
+                            line = line.split(", ")[4]
+                            class_name += tuple(line.split(", "))
 
                     print class_name
 
