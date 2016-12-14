@@ -37,6 +37,7 @@ def webhook():
     ###
     people_name = ("curse", "cursing")
     building_name = ("curse", "cursing")
+    class_name = ()
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -74,6 +75,15 @@ def webhook():
                         for line in building_name_list:
                             line = line.split(", ")[1]
                             building_name += tuple(line.split(", "))
+
+                    with open("claslist.csv") as class_name_list:
+                        for line in class_name_list:
+                            line = line.split(", ")[3]
+                            class_name += tuple(line.split(", "))
+                            line = line.split(", ")[5]
+                            class_name += tuple(line.split(", "))
+
+                    print class_name
 
                     # print last_name_message(latest_name='')
                     # print building_name
@@ -199,7 +209,7 @@ def get_reply(message_text, people_name, building_name):
         if re.match(r'.*show', message_text, re.I):
             return 'http://i.imgur.com/wKBDSfM.png'
         # elif re.match(r'.*', message_text, re,I):
-        elif any(message_text.split(" ")) in open("classlist.csv"):
+        elif re.match(r".*"):
             return "10 out of 10, good job"
         else:
             return "what about your schedule?"
