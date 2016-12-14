@@ -193,12 +193,13 @@ def get_reply(message_text, people_name, building_name):
 
     elif re.match(r".*map|.*where|.*wheres|.*building|.*looking|.*look [0-354]", message_text, re.I):
         # location_words = LocationIndex(message_text)
-        if len(message_text) >= 3 and message_text in open("buildinglist.csv").read():
-            with open("buildinglist.csv") as building_list:
-                for line in building_list:
-                    if message_text in line:
-                        print "good job 10/10"
-                        return "alosoajfoaefjoejfoiaejf"
+        re.match(building_name, message_text, re.I)
+        # if len(message_text) >= 3 and message_text in open("buildinglist.csv").read():
+        with open("buildinglist.csv") as building_list:
+            for line in building_list:
+                if message_text in line:
+                    print "good job 10/10"
+                    return "alosoajfoaefjoejfoiaejf"
 
         # if message_text in open("buildinglist.csv").read():
         #     location_words.location_name_passer(message_text)
