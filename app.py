@@ -79,7 +79,7 @@ def webhook():
 
                     with open("classlist.csv") as class_name_list:
                         for line in class_name_list:
-                            line = line.split(", ")[:-1]
+                            line = line.split(", ")[-1]
                             print line
                             class_name += tuple(line)
 
