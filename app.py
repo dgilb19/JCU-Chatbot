@@ -81,7 +81,9 @@ def webhook():
                         for line in class_name_list:
                             line = line.split(", ")[-1].strip("\n")
                             print line
-                            class_name += tuple(line.split(", "))
+                            if line not in class_name:
+                                class_name += tuple(line.split(", "))
+
 
                     print class_name
 
