@@ -145,12 +145,12 @@ def get_reply(message_text, people_name, building_name):
 
 
 #### TODO: make this work
-    elif re.match(r'.*when|whens|date|exam|exams', message_text, re.I):
+    elif re.match(r'.*when|.*whens|.*date|.*exam|.*exams', message_text, re.I):
         date_words = DateIndex(message_text)
         if message_text in open("datelist.csv").read():
             date_words.date_passer(message_text)
             return str(date_words)
-        elif re.match(r'.*class|lecture|practical|prac', message_text, re.I):
+        elif re.match(r'.*class|.*lecture|.*practical|.*prac', message_text, re.I):
             if last_name_message == "":
                 return "Who are you talking about?"
             else:
@@ -175,7 +175,7 @@ def get_reply(message_text, people_name, building_name):
         date_words.date_passer(message_text)
         return str(date_words)
 
-    elif re.match(r".*who|whos|who's", message_text, re.I):
+    elif re.match(r".*who|who's", message_text, re.I):
         if message_text in open("peoplelist.csv").read():
             people_words = PeopleIndex(message_text)
             people_words.people_passer(message_text)
@@ -191,13 +191,13 @@ def get_reply(message_text, people_name, building_name):
                 if message_text in line:
                     return "What about {}?".format(line.title().split(", ")[0])
 
-    elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
+    elif re.match(r".*map|.*where|.*wheres|.*building|.*looking|.*look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)
-        if message_text in building_name:
+        if message_text in open("buildinglist.csv").read():
             location_words.location_name_passer(message_text)
             return "tjimgugj"
         # TODO fix this ^^^ with the new list of building names i made
-        elif re.match(r'.*office|desk', message_text, re.I):
+        elif re.match(r'.*office|.*desk', message_text, re.I):
             location_words.office_passer(last_name_message(latest_name=''))
             return str(location_words)
         else:
@@ -209,7 +209,7 @@ def get_reply(message_text, people_name, building_name):
         location_words.location_name_passer(message_text)
         return str(location_words)
 
-    elif re.match(r'.*reverse|reversed|backwards', message_text, re.I):
+    elif re.match(r'.*reverse|.*reversed', message_text, re.I):
         if len(message_text.split(" ")) > 1:
             if re.match(r".*reverse", message_text, re.I):
                 text = message_text[8:]
@@ -232,7 +232,7 @@ def get_reply(message_text, people_name, building_name):
         return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only " \
                "know a few people(try Daniel)) "
 
-    elif re.match(r'.*allan|cameron|cam|sanio|jesse|ramisa|remi|bangarang', message_text, re.I):
+    elif re.match(r'allan|cameron|cam|sanio|jesse|ramisa|remi|bangarang', message_text, re.I):
         if re.match(r'.*allan', message_text, re.I):
             return "Allan you are a drongo"
         elif re.match(r".*cameron|cam", message_text, re.I):
