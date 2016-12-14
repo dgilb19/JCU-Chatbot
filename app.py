@@ -130,6 +130,10 @@ def get_reply(message_text, people_name, building_name):
         if message_text in open("datelist.csv").read():
             date_words.date_passer(message_text)
             return str(date_words)
+        elif re.match(r'.*class|lecture|practical|prac', message_text, re.I):
+            date_words.class_list_passer(message_text)
+            return str(date_words)
+            # TODO make this work
         elif re.match(r'.*exam|exams', message_text, re.I):
             date_words.exam_list_passer(message_text)
             return str(date_words)
@@ -141,7 +145,6 @@ def get_reply(message_text, people_name, building_name):
         date_words = DateIndex(message_text)
         date_words.exam_list_passer(message_text)
         return str(date_words)
-    # TODO fix this, its broken
 
     elif message_text >= 5 and message_text in open("datelist.csv").read():
         date_words = DateIndex(message_text)
@@ -177,22 +180,6 @@ def get_reply(message_text, people_name, building_name):
             location_words.location_passer(message_text)
             return str(location_words)
 
-        # location_words = LocationIndex(message_text)
-        # if message_text in open("buildinglist.csv").read():
-        #     location_words.location_name_passer(message_text)
-        #     return str(location_words)
-        # elif re.match(r'.*office|desk', message_text, re.I):
-        #     location_words.office_passer(message_text)
-        #     return str(location_words)
-        # elif message_text in open("peoplelist.csv").read():
-        #     location_words.office_passer(message_text)
-        #     return "thihngygyughygygygygygygyggyg"
-        # # else:
-        # #     location_words = LocationIndex(message_text)
-        # #     location_words.location_passer(message_text)
-        # #     return "sasaasasassas"
-
-    # elif len(message_text) >= 5 and message_text in open("buildinglist.csv").read():
     elif any(message_text.find(s) >= 0 for s in building_name):
         location_words = LocationIndex(message_text)
         location_words.location_name_passer(message_text)
@@ -207,6 +194,15 @@ def get_reply(message_text, people_name, building_name):
         else:
             text = " "
         return "Reversed: {}".format(text[::-1])
+    elif re.match(r'.*timetable|schedule|class', message_text, re.I):
+        # timetable_words = class_list_passer
+        if re.match(r'.*show', message_text, re.I):
+            return "http://l.facebook.com/l.php?u=http%3A%2F%2Fi.imgur.com%2FwKBDSfM.png&h=fAQFDp3to&s=1&__mref=message_bubble"
+
+        # elif
+        # else:
+        #     return "what about your schedule?"
+
 
     elif re.match(r".*version", message_text, re.I):
         """"add number to this every time you push it"""

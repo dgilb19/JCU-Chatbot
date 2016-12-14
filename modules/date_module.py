@@ -25,6 +25,10 @@ class DateIndex:
                     line = line.split(", ")
                     self.date_str = "{}, {}".format(line[0], line[1])
 
+    def class_list_passer(self, message_text):
+
+
+
 # TODO fix this, it dont work, idk why THIS IS LITERALLY KILLING ME
 
                     # line_name = line.split(", ")[0]
