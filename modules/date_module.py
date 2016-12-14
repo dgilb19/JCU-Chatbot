@@ -23,8 +23,8 @@ class DateIndex:
             for line in examlist:
                 if message_text in line:
                     line = line.split(", ")
-                    self.date_str = "{}, {}".format(line[0], line[1])
-
+                    # self.date_str = "{}, {}".format(line[0], line[1])
+                    self.date_str = "wat"
     def class_list_passer(self, message_text):
         return "im not done yet"
 

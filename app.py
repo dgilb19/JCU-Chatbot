@@ -145,14 +145,14 @@ def get_reply(message_text, people_name, building_name):
             return str(date_words)
         elif re.match(r'.*class|lecture|practical|prac', message_text, re.I):
             date_words.class_list_passer(message_text)
-            return "tyegfuegfu"
+            return str(date_words)
             # TODO make this work
         elif re.match(r'.*exam|exams', message_text, re.I):
             date_words.exam_list_passer(message_text)
             return str(date_words)
         else:
             date_words.date_passer(message_text)
-            return "fafa"
+            return str(date_words)
 
     elif message_text >= 5 and message_text in open("examlist.csv").read():
         date_words = DateIndex(message_text)
