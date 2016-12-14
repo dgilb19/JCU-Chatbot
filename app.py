@@ -128,8 +128,10 @@ def get_reply(message_text, people_name, building_name):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
 
     elif re.match(r'.*what', message_text, re.I):
+        what_words = WhatIndex(message_text)
+        if message_text in people_name:
+            return "swag"
         if re.match(r'.*email', message_text, re.I):
-            what_words = WhatIndex(message_text)
             what_words.email_passer(last_name_message(latest_name=''))
             return str(what_words)
 
