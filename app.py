@@ -38,7 +38,7 @@ def webhook():
     people_name = ("curse", "cursing")
     building_name = ("curse", "cursing")
     class_name = ("curse1", "cursing1")
-    # class_name_two = ("curse2", "cursing2")
+
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -79,14 +79,11 @@ def webhook():
 
                     with open("classlist.csv") as class_name_list:
                         for line in class_name_list:
-                            line_one = line.split(", ")[3]
-                            # line_two = line.split(', ')[5]
+                            line = line.split(", ")[5]
                             print line
-                            class_name += tuple(line_one.split(", "))
-                            # class_name_two += tuple(line_two.split(", "))
+                            class_name += tuple(line.split(", "))
 
                     print class_name
-                    # print class_name_two
 
                     # print last_name_message(latest_name='')
                     # print building_name
