@@ -7,6 +7,7 @@ from modules.people_module import PeopleIndex
 from modules.location_module import LocationIndex
 from modules.date_module import DateIndex
 from modules.what_module import WhatIndex
+# from modules.timetable_module import TimetableIndex
 
 import re
 
@@ -142,9 +143,9 @@ def get_reply(message_text, people_name, building_name):
         if message_text in open("datelist.csv").read():
             date_words.date_passer(message_text)
             return str(date_words)
-        # elif re.match(r'.*class|lecture|practical|prac', message_text, re.I):
-        #     date_words.class_list_passer(message_text)
-        #     return str(date_words)
+        elif re.match(r'.*class|lecture|practical|prac', message_text, re.I):
+            date_words.class_list_passer(message_text)
+            return str(date_words)
             # TODO make this work
         elif re.match(r'.*exam|exams', message_text, re.I):
             date_words.exam_list_passer(message_text)
