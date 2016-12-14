@@ -37,7 +37,8 @@ def webhook():
     ###
     people_name = ("curse", "cursing")
     building_name = ("curse", "cursing")
-    class_name = ("curse", "cursing")
+    class_name = ("curse1", "cursing1")
+    class_name_two = ("curse2", "cursing2")
 
     if data["object"] == "page":
         for entry in data["entry"]:
@@ -82,9 +83,10 @@ def webhook():
                             line_two = line.split(', ')[1]
 
                             class_name += tuple(line_one.split(", "))
+                            class_name_two += tuple(line_two.split(", "))
 
-                    print line_two
                     print class_name
+                    print class_name_two
 
                     # print last_name_message(latest_name='')
                     # print building_name
