@@ -129,7 +129,7 @@ def get_reply(message_text, people_name, building_name):
 
     elif re.match(r'.*what', message_text, re.I):
         what_words = WhatIndex(message_text)
-        if message_text in open("peoplelist.csv"):
+        if message_text in "swag":
             return "swag"
         if re.match(r'.*email', message_text, re.I):
             what_words.email_passer(last_name_message(latest_name=''))
