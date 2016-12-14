@@ -193,7 +193,7 @@ def get_reply(message_text, people_name, building_name):
 
     elif re.match(r".*map|where|wheres|where's|building|looking|look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)
-        if message_text in open("buildinglist.csv").read():
+        if message_text in building_name:
             location_words.location_name_passer(message_text)
             return "tjimgugj"
         # TODO fix this ^^^ with the new list of building names i made
