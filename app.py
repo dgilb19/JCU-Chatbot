@@ -134,7 +134,7 @@ def get_reply(message_text, people_name, building_name):
             return lenght
         if re.match(r'.*email', message_text, re.I):
             what_words.email_passer(last_name_message(latest_name=''))
-            return str(what_words)
+            return people_name
 
         else:
             return "I know you are asking a question but I'm not that smart yet! :what"
