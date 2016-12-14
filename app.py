@@ -193,7 +193,7 @@ def get_reply(message_text, people_name, building_name):
 
     elif re.match(r".*map|.*where|.*wheres|.*building|.*looking|.*look [0-354]", message_text, re.I):
         # location_words = LocationIndex(message_text)
-        if len(message_text) >= 3 and message_text in building_name:
+        if len(message_text) >= 3 and message_text in building_name[2]:
             with open("buildinglist.csv") as building_list:
                 for line in building_list:
                     if message_text in line:
