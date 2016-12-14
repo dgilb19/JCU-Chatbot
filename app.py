@@ -37,7 +37,7 @@ def webhook():
     ###
     people_name = ("curse", "cursing")
     building_name = ("curse", "cursing")
-    class_name = ()
+    class_name = ("curse", "cursing")
 
     if data["object"] == "page":
         for entry in data["entry"]:
