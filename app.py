@@ -125,7 +125,7 @@ def get_reply(message_text, people_name, building_name):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
     if re.match(r'remove', message_text, re.I):
         print(message_text[1:])
-        print(message_text.split(" ")[1:])
+        print str(message_text.split(" ")[1:])
 
         if re.match(r'.*hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
             return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
