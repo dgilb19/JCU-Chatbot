@@ -209,8 +209,8 @@ def get_reply(message_text, people_name, building_name):
         if re.match(r'.*show', message_text, re.I):
             return 'http://i.imgur.com/wKBDSfM.png'
         # elif re.match(r'.*', message_text, re,I):
-        elif re.match(r".*"):
-            return "10 out of 10, good job"
+        # elif re.match(r".*"):
+        #     return "10 out of 10, good job"
         else:
             return "what about your schedule?"
 
