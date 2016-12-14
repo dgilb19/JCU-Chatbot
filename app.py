@@ -195,7 +195,7 @@ def get_reply(message_text, people_name, building_name):
         # location_words = LocationIndex(message_text)
         with open("buildinglist.csv") as building_list:
             for line in building_list:
-                if message_text in line:
+                if message_text in line.split(", ")[1]:
                     print "good job 10/10"
                     return "alosoajfoaefjoejfoiaejf"
 
