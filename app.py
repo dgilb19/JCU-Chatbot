@@ -135,8 +135,8 @@ def get_reply(message_text, people_name, building_name):
                     # return "test {}".format(line)
                     what_words.email_passer(last_name_message(latest_name=''))
                     return str(what_words)
-                else:
-                    return "idk who you are talking about"
+            else:
+                return "idk who you are talking about"
 
 
 
