@@ -78,7 +78,7 @@ def webhook():
 
                     with open("classlist.csv") as class_name_list:
                         for line in class_name_list:
-                            line = line.split(", ")[3]
+                            line = line.split(", ")[3] + line.split(', ')[5]
                             class_name += tuple(line.split(", "))
 
 
