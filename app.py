@@ -129,16 +129,18 @@ def get_reply(message_text, people_name, building_name):
 
     elif re.match(r'.*what', message_text, re.I):
         if re.match(r'.*email', message_text, re.I):
-            what_words = WhatIndex(message_text)
-            what_words.email_passer(last_name_message(latest_name=''))
-            return str(what_words)
+            if last_name_message == "":
+                return "who are you talking about?"
+            else:
+                what_words = WhatIndex(message_text)
+                what_words.email_passer(last_name_message(latest_name=''))
+                return str(what_words)
 
         else:
             return "I know you are asking a question but I'm not that smart yet! :what"
 
-    # TODO fix it so it take last input(list_test) or (last_name_used)
-
-    elif re.match(r'.*when|whens|date|exam|exams', message_text, re.I):
+#### TODO: make this work
+    elif re.match(r'.*when|date|exam|exams', message_text, re.I):
         date_words = DateIndex(message_text)
         if message_text in open("datelist.csv").read():
             date_words.date_passer(message_text)
@@ -147,12 +149,13 @@ def get_reply(message_text, people_name, building_name):
             date_words.class_list_passer(message_text)
             return str(date_words)
             # TODO make this work
-        elif re.match(r'.*exam|exams', message_text, re.I):
+        elif re.match(r'.*exam', message_text, re.I):
             date_words.exam_list_passer(message_text)
             return str(date_words)
         else:
             date_words.date_passer(message_text)
             return str(date_words)
+####
 
     elif message_text >= 5 and message_text in open("examlist.csv").read():
         date_words = DateIndex(message_text)
@@ -216,10 +219,6 @@ def get_reply(message_text, people_name, building_name):
         #     return "10 out of 10, good job"
         else:
             return "what about your schedule?"
-
-    elif re.match(r".*version", message_text, re.I):
-        """"add number to this every time you push it"""
-        return "version 28"
 
     elif re.match(r'.*help', message_text, re.I):
         return "Ask me where a certain building is, ask for a map, or about someone(im not a very good bot so i only " \
