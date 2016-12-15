@@ -35,7 +35,7 @@ class DateIndex:
                 if line.split(", ")[0] in message_text:
                     self.date_str = "the {} exam is on the {}".format(line.split(", ")[0], str(line.split(', ')[1]))
             else:
-                return "this aint workin"
+                self.date_str = "this aint workin"
 
 
 
