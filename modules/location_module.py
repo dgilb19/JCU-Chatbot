@@ -69,11 +69,10 @@ class LocationIndex:
             else:
                 self.location_str = "im not sure who you are talking about"
 
-    # def email_passer_with_name(self, name):
-    #     with open("peoplelist.csv") as peoplelist:
-    #         for line in peoplelist:
-    #             if name in line:
-    #                 self.what_str = line.split(", ")[1]
-
+    def office_passer_with_name(self, name):
+        with open("peoplelist.csv") as peoplelist:
+            for line in peoplelist:
+                if name in line:
+                    self.location_str = line.split(", ")[1]
 # TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
 # put the name in and still get the map up

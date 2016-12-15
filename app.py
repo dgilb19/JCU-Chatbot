@@ -201,7 +201,7 @@ def get_reply(message_text, people_name, building_name):
         elif re.match(r'.*office|.*desk', message_text, re.I):
             for name in people_name:
                 if name in message_text:
-                    location_words.office_passer(name)
+                    location_words.office_passer_with_name(name)
                     return str(location_words)
             else:
                 location_words.office_passer(last_name_message(latest_name=''))
