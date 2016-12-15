@@ -143,7 +143,6 @@ def get_reply(message_text, people_name, building_name):
             for name in people_name:
                 if name in message_text:
                     print "FFFFFFFFFFFFFFFFFFFFFFFFF"
-                    print name
                     return str(what_words.email_passer_with_name(name))
             else:
                 what_words.email_passer(last_name_message(latest_name=''))
