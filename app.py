@@ -154,17 +154,15 @@ def get_reply(message_text, people_name, building_name):
                 date_words.next_class_passer()
                 return str(date_words)
         elif re.match(r'.*exam', message_text, re.I):
-            print "testing HHHHHHHH 1"
             with open("examlist.csv") as examlist:
-                print "testing HHHHHHHH 2"
                 for line in examlist:
-                    print "testing HHHHHHHH 3"
-                    if line in message_text:
-                        print "testing HHHHHHHH 4"
+                    if line.split(", ")[0] in message_text:
                         # date_words.exam_list_passer(line.split(', ')[0])
                         return "testing"
                         # return str(line)
                         # return str(date_words)
+                else:
+                    return "this aint workin"
         else:
             date_words.date_passer(message_text)
             return str(date_words)
