@@ -158,7 +158,8 @@ def get_reply(message_text, people_name, building_name):
                 for line in examlist:
                     if line in message_text:
                         date_words.exam_list_passer(line.split(', ')[0])
-                        return str(line)
+                        return "testing"
+                        # return str(line)
                         # return str(date_words)
         else:
             date_words.date_passer(message_text)
