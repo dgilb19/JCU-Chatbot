@@ -19,5 +19,5 @@ class WhatIndex:
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if name in line:
-                    self.what_str = "???"
-                    # self.what_str = line.split(", ")[1]
+                    # self.what_str = "???"
+                    self.what_str = line.split(", ")[1]
