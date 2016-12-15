@@ -35,28 +35,45 @@ class LocationIndex:
                 if message_text in line.split(", ")[1]:
                     self.location_str = "are you looking for building {}?".format(line.title().split(", ")[0])
 
+    # def office_passer(self, last_name_message):
+    #     # with open("peoplelist.csv") as peoplelist:
+    #     #     for line in peoplelist:
+    #     #         if any(line.find(s) >= 0 for s in last_name_message):
+    #     #             # office_number = line.split(", ")[2].split("-")
+    #     #             # self.location_str = "building {}, room {}".format(office_number[0], office_number[1])
+    #     #             # office_number = line.split(', ')[2]
+    #     #             # if office_number == 0:
+    #     #             #     return "he has no office or desk"
+    #     #             # else:
+    #     #             self.location_str = line
+    #     #             self.location_str = last_name_message
+    #     with open("peoplelist.csv") as peoplelist:
+    #         for line in peoplelist:
+    #             if last_name_message in line:
+    #                 if line.split(', ')[2] == '0\n':
+    #                     self.location_str = "{} does not have an office".format(line.split(', ')[0])
+    #                     # TODO fix this its so close^^^^^^
+    #                 else:
+    #                     building_number = line.split(", ")[2]
+    #                     # building_number_final = "{}: {}".format(building_number.split("-")[0], building_number.split("-")[1])
+    #                     building_number_final = "{}".format(building_number.split("-")[0])
+    #                     self.location_str = building_number_final
+    #
+    #                 """gets the last name entered and and gets email based of that"""
+
     def office_passer(self, last_name_message):
-        # with open("peoplelist.csv") as peoplelist:
-        #     for line in peoplelist:
-        #         if any(line.find(s) >= 0 for s in last_name_message):
-        #             # office_number = line.split(", ")[2].split("-")
-        #             # self.location_str = "building {}, room {}".format(office_number[0], office_number[1])
-        #             # office_number = line.split(', ')[2]
-        #             # if office_number == 0:
-        #             #     return "he has no office or desk"
-        #             # else:
-        #             self.location_str = line
-        #             self.location_str = last_name_message
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if last_name_message in line:
-                    if line.split(', ')[2] == '0\n':
-                        self.location_str = "{} does not have an office".format(line.split(', ')[0])
-                        # TODO fix this its so close^^^^^^
-                    else:
-                        building_number = line.split(", ")[2]
-                        # building_number_final = "{}: {}".format(building_number.split("-")[0], building_number.split("-")[1])
-                        building_number_final = "{}".format(building_number.split("-")[0])
-                        self.location_str = building_number_final
+                    self.location_str = line.split(", ")[1]
+            else:
+                self.location_str = "im not sure who you are talking about"
+
+    # def email_passer_with_name(self, name):
+    #     with open("peoplelist.csv") as peoplelist:
+    #         for line in peoplelist:
+    #             if name in line:
+    #                 self.what_str = line.split(", ")[1]
+
 # TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
 # put the name in and still get the map up
