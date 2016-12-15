@@ -150,7 +150,7 @@ def get_reply(message_text, people_name, building_name):
         date_words = DateIndex(message_text)
         if message_text in open("datelist.csv").read():
             date_words.date_passer(message_text)
-            return str(date_words)
+            return "yup"
         elif re.match(r'.*class|.*lecture|.*practical|.*prac', message_text, re.I):
                 date_words.next_class_passer()
                 return str(date_words)
