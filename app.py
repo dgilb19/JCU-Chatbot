@@ -200,7 +200,7 @@ def get_reply(message_text, people_name, building_name):
                 if line[num] in message_text:
 
                     print "good job 10/10"
-                    return "alosoajfoaefjoejfoiaejf"
+                    return line
             else:
                 return "this aint working"
 
