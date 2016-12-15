@@ -22,7 +22,7 @@ class DateIndex:
         with open("examlist.csv") as examlist:
             for line in examlist:
                 if message_text in line:
-                    line = line.split(", ")
+                    # line = line.split(", ")
                     # self.date_str = "{}, {}".format(line[0], line[1])
                     self.date_str = line
 
