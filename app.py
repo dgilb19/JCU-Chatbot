@@ -137,7 +137,7 @@ def get_reply(message_text, people_name, building_name):
                 what_words.email_passer(last_name_message(latest_name=''))
                 return str(what_words)
 
-        elif re.match(r'happening|going on|today|', message_text, re.I):
+        elif re.match(r'.*happening', message_text, re.I):
             return "there is nothing going on today, go home"
 
         else:
