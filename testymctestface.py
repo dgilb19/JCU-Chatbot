@@ -11,3 +11,5 @@ if re.match(r'num\w\d\D{2}\s\w{3}\s\S{1,6}', numbers):
     print "also good job"
 else:
     print "also bad job"
+
+print re.split("a", 'swag', re.I)
