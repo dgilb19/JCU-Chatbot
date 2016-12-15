@@ -14,12 +14,11 @@ class WhatIndex:
             for line in peoplelist:
                 if last_name_message in line:
                     self.what_str = line.split(", ")[1]
+            else:
+                self.what_str = "im not sure who you are talking about"
 
     def email_passer_with_name(self, name):
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if name in line:
-                    # self.what_str = "???"
                     self.what_str = line.split(", ")[1]
-            else:
-                self.what_str = "im not sure who you are talking about"
