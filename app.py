@@ -202,6 +202,7 @@ def get_reply(message_text, people_name, building_name):
             for name in people_name:
                 if name in message_text:
                     location_words.office_passer(name)
+                    return str(location_words)
             else:
                 location_words.office_passer(last_name_message(latest_name=''))
                 return str(location_words)
