@@ -156,7 +156,7 @@ def get_reply(message_text, people_name, building_name):
                 return str(date_words)
         elif re.match(r'.*exam', message_text, re.I):
             date_words.exam_list_passer(message_text)
-            return "wait what?"
+            return str(date_words)
         else:
             date_words.date_passer(message_text)
             return str(date_words)

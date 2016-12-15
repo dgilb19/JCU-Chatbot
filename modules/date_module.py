@@ -25,6 +25,8 @@ class DateIndex:
                     # line = line.split(", ")
                     # self.date_str = "{}, {}".format(line[0], line[1])
                     self.date_str = line
+            else:
+                self.date_str = "??/"
 
     def next_class_passer(self):
         self.date_passer = 'I dont have enough time to finish this, but lets just pretend that it works, ok?'
