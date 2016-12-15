@@ -17,7 +17,6 @@ class DateIndex:
                     self.date_str = line.title().split(", ")[0]
                     """broken, same problem returns the appropriate name from the csv file"""
 
-    """passes the relative exam information back"""
     def exam_list_passer(self, message_text):
         with open("examlist.csv") as examlist:
             for line in examlist:
@@ -29,26 +28,16 @@ class DateIndex:
     def next_class_passer(self):
         self.date_str = 'I dont have enough time to finish this, but lets just pretend that it works, ok?'
 
-    def exam_passer(self, message_text):
-        with open("examlist.csv") as examlist:
-            for line in examlist:
-                if line.split(", ")[0] in message_text:
-                    self.date_str = "the {} exam is on the {}".format(line.split(", ")[0], str(line.split(', ')[1]))
-            else:
-                self.date_str = "this aint workin"
+# ******** leave this here
+    # def exam_passer(self, message_text):
+    #     with open("examlist.csv") as examlist:
+    #         for line in examlist:
+    #             if line.split(", ")[0] in message_text:
+    #                 self.date_str = "the {} exam is on the {}".format(line.split(", ")[0], str(line.split(', ')[1]))
+    #         else:
+    #             self.date_str = "this aint workin"
+# ******
 
 
 
-# TODO fix this, it dont work, idk why THIS IS LITERALLY KILLING ME
 
-                    # line_name = line.split(", ")[0]
-                    # line_length = len(line_name)
-                    # line_first_name = line_name.split(" ")[0]
-                    # line_last_name = line_name.split(" ")[1]
-                    # if line_name or line_first_name or line_last_name in message_text:
-                    #     line = line[:line_length].title()
-                    #     self.date_str = line
-                    # else:
-                    #     self.date_str = "I know you are asking when something is, but I'm not that smart yet!"
-
-# TODO work on this, add some events they can ask about questions, same as people module but probs less complex, probably
