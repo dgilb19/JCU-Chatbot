@@ -18,11 +18,11 @@ class DateIndex:
                     """broken, same problem returns the appropriate name from the csv file"""
 
     """passes the relative exam information back"""
-    def exam_list_passer(self, word):
+    def exam_list_passer(self, message_text):
         with open("examlist.csv") as examlist:
             for line in examlist:
-                if word in line:
-                    # line = line.split(", ")
+                if message_text in line:
+                    line = line.split(", ")
                     # self.date_str = "{}, {}".format(line[0], line[1])
                     self.date_str = line
 
