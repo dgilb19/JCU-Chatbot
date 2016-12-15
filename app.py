@@ -129,7 +129,7 @@ def get_reply(message_text, people_name, building_name):
 
     elif re.match(r'.*what', message_text, re.I):
         what_words = WhatIndex(message_text)
-        for word in people_name.split(", "):
+        for word in people_name:
             print word
 
         if re.match(r'.*email', message_text, re.I):
