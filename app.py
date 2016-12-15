@@ -151,7 +151,7 @@ def get_reply(message_text, people_name, building_name):
                 date_words.next_class_passer()
                 return str(date_words)
         elif re.match(r'.*exam', message_text, re.I):
-            date_words.date_passer(message_text)
+            date_words.exam_passer(message_text)
             return str(date_words)
             # with open("examlist.csv") as examlist:
             #     for line in examlist:
