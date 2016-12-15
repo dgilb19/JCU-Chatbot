@@ -201,9 +201,6 @@ def get_reply(message_text, people_name, building_name):
             location_words.office_passer(last_name_message(latest_name=''))
             return str(location_words)
 
-        elif re.match(message_text, building_name):
-            print "good fafsafssasfsafsassssssss"
-
         # num = 0
         # with open("buildinglist.csv") as buildinglist:
         #     for line in buildinglist:
