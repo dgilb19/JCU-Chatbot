@@ -139,7 +139,7 @@ def get_reply(message_text, people_name, building_name):
     #             return "idk who you are talking about"
     elif re.match(r'.*what', message_text, re.I):
         if re.match(r'.*email', message_text, re.I):
-            if people_name in message_text:
+            if message_text in people_name:
                 print "HHHHHHHHHHHHHHH"
                 print people_name
             what_words = WhatIndex(message_text)
