@@ -196,11 +196,11 @@ def get_reply(message_text, people_name, building_name):
         num = -1
         with open("buildinglist.csv") as buildinglist:
             for line in buildinglist:
-                num += 1
                 if line[num] in message_text:
-
                     print "good job 10/10"
                     return line
+                else:
+                    num += 1
             else:
                 return "this aint working"
 
