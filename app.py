@@ -124,36 +124,22 @@ def last_building_message(latest_building):
 def get_reply(message_text, people_name, building_name):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
-    if re.match(r'.*hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
+    if re.match(r'hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
 
-    # elif re.match(r'.*what', message_text, re.I):
-    #     what_words = WhatIndex(message_text)
-    #     if re.match(r'.*email', message_text, re.I):
-    #         for line in people_name:
-    #             if line in message_text and message_text >= 3:
-    #                 # return "test {}".format(line)
-    #                 what_words.email_passer(last_name_message(latest_name=''))
-    #                 return str(what_words)
-    #         else:
-    #             return "idk who you are talking about"
     elif re.match(r'.*what', message_text, re.I):
         what_words = WhatIndex(message_text)
         if re.match(r'.*email', message_text, re.I):
             for name in people_name:
                 if name in message_text:
-                    print "FFFFFFFFFFFFFFFFFFFFFFFFF"
                     what_words.email_passer_with_name(name)
                     return str(what_words)
             else:
                 what_words.email_passer(last_name_message(latest_name=''))
-                print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh"
                 return str(what_words)
 
-
-
-
-# TODO fix this
+        elif re.match(r'.*happening|.*going on|.*today|', message_text, re.I):
+            return "there is nothing going on today, go home"
 
         else:
             return "I know you are asking a question but I'm not that smart yet! :what"
@@ -213,8 +199,24 @@ def get_reply(message_text, people_name, building_name):
             return "tjimgugj"
         # TODO fix this ^^^ with the new list of building names i made
         elif re.match(r'.*office|.*desk', message_text, re.I):
-            location_words.office_passer(last_name_message(latest_name=''))
-            return str(location_words)
+            for name in people_name:
+                if name in message_text:
+                    location_words.office_passer(name)
+            else:
+                location_words.office_passer(last_name_message(latest_name=''))
+                return str(location_words)
+
+        # elif re.match(r'.*what', message_text, re.I):
+        #     what_words = WhatIndex(message_text)
+        #     if re.match(r'.*email', message_text, re.I):
+        #         for name in people_name:
+        #             if name in message_text:
+        #                 what_words.email_passer_with_name(name)
+        #                 return str(what_words)
+        #         else:
+        #             what_words.email_passer(last_name_message(latest_name=''))
+        #             return str(what_words)
+
 
 
 
