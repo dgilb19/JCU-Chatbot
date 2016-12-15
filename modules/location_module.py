@@ -65,6 +65,8 @@ class LocationIndex:
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if name in line:
+                    print line
+                    print line.split(", ")[2]
                     if line.split(", ")[2] == [0]:
                         self.location_str = "{} does not have an office".format(line.split(", ")[0].title())
                     else:
