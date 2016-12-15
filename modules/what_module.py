@@ -21,3 +21,5 @@ class WhatIndex:
                 if name in line:
                     # self.what_str = "???"
                     self.what_str = line.split(", ")[1]
+            else:
+                self.what_str = "im not sure who you are talking about"
