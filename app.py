@@ -156,7 +156,7 @@ def get_reply(message_text, people_name, building_name):
                 return "Who are you talking about?"
             else:
                 date_words.class_list_passer(message_text)
-                return str(date_words)
+                return "thingy thing"
             # TODO make this work
         elif re.match(r'.*exam', message_text, re.I):
             date_words.exam_list_passer(message_text)
@@ -207,31 +207,6 @@ def get_reply(message_text, people_name, building_name):
                 location_words.office_passer(last_name_message(latest_name=''))
                 return str(location_words)
 
-        # elif re.match(r'.*what', message_text, re.I):
-        #     what_words = WhatIndex(message_text)
-        #     if re.match(r'.*email', message_text, re.I):
-        #         for name in people_name:
-        #             if name in message_text:
-        #                 what_words.email_passer_with_name(name)
-        #                 return str(what_words)
-        #         else:
-        #             what_words.email_passer(last_name_message(latest_name=''))
-        #             return str(what_words)
-
-
-
-
-        # num = 0
-        # with open("buildinglist.csv") as buildinglist:
-        #     for line in buildinglist:
-        #         num += 1
-        #         if line[num] in message_text:
-        #             print "good job 10/10"
-        #             return line
-        #     else:
-        #         return "this aint working"
-
-
         else:
             location_words.location_passer(message_text)
             return str(location_words)
@@ -251,12 +226,8 @@ def get_reply(message_text, people_name, building_name):
             text = " "
         return "Reversed: {}".format(text[::-1])
     elif re.match(r'.*timetable|.*schedule|.*class|.*practical|.*prac', message_text, re.I):
-        # timetable_words = class_list_passer
         if re.match(r'.*show', message_text, re.I):
             return 'http://i.imgur.com/wKBDSfM.png'
-        # elif re.match(r'.*', message_text, re,I):
-        # elif re.match(r".*"):
-        #     return "10 out of 10, good job"
         else:
             return "what about your schedule?"
 

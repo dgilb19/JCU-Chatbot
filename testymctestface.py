@@ -15,6 +15,7 @@ else:
 
 print re.split("a", 'swag', re.I)
 
-for line in list_of_words:
-    if re.match(r'[AEIOU]', line, re.I):
-        print line
+# for line in list_of_words:
+#     if re.match(r'[AEIOU]', line, re.I):
+#         print line
+
