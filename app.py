@@ -153,6 +153,12 @@ def get_reply(message_text, people_name, building_name):
         elif re.match(r'.*exam', message_text, re.I):
             date_words.exam_passer(message_text)
             return str(date_words)
+            # with open("examlist.csv") as examlist:
+            #     for line in examlist:
+            #         if line.split(", ")[0] in message_text:
+            #             return "the {} exam is on the {}".format(line.split(", ")[0] ,str(line.split(', ')[1]))
+            #     else:
+            #         return "this aint workin"
         else:
             date_words.date_passer(message_text)
             return str(date_words)

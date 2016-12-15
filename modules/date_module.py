@@ -27,12 +27,12 @@ class DateIndex:
                     self.date_str = line
 
     def next_class_passer(self):
-        self.date_passer = 'I dont have enough time to finish this, but lets just pretend that it works, ok?'
+        self.date_str = 'I dont have enough time to finish this, but lets just pretend that it works, ok?'
 
     def exam_passer(self, message_text):
         with open("examlist.csv") as examlist:
             for line in examlist:
-                if line in message_text:
+                if line.split(", ")[0] in message_text:
                     self.date_str = "the {} exam is on the {}".format(line.split(", ")[0], str(line.split(', ')[1]))
             else:
                 self.date_str = "this aint workin"
