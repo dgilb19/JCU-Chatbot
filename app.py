@@ -138,14 +138,14 @@ def get_reply(message_text, people_name, building_name):
     #         else:
     #             return "idk who you are talking about"
     elif re.match(r'.*what', message_text, re.I):
+        what_words = WhatIndex(message_text)
         if re.match(r'.*email', message_text, re.I):
             for name in people_name:
                 if name in message_text:
-                    print "HHHHHHHHHHHHHHH"
-                    print name
-            what_words = WhatIndex(message_text)
-            what_words.email_passer(last_name_message(latest_name=''))
-            return str(what_words)
+                    what_words.email_passer(name)
+                else:
+                    what_words.email_passer(last_name_message(latest_name=''))
+                    return str(what_words)
 
 
 
