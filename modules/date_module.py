@@ -21,7 +21,7 @@ class DateIndex:
     def exam_list_passer(self, message_text):
         with open("examlist.csv") as examlist:
             for line in examlist:
-                if line in message_text:
+                if message_text in line:
                     # line = line.split(", ")
                     # self.date_str = "{}, {}".format(line[0], line[1])
                     self.date_str = line

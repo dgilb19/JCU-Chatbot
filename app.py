@@ -36,9 +36,9 @@ def webhook():
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
     ###
-    people_name = ("curse", "cursing")
-    building_name = ("curse", "cursing")
-    class_name = ("curse1", "cursing1")
+    people_name = tuple()
+    building_name = tuple()
+    class_name = tuple()
 
 
     if data["object"] == "page":
@@ -84,7 +84,6 @@ def webhook():
                             print line
                             if line not in class_name:
                                 class_name += tuple(line.split(", "))
-
 
                     print class_name
 
