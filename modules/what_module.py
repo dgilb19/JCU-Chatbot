@@ -9,10 +9,10 @@ class WhatIndex:
         return "{}".format(self.what_str)
 
     """gets the last name entered and and gets email based of that"""
-    def email_passer(self, last_name_message):
+    def email_passer(self, name):
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
-                if last_name_message in line:
+                if name in line:
                     self.what_str = line.split(", ")[1]
     # def email_passer_with_name(self, name):
     #     with open("peoplelist.csv") as peoplelist:
