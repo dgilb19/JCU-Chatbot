@@ -192,28 +192,31 @@ def get_reply(message_text, people_name, building_name):
                     return "What about {}?".format(line.title().split(", ")[0])
 
     elif re.match(r".*map|.*where|.*wheres|.*building|.*looking|.*look [0-354]", message_text, re.I):
-        # location_words = LocationIndex(message_text)
-        num = 0
-        with open("buildinglist.csv") as buildinglist:
-            for line in buildinglist:
-                num += 1
-                if line[num] in message_text:
-                    print "good job 10/10"
-                    return line
-            else:
-                return "this aint working"
+        location_words = LocationIndex(message_text)
 
 
-        # if message_text in open("buildinglist.csv").read():
-        #     location_words.location_name_passer(message_text)
-        #     return "tjimgugj"
-        # # TODO fix this ^^^ with the new list of building names i made
-        # elif re.match(r'.*office|.*desk', message_text, re.I):
-        #     location_words.office_passer(last_name_message(latest_name=''))
-        #     return str(location_words)
-        # else:
-        #     location_words.location_passer(message_text)
-        #     return str(location_words)
+
+        # num = 0
+        # with open("buildinglist.csv") as buildinglist:
+        #     for line in buildinglist:
+        #         num += 1
+        #         if line[num] in message_text:
+        #             print "good job 10/10"
+        #             return line
+        #     else:
+        #         return "this aint working"
+
+
+        if message_text in open("buildinglist.csv").read():
+            location_words.location_name_passer(message_text)
+            return "tjimgugj"
+        # TODO fix this ^^^ with the new list of building names i made
+        elif re.match(r'.*office|.*desk', message_text, re.I):
+            location_words.office_passer(last_name_message(latest_name=''))
+            return str(location_words)
+        else:
+            location_words.location_passer(message_text)
+            return str(location_words)
 
     elif any(message_text.find(s) >= 0 for s in building_name):
         location_words = LocationIndex(message_text)
