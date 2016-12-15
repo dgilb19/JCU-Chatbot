@@ -156,10 +156,10 @@ def get_reply(message_text, people_name, building_name):
                 return str(date_words)
         elif re.match(r'.*exam', message_text, re.I):
             date_words.exam_list_passer(message_text)
-            return "yup"
+            return "wait what?"
         else:
             date_words.date_passer(message_text)
-            return "yupV2"
+            return str(date_words)
 ####
 
     elif message_text >= 5 and message_text in open("examlist.csv").read():
