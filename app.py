@@ -147,22 +147,18 @@ def get_reply(message_text, people_name, building_name):
 #### TODO: make this work
     elif re.match(r'.*when|.*whens|.*date|.*exam|.*exams', message_text, re.I):
         date_words = DateIndex(message_text)
-        # if message_text in open("datelist.csv").read():
-            # date_words.date_passer(message_text)
-            # return str(date_words)
         if re.match(r'.*class|.*lecture|.*practical|.*prac', message_text, re.I):
                 date_words.next_class_passer()
                 return str(date_words)
         elif re.match(r'.*exam', message_text, re.I):
-            with open("examlist.csv") as examlist:
-                for line in examlist:
-                    if line.split(", ")[0] in message_text:
-                        # date_words.exam_list_passer(line.split(', ')[0])
-                        # return "testing"
-                        return "the {} exam is on the {}".format(line.split(", ")[0] ,str(line.split(', ')[1]))
-                        # return str(date_words)
-                else:
-                    return "this aint workin"
+            date_words.date_passer(message_text)
+            return date_words
+            # with open("examlist.csv") as examlist:
+            #     for line in examlist:
+            #         if line.split(", ")[0] in message_text:
+            #             return "the {} exam is on the {}".format(line.split(", ")[0] ,str(line.split(', ')[1]))
+            #     else:
+            #         return "this aint workin"
         else:
             date_words.date_passer(message_text)
             return str(date_words)

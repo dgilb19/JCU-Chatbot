@@ -29,6 +29,14 @@ class DateIndex:
     def next_class_passer(self):
         self.date_passer = 'I dont have enough time to finish this, but lets just pretend that it works, ok?'
 
+    def exam_passer(self, message_text):
+        with open("examlist.csv") as examlist:
+            for line in examlist:
+                if line.split(", ")[0] in message_text:
+                    self.date_str = "the {} exam is on the {}".format(line.split(", ")[0], str(line.split(', ')[1]))
+            else:
+                return "this aint workin"
+
 
 
 # TODO fix this, it dont work, idk why THIS IS LITERALLY KILLING ME
