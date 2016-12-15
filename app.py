@@ -157,7 +157,7 @@ def get_reply(message_text, people_name, building_name):
             with open("examlist.csv") as examlist:
                 for line in examlist:
                     if line in message_text:
-                        date_words.exam_list_passer(line.split(', ')[0])
+                        # date_words.exam_list_passer(line.split(', ')[0])
                         return "testing"
                         # return str(line)
                         # return str(date_words)
