@@ -252,7 +252,7 @@ def get_reply(message_text, people_name, building_name):
             return "ａｅｓｔｈｅｔｉｃ"
 
     elif re.match(r'exit|shut up|go away|ill end you', message_text, re.I):
-        exit()
+        pass
 
     else:
         return "idk what you are saying"
