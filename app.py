@@ -134,7 +134,7 @@ def get_reply(message_text, people_name, building_name):
                     what_words.email_passer_with_name(name)
                     return str(what_words)
             else:
-                what_words.email_passer(last_name_message(latest_name=''))
+                what_words.email_passer_with_name(last_name_message(latest_name=''))
                 return str(what_words)
 
         elif re.match(r'.*happening|going on|today', message_text, re.I):
