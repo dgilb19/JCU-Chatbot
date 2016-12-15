@@ -129,6 +129,9 @@ def get_reply(message_text, people_name, building_name):
 
     elif re.match(r'.*what', message_text, re.I):
         what_words = WhatIndex(message_text)
+        for word in message_text.split:
+            print word
+
         if re.match(r'.*email', message_text, re.I):
             for line in people_name:
                 if line in message_text and message_text >= 3:
@@ -200,6 +203,8 @@ def get_reply(message_text, people_name, building_name):
         elif re.match(r'.*office|.*desk', message_text, re.I):
             location_words.office_passer(last_name_message(latest_name=''))
             return str(location_words)
+
+
 
         # num = 0
         # with open("buildinglist.csv") as buildinglist:
