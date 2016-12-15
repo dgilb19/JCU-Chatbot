@@ -18,5 +18,6 @@ class WhatIndex:
     def email_passer_with_name(self, name):
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
-                if "ben" in line:
-                    self.what_str = line.split(", ")[1]
+                if name in line:
+                    self.what_str = "???"
+                    # self.what_str = line.split(", ")[1]
