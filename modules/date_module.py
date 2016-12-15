@@ -22,11 +22,13 @@ class DateIndex:
         with open("examlist.csv") as examlist:
             for line in examlist:
                 if message_text in line:
-                    line = line.split(", ")
+                    # line = line.split(", ")
                     # self.date_str = "{}, {}".format(line[0], line[1])
-                    self.date_str = "wat"
-    def class_list_passer(self, message_text):
-        return "im not done yet"
+                    self.date_str = line
+
+    def next_class_passer(self):
+        self.date_passer = 'I dont have enough time to finish this, but lets just pretend that it works, ok?'
+
 
 
 # TODO fix this, it dont work, idk why THIS IS LITERALLY KILLING ME

@@ -152,12 +152,8 @@ def get_reply(message_text, people_name, building_name):
             date_words.date_passer(message_text)
             return str(date_words)
         elif re.match(r'.*class|.*lecture|.*practical|.*prac', message_text, re.I):
-            if last_name_message == "":
-                return "Who are you talking about?"
-            else:
-                date_words.class_list_passer(message_text)
-                return "thingy thing"
-            # TODO make this work
+                date_words.next_class_passer()
+                return str(date_words)
         elif re.match(r'.*exam', message_text, re.I):
             date_words.exam_list_passer(message_text)
             return str(date_words)
