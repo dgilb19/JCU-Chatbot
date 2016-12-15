@@ -130,7 +130,8 @@ def get_reply(message_text, people_name, building_name):
     elif re.match(r'.*what', message_text, re.I):
         what_words = WhatIndex(message_text)
         for word in people_name:
-            print word
+            if word in message_text:
+                print "absolute gold 10 out of 10"
 
         if re.match(r'.*email', message_text, re.I):
             for line in people_name:
