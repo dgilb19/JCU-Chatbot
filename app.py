@@ -193,7 +193,7 @@ def get_reply(message_text, people_name, building_name):
 
     elif re.match(r".*map|.*where|.*wheres|.*building|.*looking|.*look [0-354]", message_text, re.I):
         # location_words = LocationIndex(message_text)
-        num = -2
+        num = -1
         with open("buildinglist.csv") as buildinglist:
             for line in buildinglist:
                 num += 1
