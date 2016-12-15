@@ -67,7 +67,7 @@ class LocationIndex:
                 if name in line:
                     print line
                     print line.split(", ")[2]
-                    if line.split(", ")[2] == '0':
+                    if line.split(", ")[2] == '0\n':
                         self.location_str = "{} does not have an office".format(line.split(", ")[0].title())
                     else:
                         line = line.split(", ")[2]
