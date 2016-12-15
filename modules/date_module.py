@@ -33,7 +33,8 @@ class DateIndex:
         with open("examlist.csv") as examlist:
             for line in examlist:
                 if message_text in line.split(", ")[0]:
-                    self.date_str = "the {} exam is on the {}".format(line.split(", ")[0], str(line.split(', ')[1]))
+                    # self.date_str = "the {} exam is on the {}".format(line.split(", ")[0], str(line.split(', ')[1]))
+                    self.date_str = "teagnjraeignreiawgnreignriw"
             else:
                 self.date_str = "this aint workin"
 
