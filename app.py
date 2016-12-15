@@ -251,6 +251,9 @@ def get_reply(message_text, people_name, building_name):
         else:
             return "ａｅｓｔｈｅｔｉｃ"
 
+    elif re.match(r'exit|shut up|go away|ill end you', message_text, re.I):
+        exit()
+
     else:
         return "idk what you are saying"
         # send_message(sender_id, "I don't know what you are saying! you said this: {}".format(message_text))
