@@ -70,7 +70,7 @@ class LocationIndex:
                     else:
                         line = line.split(", ")[2]
                         # self.location_str = "{} : {}".format(line.split("-")[0], line.split("-")[1])
-                        self.location_str = line.split(', ')[2]
+                        self.location_str = line
 
 # TODO add more keywords and create a csv with building and there numbers so it can tell the user the name/ they can
 # put the name in and still get the map up
