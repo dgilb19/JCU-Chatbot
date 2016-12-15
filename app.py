@@ -196,7 +196,7 @@ def get_reply(message_text, people_name, building_name):
         num = -1
         with open("buildinglist.csv") as buildinglist:
             for line in buildinglist:
-                if line[num] in message_text:
+                if line[num].split(",")[1] in message_text:
                     print "good job 10/10"
                     return line
                 else:
