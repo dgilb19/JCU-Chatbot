@@ -127,20 +127,23 @@ def get_reply(message_text, people_name, building_name):
     if re.match(r'.*hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
 
+    # elif re.match(r'.*what', message_text, re.I):
+    #     what_words = WhatIndex(message_text)
+    #     if re.match(r'.*email', message_text, re.I):
+    #         for line in people_name:
+    #             if line in message_text and message_text >= 3:
+    #                 # return "test {}".format(line)
+    #                 what_words.email_passer(last_name_message(latest_name=''))
+    #                 return str(what_words)
+    #         else:
+    #             return "idk who you are talking about"
     elif re.match(r'.*what', message_text, re.I):
-        what_words = WhatIndex(message_text)
-        for word in people_name:
-            if word in message_text:
-                print "absolute gold 10 out of 10"
-
         if re.match(r'.*email', message_text, re.I):
-            for line in people_name:
-                if line in message_text and message_text >= 3:
-                    # return "test {}".format(line)
-                    what_words.email_passer(last_name_message(latest_name=''))
-                    return str(what_words)
-            else:
-                return "idk who you are talking about"
+            what_words = WhatIndex(message_text)
+            what_words.email_passer(last_name_message(latest_name=''))
+            return str(what_words)
+
+
 
 # TODO fix this
 
