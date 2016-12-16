@@ -223,17 +223,18 @@ def get_reply(message_text, people_name, building_name):
                 # line = line.split(", ")[1].strip("\n")
                 print line
                 if line.split(", ")[1].strip("\n") in message_text and message_text >= 5:
-
-
+                    print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH4"
                     print "kek"
                     return "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(line.split(", ")[0])
             else:
                 print "not sure mate"
+                print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH5"
                 # print building_name
                 location_words.location_passer(message_text)
                 return str(location_words)
 
     elif any(message_text.find(s) >= 0 for s in building_name):
+        print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH 6"
         location_words = LocationIndex(message_text)
         location_words.location_name_passer(message_text)
         return str(location_words)
