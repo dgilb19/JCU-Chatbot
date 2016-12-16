@@ -8,6 +8,7 @@ class LocationIndex:
     def __str__(self):
         return "{}".format(self.location_str)
 
+    """main location function, gives response to building number, pool and map"""
     def location_passer(self, message_text):
         if re.match(r'.*map', message_text, re.I):
             self.location_str = "Here's a map! https://maps.jcu.edu.au/campus/townsville/"
@@ -20,6 +21,7 @@ class LocationIndex:
         elif re.match(r'.*pool|swim|swimming', message_text, re.I):
             self.location_str = "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241"
 
+            """i dont even know if this is being used"""
         else:
             with open("buildinglist.csv") as buildinglist:
                 for line in buildinglist:
@@ -29,13 +31,16 @@ class LocationIndex:
                     else:
                         self.location_str = "idk what you are saying"
 
+    """gets building name based off building number"""
     def location_name_passer(self, message_text):
         with open("buildinglist.csv") as buildinglist:
             for line in buildinglist:
                 if message_text in line.split(", ")[1]:
                     self.location_str = "are you looking for building {}?\n\nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(line.title().split(", ")[0], line.title().split(", ")[0])
+            # else:
+            #     "thingihfaeihf"
 
-
+    """returns appropriate office number based off name"""
     def office_passer(self, last_name_message):
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
@@ -49,6 +54,7 @@ class LocationIndex:
             else:
                 self.location_str = "im not sure who you are talking about"
 
+    """i dont even know what this does, i kinda forgot what the difference is but it needs to be here"""
     def office_passer_new(self, last_name_message):
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
@@ -58,6 +64,7 @@ class LocationIndex:
                     else:
                         line = line.split(", ")[2]
                         self.location_str = "their office is in building {}, room {}".format(line.split("-")[0], line.split("-")[1])
+
 
     def office_passer_with_name(self, name):
         with open("peoplelist.csv") as peoplelist:

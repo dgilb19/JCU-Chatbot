@@ -34,7 +34,3 @@ class DateIndex:
     #         else:
     #             self.date_str = "this aint workin"
 # ******
-
-
-
-

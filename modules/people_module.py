@@ -14,7 +14,6 @@ class PeopleIndex:
             for line in peoplelist:
                 if message_text in line:
                     self.people_str = line.title().split(", ")[0]
-                    """returns the appropriate name from the csv file"""
 
 # TODO make it so that if they only put it fisrt name it still works and if there is two of the same name it gives the user an option about which one
 
