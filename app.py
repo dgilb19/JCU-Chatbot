@@ -217,9 +217,9 @@ def get_reply(message_text, people_name, building_name):
             #     print "kek"
         with open("buildinglist.csv") as buildinglist:
             for line in buildinglist:
-                line = line.split(", ")[1]
+                # line = line.split(", ")[1].strip("\n")
                 print line
-                if line in message_text:
+                if line.split(", ")[1].strip("\n") in message_text:
 
 
                     print "kek"
