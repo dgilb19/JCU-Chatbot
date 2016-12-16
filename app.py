@@ -215,18 +215,18 @@ def get_reply(message_text, people_name, building_name):
             #     building_name:
             #         if message_text in line:
             #     print "kek"
-        # with open("buildinglist.csv") as buildinglist:
-        for name in building_name:
-            name = name.strip("\n")
-            if message_text in name:
+        with open("buildinglist.csv") as buildinglist:
+            for line in buildinglist:
+                line = line.split(", ")[1]
+                if message_text in line:
 
-                print "kek"
-                return "keker"
-            # else:
-            #     print "not sure mate"
-            #     print building_name
-            #     location_words.location_passer(message_text)
-            #     return str(location_words)
+                    print "kek"
+                    return "keker"
+            else:
+                print "not sure mate"
+                print building_name
+                location_words.location_passer(message_text)
+                return str(location_words)
 
     elif any(message_text.find(s) >= 0 for s in building_name):
         location_words = LocationIndex(message_text)
