@@ -206,8 +206,7 @@ def get_reply(message_text, people_name, building_name):
             else:
                 location_words.office_passer_new(last_name_message(latest_name=''))
                 return str(location_words)
-        elif building_name in message_text and message_text >= 5:
-                print "kekHHHHHHHHHHHHHH"
+
             # with open("buildinglist.csv") as buildinglist:
             #     for line in buildinglist:
             #         if line in message_text:
@@ -218,10 +217,14 @@ def get_reply(message_text, people_name, building_name):
             #     print "kek"
 
         else:
-            print "not sure mate"
-            print building_name
-            location_words.location_passer(message_text)
-            return str(location_words)
+            for name in building_name:
+                if name in message_text:
+                    print "kek"
+                else:
+                    print "not sure mate"
+                    print building_name
+                    location_words.location_passer(message_text)
+                    return str(location_words)
 
     elif any(message_text.find(s) >= 0 for s in building_name):
         location_words = LocationIndex(message_text)
