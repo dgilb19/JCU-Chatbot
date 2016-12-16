@@ -77,6 +77,9 @@ def webhook():
                         for line in building_name_list:
                             line = line.split(", ")[1]
                             building_name += tuple(line.split(", "))
+                            line = line.split(" ")
+                            building_name += tuple(line)
+
 
                     with open("classlist.csv") as class_name_list:
                         for line in class_name_list:
