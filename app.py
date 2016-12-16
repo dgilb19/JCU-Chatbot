@@ -217,6 +217,9 @@ def get_reply(message_text, people_name, building_name):
             #     print "kek"
 
         for name in building_name:
+            print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+            print name
+            print "HJHHHHHHHHHHHHHHHHHHHHHHHHHHH"
             if name in message_text:
                 print "kek"
             else:
