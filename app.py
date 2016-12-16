@@ -202,11 +202,14 @@ def get_reply(message_text, people_name, building_name):
                 location_words.office_passer_new(last_name_message(latest_name=''))
                 return str(location_words)
         else:
-            with open("buildinglist.csv") as buildinglist:
-                for line in buildinglist:
-                    if line in message_text:
-                        location_words.location_name_passer(message_text)
-                        return "tjimgugj"
+            # with open("buildinglist.csv") as buildinglist:
+            #     for line in buildinglist:
+            #         if line in message_text:
+            #             location_words.location_name_passer(message_text)
+            #             return "tjimgugj"
+            for line in building_name:
+                if message_text in line:
+                    print "kek"
                 else:
                     print "not sure mate"
                     location_words.location_passer(message_text)
