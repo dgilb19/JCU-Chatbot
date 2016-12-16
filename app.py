@@ -60,7 +60,7 @@ def webhook():
                             word += letter
                     message_text = word
                     print message_text
-
+                    print 'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH'
 
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
