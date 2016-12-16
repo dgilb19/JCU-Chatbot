@@ -125,7 +125,7 @@ def last_building_message(latest_building):
 def get_reply(message_text, people_name, building_name):
     ai_greetings_word_list = ["Hi", "Hello", "Howdy", "Sup my dude"]
 
-    if re.match(r'hello|hey|hi|yo(?!reverse|reversed|backwards)', message_text, re.I):
+    if re.match(r'.*hello|.*hey|.*hi(?!reverse|reversed|backwards)', message_text, re.I):
         return "{}, how can I help you today?".format(random.choice(ai_greetings_word_list))
 
     elif re.match(r'.*what', message_text, re.I):

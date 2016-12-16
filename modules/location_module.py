@@ -21,7 +21,6 @@ class LocationIndex:
         elif re.match(r'.*pool|swim|swimming', message_text, re.I):
             self.location_str = "Are you looking for the pool man?\nhttps://maps.jcu.edu.au/campus/townsville/?location=241"
 
-            """i dont even know if this is being used"""
         else:
             with open("buildinglist.csv") as buildinglist:
                 for line in buildinglist:
