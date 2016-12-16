@@ -208,7 +208,7 @@ def get_reply(message_text, people_name, building_name):
             #             location_words.location_name_passer(message_text)
             #             return "tjimgugj"
             for line in building_name:
-                if line in message_text:
+                if message_text in line:
                     print "kek"
                 else:
                     print "not sure mate"
