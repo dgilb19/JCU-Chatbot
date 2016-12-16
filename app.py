@@ -219,9 +219,8 @@ def get_reply(message_text, people_name, building_name):
             for line in buildinglist:
                 line = line.split(", ")[1]
                 line = line.strip("\n")
-                line = str(line)
                 print line
-                if message_text in line:
+                if line in message_text:
 
                     print "kek"
                     return "keker"
