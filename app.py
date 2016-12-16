@@ -48,17 +48,14 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
-                    # if "?" in message_text:
-                    #     message_text = message_text[:-1]
-                    # else:
-                    #     pass
+
                     message_text_length = len(message_text)
                     for letter in message_text:
                         if letter != "?":
                             if letter != "'":
                                 message_text += letter
 
-                    print message_text[message_text_length:]
+                    message_text = message_text[message_text_length:]
                     print 'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH'
 
                     with open("peoplelist.csv") as peoplelist:
