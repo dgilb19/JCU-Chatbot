@@ -223,7 +223,7 @@ def get_reply(message_text, people_name, building_name):
 
 
                     print "kek"
-                    return "keker"
+                    return line
             else:
                 print "not sure mate"
                 # print building_name
