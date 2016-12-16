@@ -52,13 +52,13 @@ def webhook():
                     #     message_text = message_text[:-1]
                     # else:
                     #     pass
-                    word = ""
+
                     for letter in message_text:
                         if letter == "'" or "?":
                             pass
                         else:
-                            word += letter
-                    message_text = word
+                            message_text += letter
+
                     print message_text
                     print 'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH'
 
