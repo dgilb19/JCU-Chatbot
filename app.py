@@ -54,9 +54,7 @@ def webhook():
                     #     pass
 
                     for letter in message_text:
-                        if letter == "'" or "?":
-                            pass
-                        else:
+                        if letter != "'" or "?":
                             message_text += letter
 
                     print message_text
