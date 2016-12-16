@@ -58,8 +58,8 @@ class LocationIndex:
                 if last_name_message in line:
                     line = line.split(", ")[2]
                     self.location_str = "{}: {}".format(line.split("-")[0], line.split("-")[1])
-            else:
-                self.location_str = "im not sure who you are talking about"
+            # else:
+            #     self.location_str = "im not sure who you are talking about"
 
     def office_passer_with_name(self, name):
         with open("peoplelist.csv") as peoplelist:
