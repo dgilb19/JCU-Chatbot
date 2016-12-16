@@ -54,15 +54,10 @@ def webhook():
                     #     pass
                     message_text_length = len(message_text)
                     for letter in message_text:
-                        if letter != "?":
+                        if letter != "?" or "'":
                             message_text += letter
 
-                    print message_text[:message_text_length]
-                    print message_text[:-message_text_length]
                     print message_text[message_text_length:]
-                    print message_text[message_text_length]
-
-                    print message_text
                     print 'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH'
 
                     with open("peoplelist.csv") as peoplelist:
