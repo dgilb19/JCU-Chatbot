@@ -170,13 +170,11 @@ def get_reply(message_text, people_name, building_name):
 ####
 
     elif len(message_text) >= 5 and message_text in open("examlist.csv").read():
-        print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH 1"
         date_words = DateIndex(message_text)
         date_words.exam_list_passer(message_text)
         return str(date_words)
 
     elif len(message_text) >= 5 and message_text in open("datelist.csv").read():
-        print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH 2"
         date_words = DateIndex(message_text)
         date_words.date_passer(message_text)
         return str(date_words)
@@ -192,7 +190,6 @@ def get_reply(message_text, people_name, building_name):
             return str(who_words)
 
     elif len(message_text) >= 3 and message_text in open("peoplelist.csv").read():
-        print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH 3"
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if message_text in line:
@@ -223,18 +220,17 @@ def get_reply(message_text, people_name, building_name):
                 # line = line.split(", ")[1].strip("\n")
                 print line
                 if line.split(", ")[1].strip("\n") in message_text and message_text >= 5:
-                    print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH4"
+
+
                     print "kek"
                     return "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(line.split(", ")[0])
             else:
                 print "not sure mate"
-                print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH5"
                 # print building_name
                 location_words.location_passer(message_text)
                 return str(location_words)
 
-    elif any(message_text.find(s) >= 0 for s in building_name):
-        print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH 6"
+    elif any(message_text.find(s) >= 5 for s in building_name):
         location_words = LocationIndex(message_text)
         location_words.location_name_passer(message_text)
         return str(location_words)
