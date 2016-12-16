@@ -213,7 +213,7 @@ def get_reply(message_text, people_name, building_name):
                 location_words.location_passer(message_text)
                 return str(location_words)
 
-    elif message_text in open("buildinglist.csv") and len(message_text) >= 5:
+    elif message_text in open("buildinglist.csv").read() and len(message_text) >= 5:
         location_words = LocationIndex(message_text)
         location_words.location_name_passer(message_text)
         return str(location_words)
