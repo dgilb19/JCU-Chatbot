@@ -192,14 +192,7 @@ def get_reply(message_text, people_name, building_name):
 
     elif re.match(r".*map|.*where|.*wheres|.*building|.*looking|.*look [0-354]", message_text, re.I):
         location_words = LocationIndex(message_text)
-        with open("buildinglist.csv") as buildinglist:
-            for line in buildinglist:
-                if line in message_text:
-                    location_words.location_name_passer(message_text)
-                    return "tjimgugj"
-                else:
-                    return "not sure mate"
-        # TODO fix this ^^^ with the new list of building names i made
+
         if re.match(r'.*office|.*desk', message_text, re.I):
             for name in people_name:
                 if name in message_text:
@@ -208,10 +201,16 @@ def get_reply(message_text, people_name, building_name):
             else:
                 location_words.office_passer_new(last_name_message(latest_name=''))
                 return str(location_words)
-
         else:
-            location_words.location_passer(message_text)
-            return str(location_words)
+            with open("buildinglist.csv") as buildinglist:
+                for line in buildinglist:
+                    if line in message_text:
+                        location_words.location_name_passer(message_text)
+                        return "tjimgugj"
+                else:
+                    print "not sure mate"
+                    location_words.location_passer(message_text)
+                    return str(location_words)
 
     elif any(message_text.find(s) >= 0 for s in building_name):
         location_words = LocationIndex(message_text)
