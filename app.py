@@ -55,7 +55,8 @@ def webhook():
                     message_text_length = len(message_text)
                     for letter in message_text:
                         if letter != "?":
-                            message_text += letter
+                            if letter != "'":
+                                message_text += letter
 
                     print message_text[message_text_length:]
                     print 'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH'
