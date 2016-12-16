@@ -40,7 +40,6 @@ def webhook():
     building_name = tuple()
     class_name = tuple()
 
-
     if data["object"] == "page":
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
@@ -82,7 +81,6 @@ def webhook():
                                 if len(part) >= 5:
                                     building_name += tuple(line)
 
-
                     with open("classlist.csv") as class_name_list:
                         for line in class_name_list:
                             line = line.split(", ")[-1].strip("\n")
@@ -90,8 +88,7 @@ def webhook():
                             if line not in class_name:
                                 class_name += tuple(line.split(", "))
 
-                    print class_name
-
+                    # print class_name
                     # print last_name_message(latest_name='')
                     # print building_name
 
@@ -148,8 +145,6 @@ def get_reply(message_text, people_name, building_name):
         else:
             return "I know you are asking a question but I'm not that smart yet! :what"
 
-
-#### TODO: make this work
     elif re.match(r'.*when|.*whens|.*date|.*exam|.*exams', message_text, re.I):
         date_words = DateIndex(message_text)
         if re.match(r'.*class|.*lecture|.*practical|.*prac', message_text, re.I):
@@ -167,7 +162,6 @@ def get_reply(message_text, people_name, building_name):
         else:
             date_words.date_passer(message_text)
             return str(date_words)
-####
 
     elif len(message_text) >= 5 and message_text in open("examlist.csv").read():
         date_words = DateIndex(message_text)
@@ -207,26 +201,13 @@ def get_reply(message_text, people_name, building_name):
                 location_words.office_passer_new(last_name_message(latest_name=''))
                 return str(location_words)
 
-            # with open("buildinglist.csv") as buildinglist:
-            #     for line in buildinglist:
-            #         if line in message_text:
-            #             location_words.location_name_passer(message_text)
-            #             return "tjimgugj"
-            #     building_name:
-            #         if message_text in line:
-            #     print "kek"
         with open("buildinglist.csv") as buildinglist:
             for line in buildinglist:
-                # line = line.split(", ")[1].strip("\n")
                 print line
                 if line.split(", ")[1].strip("\n") in message_text and message_text >= 5:
-
-
-                    print "kek"
                     return "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(line.split(", ")[0])
             else:
                 print "not sure mate"
-                # print building_name
                 location_words.location_passer(message_text)
                 return str(location_words)
 
