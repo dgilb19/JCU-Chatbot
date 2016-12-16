@@ -52,6 +52,10 @@ def webhook():
                         message_text = message_text[:-1]
                     else:
                         pass
+                    # if "'" in message_text:
+                    for letter in message_text:
+                        print letter
+
 
                     with open("peoplelist.csv") as peoplelist:
                         for line in peoplelist:
