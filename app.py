@@ -54,7 +54,7 @@ def webhook():
                     #     pass
                     message_text_length = len(message_text)
                     for letter in message_text:
-                        if letter != "?" or "'":
+                        if letter != "?":
                             message_text += letter
 
                     print message_text[message_text_length:]
