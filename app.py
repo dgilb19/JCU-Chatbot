@@ -218,7 +218,7 @@ def get_reply(message_text, people_name, building_name):
 
         for name in building_name:
             name = name.strip("\n")
-            if name in message_text:
+            if message_text in name:
 
                 print "kek"
                 return "keker"
