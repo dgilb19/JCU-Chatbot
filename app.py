@@ -169,12 +169,12 @@ def get_reply(message_text, people_name, building_name):
             return str(date_words)
 ####
 
-    elif message_text >= 5 and message_text in open("examlist.csv").read():
+    elif len(message_text) >= 5 and message_text in open("examlist.csv").read():
         date_words = DateIndex(message_text)
         date_words.exam_list_passer(message_text)
         return str(date_words)
 
-    elif message_text >= 5 and message_text in open("datelist.csv").read():
+    elif len(message_text) >= 5 and message_text in open("datelist.csv").read():
         date_words = DateIndex(message_text)
         date_words.date_passer(message_text)
         return str(date_words)
@@ -270,6 +270,9 @@ def get_reply(message_text, people_name, building_name):
 
     elif re.match(r'exit|shut up|go away|ill end you', message_text, re.I):
         pass
+
+    elif re.match(r'thanks|thank you', message_text, re.I):
+        return "no worries mate"
 
     else:
         return "idk what you are saying"
