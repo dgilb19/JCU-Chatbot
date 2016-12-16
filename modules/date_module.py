@@ -1,6 +1,3 @@
-import re
-
-
 class DateIndex:
     def __init__(self, date_str):
         self.date_str = date_str

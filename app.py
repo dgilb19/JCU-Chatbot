@@ -138,6 +138,9 @@ def get_reply(message_text, people_name, building_name):
             else:
                 what_words.email_passer(last_name_message(latest_name=''))
                 return str(what_words)
+        elif re.match(r'.*can you do|this bot', message_text, re.I):
+            return "I can answer simple questions about people in my csv files, I can remember who you talked about " \
+                   "last and I also know about some of your timetable, and some key dates "
 
         elif re.match(r'.*happening|going on|today', message_text, re.I):
             return "there is nothing going on today, go home"
@@ -164,11 +167,13 @@ def get_reply(message_text, people_name, building_name):
             return str(date_words)
 
     elif len(message_text) >= 5 and message_text in open("examlist.csv").read():
+        print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH 1"
         date_words = DateIndex(message_text)
         date_words.exam_list_passer(message_text)
         return str(date_words)
 
     elif len(message_text) >= 5 and message_text in open("datelist.csv").read():
+        print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH 2"
         date_words = DateIndex(message_text)
         date_words.date_passer(message_text)
         return str(date_words)
@@ -184,6 +189,7 @@ def get_reply(message_text, people_name, building_name):
             return str(who_words)
 
     elif len(message_text) >= 3 and message_text in open("peoplelist.csv").read():
+        print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH 3"
         with open("peoplelist.csv") as peoplelist:
             for line in peoplelist:
                 if message_text in line:
@@ -212,6 +218,7 @@ def get_reply(message_text, people_name, building_name):
                 return str(location_words)
 
     elif any(message_text.find(s) >= 5 for s in building_name):
+        print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH 4"
         location_words = LocationIndex(message_text)
         location_words.location_name_passer(message_text)
         return str(location_words)

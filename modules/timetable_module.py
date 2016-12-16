@@ -1,6 +1,3 @@
-import re
-
-
 class TimetableIndex:
     def __init__(self, timetable_str):
         self.timetable_str = timetable_str

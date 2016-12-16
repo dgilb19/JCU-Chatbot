@@ -1,6 +1,3 @@
-import re
-
-
 class WhatIndex:
     def __init__(self, what_str):
         self.what_str = what_str

@@ -24,4 +24,3 @@ class PeopleIndex:
             self.people_str = "this is Jerry"
         else:
             self.people_str = "I know you are asking about someone, but I don't know who that is."
-
