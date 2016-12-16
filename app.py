@@ -219,7 +219,7 @@ def get_reply(message_text, people_name, building_name):
             for line in buildinglist:
                 # line = line.split(", ")[1].strip("\n")
                 print line
-                if line.split(", ")[1].strip("\n") in message_text:
+                if line.split(", ")[1].strip("\n") in message_text and message_text >= 5:
 
 
                     print "kek"
