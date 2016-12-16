@@ -222,11 +222,11 @@ def get_reply(message_text, people_name, building_name):
 
                 print "kek"
                 return "keker"
-        else:
-            print "not sure mate"
-            print building_name
-            location_words.location_passer(message_text)
-            return str(location_words)
+            else:
+                print "not sure mate"
+                print building_name
+                location_words.location_passer(message_text)
+                return str(location_words)
 
     elif any(message_text.find(s) >= 0 for s in building_name):
         location_words = LocationIndex(message_text)
