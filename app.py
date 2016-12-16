@@ -62,7 +62,7 @@ def webhook():
 
                     with open("buildinglist.csv") as buildinglist:
                         for line in buildinglist:
-                            if message_text in line and len(message_text) >= 3:
+                            if message_text in line and len(message_text) >= 5:
                                 with open("last_building_message.csv", 'w') as last_building:
                                     last_building.write(line.split(", ")[0])
 
