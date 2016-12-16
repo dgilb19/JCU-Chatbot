@@ -206,7 +206,7 @@ def get_reply(message_text, people_name, building_name):
             else:
                 location_words.office_passer_new(last_name_message(latest_name=''))
                 return str(location_words)
-        elif message_text in building_name:
+        elif any(message_text.split) in building_name:
                 print "kekHHHHHHHHHHHHHH"
             # with open("buildinglist.csv") as buildinglist:
             #     for line in buildinglist:
