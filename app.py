@@ -223,7 +223,7 @@ def get_reply(message_text, people_name, building_name):
 
 
                     print "kek"
-                    return line
+                    return "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(line.split(", ")[0])
             else:
                 print "not sure mate"
                 # print building_name
