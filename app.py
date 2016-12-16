@@ -213,10 +213,10 @@ def get_reply(message_text, people_name, building_name):
                 location_words.location_passer(message_text)
                 return str(location_words)
 
-    # elif any(message_text.find(s) >= 5 for s in building_name):
-    #     location_words = LocationIndex(message_text)
-    #     location_words.location_name_passer(message_text)
-    #     return str(location_words)
+    elif any(message_text.find(s) >= 5 for s in building_name):
+        location_words = LocationIndex(message_text)
+        location_words.location_name_passer(message_text)
+        return str(location_words)
 
     elif re.match(r'.*reverse|.*reversed', message_text, re.I):
         if len(message_text.split(" ")) > 1:

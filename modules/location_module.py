@@ -29,7 +29,7 @@ class LocationIndex:
                         building_number = line.title().split(", ")[1]
                         self.location_str = "Are you looking for this building? \nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(building_number)
                     else:
-                        self.location_str = "idk what you are saying"
+                        self.location_str = "idk what you are saying, building where thing"
 
     """gets building name based off building number"""
     def location_name_passer(self, message_text):
@@ -37,8 +37,8 @@ class LocationIndex:
             for line in buildinglist:
                 if message_text in line.split(", ")[1]:
                     self.location_str = "are you looking for building {}?\n\nhttps://maps.jcu.edu.au/campus/townsville/?location={}".format(line.title().split(", ")[0], line.title().split(", ")[0])
-            # else:
-            #     "thingihfaeihf"
+            else:
+                "thingihfaeihf"
 
     """returns appropriate office number based off name"""
     def office_passer(self, last_name_message):
